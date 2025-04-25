@@ -1,0 +1,100 @@
+#include "Property.h"
+#include <string>
+#include "Global.h"
+using namespace std;
+Property::Property()
+{
+
+}
+
+Property::Property(int id, string type, string location, double price, int ownerId, int availability, int numBedrooms, double area , bool isHighLighted)
+{
+    this->id = id;
+    this->type = type;
+    this->location = location;
+    this->price = price;
+    this->ownerId = ownerId;
+    this->availability = availability;
+    this->numBedrooms = numBedrooms;
+    this->area = area;
+    this->isHighLighted = isHighLighted;
+}
+
+// Getters
+int Property::getId() {
+    return id;
+}
+
+string Property::getType() {
+    return type;
+}
+
+string Property::getLocation() {
+    return location;
+}
+
+double Property::getPrice() {
+    return price;
+}
+
+int Property::getOwnerId() {
+    return ownerId;
+}
+
+int Property::getAvailability() {
+    return availability;
+}
+
+int Property::getNumBedrooms() {
+    return numBedrooms;
+}
+
+double Property::getArea() {
+    return area;
+}
+
+bool Property::getHighlight()
+{
+    return this->isHighLighted;
+}
+
+// Setters
+void Property::setType(string& newType) {
+    type = newType;
+}
+
+void Property::setLocation(string& newLocation) {
+    location = newLocation;
+}
+
+void Property::setPrice(double newPrice) {
+    price = newPrice;
+}
+
+void Property::setAvailability(int newAvailability) {
+    availability = newAvailability;
+}
+
+void Property::setNumBedrooms(int newNumBedrooms) {
+    numBedrooms = newNumBedrooms;
+}
+
+void Property::setArea(double newArea) {
+    area = newArea;
+}
+
+void Property::setHighlight(bool h)
+{
+    this->isHighLighted = h;
+}
+
+string Property::to_string() {
+    return "ID: " + std::to_string(id) +
+        "\nType: " + type +
+        "\nLocation: " + location +
+        "\nPrice: " + std::to_string(price) +
+        "\nOwner ID: " + std::to_string(ownerId) +
+        "\nAvailability: " + std::to_string(availability) +
+        "\nBedrooms: " + std::to_string(numBedrooms) +
+        "\nArea: " + std::to_string(area);
+}
