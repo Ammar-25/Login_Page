@@ -4,7 +4,8 @@
 #include "Authentication.h"
 #include <msclr/marshal_cppstd.h>
 #include "WelcomeForm.h"
-
+#include "AdminForm.h"
+#include"UserForm.h"
 namespace LoginPage {
 	using namespace System;
 	using namespace System::ComponentModel;

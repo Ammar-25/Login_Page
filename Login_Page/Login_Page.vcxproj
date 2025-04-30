@@ -119,14 +119,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AdminForm.cpp" />
     <ClCompile Include="Authentication.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="user.cpp" />
+    <ClCompile Include="UserForm.cpp" />
     <ClCompile Include="WelcomeForm.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdminForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Authentication.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="MyForm.h">
@@ -134,13 +139,22 @@
     </ClInclude>
     <ClInclude Include="Property.h" />
     <ClInclude Include="user.h" />
+    <ClInclude Include="UserForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="WelcomeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AdminForm.resx">
+      <DependentUpon>AdminForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WelcomeForm.resx">
       <DependentUpon>WelcomeForm.h</DependentUpon>
