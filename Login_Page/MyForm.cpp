@@ -16,8 +16,6 @@ int main() {
 	Application::SetCompatibleTextRenderingDefault(false);
 	LoginPage::MyForm form;
 	Application::Run(% form);
-
-    
     FileHandler::Save();
    //**********run user form directly *************
    
