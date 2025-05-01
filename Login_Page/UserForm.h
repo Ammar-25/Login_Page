@@ -57,7 +57,7 @@ namespace LoginPage {
     private: System::Windows::Forms::Label^ label3;
     private: System::Windows::Forms::Label^ label11;
     private: System::Windows::Forms::Label^ Balance;
-    private: System::Windows::Forms::Label^ label4;
+
     private: System::Windows::Forms::TextBox^ intro_paragraph;
 
     private: System::Windows::Forms::PictureBox^ pictureBox2;
@@ -151,7 +151,6 @@ namespace LoginPage {
             this->label3 = (gcnew System::Windows::Forms::Label());
             this->label11 = (gcnew System::Windows::Forms::Label());
             this->Balance = (gcnew System::Windows::Forms::Label());
-            this->label4 = (gcnew System::Windows::Forms::Label());
             this->intro_paragraph = (gcnew System::Windows::Forms::TextBox());
             this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
             this->Welcome_panel = (gcnew System::Windows::Forms::Panel());
@@ -344,18 +343,6 @@ namespace LoginPage {
             this->Balance->TabIndex = 1;
             this->Balance->Text = L"10,000";
             // 
-            // label4
-            // 
-            this->label4->AutoSize = true;
-            this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label4->ForeColor = System::Drawing::Color::White;
-            this->label4->Location = System::Drawing::Point(82, 37);
-            this->label4->Name = L"label4";
-            this->label4->Size = System::Drawing::Size(19, 20);
-            this->label4->TabIndex = 1;
-            this->label4->Text = L"$";
-            // 
             // intro_paragraph
             // 
             this->intro_paragraph->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
@@ -423,7 +410,6 @@ namespace LoginPage {
             this->Navigationbar_panel->Controls->Add(this->label11);
             this->Navigationbar_panel->Controls->Add(this->Browse);
             this->Navigationbar_panel->Controls->Add(this->Home);
-            this->Navigationbar_panel->Controls->Add(this->label4);
             this->Navigationbar_panel->Controls->Add(this->Comparison);
             this->Navigationbar_panel->Location = System::Drawing::Point(12, 22);
             this->Navigationbar_panel->Name = L"Navigationbar_panel";
@@ -1242,8 +1228,17 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
 }
     private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
-        this->Hide();
-        parent->Show();
+        System::Windows::Forms::DialogResult result = MessageBox::Show(
+            "Are you sure you want to logout?",
+            "Confirm Logout",
+            MessageBoxButtons::YesNo,
+            MessageBoxIcon::Warning
+        );
+
+        if (result == System::Windows::Forms::DialogResult::Yes) {
+            this->Hide();
+            parent->Show();
+        }
     }
     private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
 

@@ -769,6 +769,8 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
 
 		int res = Authentication::SignIn(stdEmail, stdPass);
 		if (res == 0) {
+            txtEmail->Clear();
+            txtPass->Clear();
             this->Hide();
             if (Global::currUser.getAdmin()) {
                 AdminForm^ Fadmin = gcnew AdminForm(this); // Create an instance of the welcome form
@@ -1015,6 +1017,11 @@ private: System::Void singin_label_LinkClicked(System::Object^ sender, System::W
             case 0:
             {
                 MessageBox::Show("Sign up successful! Please log in.", "Signup Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                txtName->Clear();
+                signup_Pass->Clear();
+                signup_Pass2->Clear();
+                signup_Email->Clear();
+                txtPhone->Clear();
                 break;
             }
             case 1:
