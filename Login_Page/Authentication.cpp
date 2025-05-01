@@ -8,7 +8,7 @@ int Authentication::SignIn(std::string email, std::string pass)
         if (u.second.getEmail() == email) {
             if (u.second.getPassword() == pass) {
                 Global::currUser = u.second;
-                Global::currId = u.second.getId();
+                Global::currId = u.first;
                 return 0;
             }
             return 1;

@@ -8,7 +8,7 @@ user::user()
 
 }
 
-user::user(int id, bool isAdmin, double balance, std::string name, std::string email, std::string password, std::string phonenumber, bool frozen)
+user::user(int id, bool isAdmin, int balance, std::string name, std::string email, std::string password, std::string phonenumber, bool frozen)
 {
     this->id = id;
     this->name = name;
@@ -22,7 +22,7 @@ user::user(int id, bool isAdmin, double balance, std::string name, std::string e
 bool user::getFrozen() {
     return this->frozen;
 }
-double user::getBalance() {
+int user::getBalance() {
     return this->balance;
 }
 
@@ -69,10 +69,15 @@ void user::setFrozen(bool freeze)
     this->frozen = freeze;
 }
 
-void user::addProperty(Property pro)
+void user::addProperty(std::string type, std::string location, int price, int bedrooms, double area)
 {
+    int id = 0;
+    for (auto p : Global::properties) {
+        id = std::max(id, p.getId());
+    }
     if (!this->frozen) {
-        Global::properties.push_back(pro);
+
+        Global::properties.push_back(Property(id + 1 , type , location , price , Global::currId, 0 , bedrooms , area , 0));
     }
 }
 

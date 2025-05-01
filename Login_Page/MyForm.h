@@ -36,7 +36,7 @@ namespace LoginPage {
             this->MinimizeBox = true;
             this->MaximizeBox = false;
             this->txtPass->Enter += gcnew System::EventHandler(this, &MyForm::txtPass_Enter);
-this->txtPass->Leave += gcnew System::EventHandler(this, &MyForm::txtPass_Leave);
+            this->txtPass->Leave += gcnew System::EventHandler(this, &MyForm::txtPass_Leave);
 
 		}
         //animation variable
@@ -769,9 +769,11 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
 
 		int res = Authentication::SignIn(stdEmail, stdPass);
 		if (res == 0) {
+            txtEmail->Clear();
+            txtPass->Clear();
             this->Hide();
             if (Global::currUser.getAdmin()) {
-                AdminForm^ Fadmin = gcnew AdminForm(); // Create an instance of the welcome form
+                AdminForm^ Fadmin = gcnew AdminForm(this); // Create an instance of the welcome form
                 Fadmin->ShowDialog(); // Show it modally
             }
             else {
@@ -1014,9 +1016,12 @@ private: System::Void singin_label_LinkClicked(System::Object^ sender, System::W
             switch (res) {
             case 0:
             {
-                UserForm^ Fuser = gcnew UserForm(this);
-                Fuser->Show();
-                this->Hide();
+                MessageBox::Show("Sign up successful! Please log in.", "Signup Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                txtName->Clear();
+                signup_Pass->Clear();
+                signup_Pass2->Clear();
+                signup_Email->Clear();
+                txtPhone->Clear();
                 break;
             }
             case 1:
