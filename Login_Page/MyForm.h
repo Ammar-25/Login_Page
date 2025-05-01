@@ -771,7 +771,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
 		if (res == 0) {
             this->Hide();
             if (Global::currUser.getAdmin()) {
-                AdminForm^ Fadmin = gcnew AdminForm(); // Create an instance of the welcome form
+                AdminForm^ Fadmin = gcnew AdminForm(this); // Create an instance of the welcome form
                 Fadmin->ShowDialog(); // Show it modally
             }
             else {
@@ -1014,9 +1014,7 @@ private: System::Void singin_label_LinkClicked(System::Object^ sender, System::W
             switch (res) {
             case 0:
             {
-                UserForm^ Fuser = gcnew UserForm(this);
-                Fuser->Show();
-                this->Hide();
+                MessageBox::Show("Sign up successful! Please log in.", "Signup Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
                 break;
             }
             case 1:

@@ -6,7 +6,7 @@ Property::Property()
 
 }
 
-Property::Property(int id, std::string type, std::string location, double price, int ownerId, int availability, int numBedrooms, double area, bool isHighLighted)
+Property::Property(int id, std::string type, std::string location, int price, int ownerId, int availability, int numBedrooms, double area, bool isHighLighted)
 {
     this->id = id;
     this->type = type;
@@ -32,7 +32,7 @@ std::string Property::getLocation() {
     return location;
 }
 
-double Property::getPrice() {
+int Property::getPrice() {
     return price;
 }
 
@@ -65,7 +65,7 @@ void Property::setLocation(std::string& newLocation) {
     location = newLocation;
 }
 
-void Property::setPrice(double newPrice) {
+void Property::setPrice(int newPrice) {
     price = newPrice;
 }
 

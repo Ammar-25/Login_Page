@@ -15,12 +15,13 @@ namespace LoginPage {
 	public ref class AdminForm : public System::Windows::Forms::Form
 	{
     private: System::Void AdminForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
-
+    private: Form^ parent;
 	public:
-		AdminForm(void)
+		AdminForm(Form^ parentForm)
 		{
 			InitializeComponent();
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &LoginPage::AdminForm::AdminForm_FormClosed);
+            parent = parentForm;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -37,7 +38,7 @@ namespace LoginPage {
 				delete components;
 			}
 		}
-
+    
 	private:
 		/// <summary>
 		/// Required designer variable.

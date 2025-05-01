@@ -8,7 +8,7 @@ class user
 private:
     int id;
     bool isAdmin; // 0 -> user , 1 -> admin
-    double balance;
+    int balance;
     std::string name;
     std::string email;
     std::string password;
@@ -16,14 +16,14 @@ private:
     bool frozen; // 1 -> frozen , 0 -> unfrozen
 public:
     user();
-    user(int id, bool isAdmin, double balance, std::string name, std::string email, std::string password, std::string phonenumber, bool frozen);
+    user(int id, bool isAdmin, int balance, std::string name, std::string email, std::string password, std::string phonenumber, bool frozen);
     
     
     // getters 
     int getId();
     bool getAdmin();
     bool getFrozen();
-    double getBalance();
+    int getBalance();
     std::string getName();
     std::string getEmail();
     std::string getPassword();
@@ -34,7 +34,7 @@ public:
     void setFrozen(bool freeze);
 
     // Property functions
-    void addProperty(Property pro);
+    void addProperty(std::string type, std::string location, int price, int bedrooms, double area);
     bool removeProperty(int propertyID);
     void editProperty(int proId, Property pro);
     void addBalance(int balance);

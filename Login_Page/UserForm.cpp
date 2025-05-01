@@ -12,6 +12,5 @@
 
 System::Void LoginPage::UserForm::UserForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
 {
-    //FileHandler::Save();
     this->parent->Close();
 }

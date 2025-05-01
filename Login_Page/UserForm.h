@@ -1,7 +1,7 @@
 #pragma once
 #include "Global.h"
 #include <msclr/marshal_cppstd.h>
-
+#include <sstream>
 
 namespace LoginPage {
 
@@ -22,6 +22,15 @@ namespace LoginPage {
             this->parent = parentForm;
             currentUserName = gcnew System::String(Global::currUser.getName().c_str());
             Profile->Text = currentUserName;
+
+
+            int balance = Global::currUser.getBalance();
+            std::stringstream ss;
+            ss.imbue(std::locale("en_US.UTF-8"));
+            ss << balance;
+
+            String^ currBalance = gcnew System::String(ss.str().c_str());
+            Balance->Text = currBalance + " $";
         }
 
     protected:
@@ -33,6 +42,7 @@ namespace LoginPage {
             }
         }
     private: Form^ parent;
+    private: System::Windows::Forms::Button^ button6;
     private: System::String^ currentUserName;
     private: System::Void UserForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
     private: System::Windows::Forms::Button^ Home;
@@ -76,13 +86,19 @@ namespace LoginPage {
     private: System::Windows::Forms::Label^ label17;
     private: System::Windows::Forms::Label^ label16;
     private: System::Windows::Forms::Label^ label13;
-    private: System::Windows::Forms::TextBox^ textBox3;
-    private: System::Windows::Forms::TextBox^ textBox2;
+    private: System::Windows::Forms::TextBox^ txtPrice;
+    private: System::Windows::Forms::TextBox^ txtLocation;
+
+
     private: System::Windows::Forms::Label^ label12;
-    private: System::Windows::Forms::TextBox^ textBox4;
-    private: System::Windows::Forms::ComboBox^ comboBox1;
-    private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
-    private: System::Windows::Forms::TextBox^ textBox5;
+    private: System::Windows::Forms::TextBox^ txtDescription;
+
+    private: System::Windows::Forms::ComboBox^ TypeCompo;
+    private: System::Windows::Forms::NumericUpDown^ numBedrooms;
+
+
+    private: System::Windows::Forms::TextBox^ txtArea;
+
     private: System::Windows::Forms::Panel^ Details_Panel;
 
 
@@ -112,10 +128,6 @@ namespace LoginPage {
     private: System::Windows::Forms::Panel^ Browse_panel;
     private: System::Windows::Forms::Panel^ Comparison_panel;
     private: System::Windows::Forms::Label^ label1;
-
-
-
-
 
 
     protected:
@@ -156,12 +168,13 @@ namespace LoginPage {
             this->panel1 = (gcnew System::Windows::Forms::Panel());
             this->button3 = (gcnew System::Windows::Forms::Button());
             this->New_Property = (gcnew System::Windows::Forms::Panel());
-            this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
-            this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-            this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+            this->button6 = (gcnew System::Windows::Forms::Button());
+            this->numBedrooms = (gcnew System::Windows::Forms::NumericUpDown());
+            this->TypeCompo = (gcnew System::Windows::Forms::ComboBox());
+            this->txtDescription = (gcnew System::Windows::Forms::TextBox());
+            this->txtArea = (gcnew System::Windows::Forms::TextBox());
+            this->txtPrice = (gcnew System::Windows::Forms::TextBox());
+            this->txtLocation = (gcnew System::Windows::Forms::TextBox());
             this->label_New_Property = (gcnew System::Windows::Forms::Label());
             this->button4 = (gcnew System::Windows::Forms::Button());
             this->label12 = (gcnew System::Windows::Forms::Label());
@@ -198,7 +211,7 @@ namespace LoginPage {
             this->Navigationbar_panel->SuspendLayout();
             this->panel1->SuspendLayout();
             this->New_Property->SuspendLayout();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numBedrooms))->BeginInit();
             this->Details_Panel->SuspendLayout();
             this->Home_panel->SuspendLayout();
             this->SuspendLayout();
@@ -248,7 +261,7 @@ namespace LoginPage {
             this->Comparison->ForeColor = System::Drawing::Color::White;
             this->Comparison->Location = System::Drawing::Point(522, 14);
             this->Comparison->Name = L"Comparison";
-            this->Comparison->Size = System::Drawing::Size(116, 50);
+            this->Comparison->Size = System::Drawing::Size(122, 50);
             this->Comparison->TabIndex = 0;
             this->Comparison->Text = L"Comparison";
             this->Comparison->UseVisualStyleBackColor = false;
@@ -305,6 +318,7 @@ namespace LoginPage {
             this->label3->Size = System::Drawing::Size(48, 16);
             this->label3->TabIndex = 1;
             this->label3->Text = L"Logout";
+            this->label3->Click += gcnew System::EventHandler(this, &UserForm::label3_Click);
             // 
             // label11
             // 
@@ -547,12 +561,13 @@ namespace LoginPage {
             this->New_Property->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->New_Property->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-            this->New_Property->Controls->Add(this->numericUpDown1);
-            this->New_Property->Controls->Add(this->comboBox1);
-            this->New_Property->Controls->Add(this->textBox4);
-            this->New_Property->Controls->Add(this->textBox5);
-            this->New_Property->Controls->Add(this->textBox3);
-            this->New_Property->Controls->Add(this->textBox2);
+            this->New_Property->Controls->Add(this->button6);
+            this->New_Property->Controls->Add(this->numBedrooms);
+            this->New_Property->Controls->Add(this->TypeCompo);
+            this->New_Property->Controls->Add(this->txtDescription);
+            this->New_Property->Controls->Add(this->txtArea);
+            this->New_Property->Controls->Add(this->txtPrice);
+            this->New_Property->Controls->Add(this->txtLocation);
             this->New_Property->Controls->Add(this->label_New_Property);
             this->New_Property->Controls->Add(this->button4);
             this->New_Property->Controls->Add(this->label12);
@@ -567,55 +582,71 @@ namespace LoginPage {
             this->New_Property->TabIndex = 9;
             this->New_Property->Visible = false;
             // 
-            // numericUpDown1
+            // button6
             // 
-            this->numericUpDown1->Location = System::Drawing::Point(350, 174);
-            this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
-            this->numericUpDown1->Name = L"numericUpDown1";
-            this->numericUpDown1->Size = System::Drawing::Size(122, 22);
-            this->numericUpDown1->TabIndex = 12;
+            this->button6->BackColor = System::Drawing::Color::CadetBlue;
+            this->button6->FlatAppearance->BorderSize = 0;
+            this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->button6->ForeColor = System::Drawing::Color::WhiteSmoke;
+            this->button6->Location = System::Drawing::Point(165, 420);
+            this->button6->Name = L"button6";
+            this->button6->Size = System::Drawing::Size(142, 44);
+            this->button6->TabIndex = 13;
+            this->button6->Text = L"CANCEL";
+            this->button6->UseVisualStyleBackColor = false;
+            this->button6->Click += gcnew System::EventHandler(this, &UserForm::button6_Click);
             // 
-            // comboBox1
+            // numBedrooms
             // 
-            this->comboBox1->FormattingEnabled = true;
-            this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+            this->numBedrooms->Location = System::Drawing::Point(350, 174);
+            this->numBedrooms->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
+            this->numBedrooms->Name = L"numBedrooms";
+            this->numBedrooms->Size = System::Drawing::Size(122, 22);
+            this->numBedrooms->TabIndex = 12;
+            // 
+            // TypeCompo
+            // 
+            this->TypeCompo->FormattingEnabled = true;
+            this->TypeCompo->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
                 L"Apartment", L"Condominium", L"Townhouse", L"Duplex",
                     L"Villa"
             });
-            this->comboBox1->Location = System::Drawing::Point(71, 101);
-            this->comboBox1->Name = L"comboBox1";
-            this->comboBox1->Size = System::Drawing::Size(121, 24);
-            this->comboBox1->TabIndex = 11;
-            this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &UserForm::comboBox1_SelectedIndexChanged);
+            this->TypeCompo->Location = System::Drawing::Point(71, 101);
+            this->TypeCompo->Name = L"TypeCompo";
+            this->TypeCompo->Size = System::Drawing::Size(121, 24);
+            this->TypeCompo->TabIndex = 11;
+            this->TypeCompo->SelectedIndexChanged += gcnew System::EventHandler(this, &UserForm::comboBox1_SelectedIndexChanged);
             // 
-            // textBox4
+            // txtDescription
             // 
-            this->textBox4->Location = System::Drawing::Point(165, 300);
-            this->textBox4->Multiline = true;
-            this->textBox4->Name = L"textBox4";
-            this->textBox4->Size = System::Drawing::Size(356, 95);
-            this->textBox4->TabIndex = 10;
+            this->txtDescription->Location = System::Drawing::Point(165, 300);
+            this->txtDescription->Multiline = true;
+            this->txtDescription->Name = L"txtDescription";
+            this->txtDescription->Size = System::Drawing::Size(356, 95);
+            this->txtDescription->TabIndex = 10;
             // 
-            // textBox5
+            // txtArea
             // 
-            this->textBox5->Location = System::Drawing::Point(71, 174);
-            this->textBox5->Name = L"textBox5";
-            this->textBox5->Size = System::Drawing::Size(121, 22);
-            this->textBox5->TabIndex = 9;
+            this->txtArea->Location = System::Drawing::Point(71, 174);
+            this->txtArea->Name = L"txtArea";
+            this->txtArea->Size = System::Drawing::Size(121, 22);
+            this->txtArea->TabIndex = 9;
             // 
-            // textBox3
+            // txtPrice
             // 
-            this->textBox3->Location = System::Drawing::Point(350, 101);
-            this->textBox3->Name = L"textBox3";
-            this->textBox3->Size = System::Drawing::Size(122, 22);
-            this->textBox3->TabIndex = 9;
+            this->txtPrice->Location = System::Drawing::Point(350, 101);
+            this->txtPrice->Name = L"txtPrice";
+            this->txtPrice->Size = System::Drawing::Size(122, 22);
+            this->txtPrice->TabIndex = 9;
             // 
-            // textBox2
+            // txtLocation
             // 
-            this->textBox2->Location = System::Drawing::Point(71, 241);
-            this->textBox2->Name = L"textBox2";
-            this->textBox2->Size = System::Drawing::Size(450, 22);
-            this->textBox2->TabIndex = 8;
+            this->txtLocation->Location = System::Drawing::Point(71, 241);
+            this->txtLocation->Name = L"txtLocation";
+            this->txtLocation->Size = System::Drawing::Size(450, 22);
+            this->txtLocation->TabIndex = 8;
             // 
             // label_New_Property
             // 
@@ -637,7 +668,7 @@ namespace LoginPage {
             this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button4->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button4->Location = System::Drawing::Point(250, 420);
+            this->button4->Location = System::Drawing::Point(379, 420);
             this->button4->Name = L"button4";
             this->button4->Size = System::Drawing::Size(142, 44);
             this->button4->TabIndex = 7;
@@ -967,11 +998,11 @@ namespace LoginPage {
             // 
             // Home_panel
             // 
-            this->Home_panel->Controls->Add(this->New_Property);
-            this->Home_panel->Controls->Add(this->Details_Panel);
             this->Home_panel->Controls->Add(this->panel1);
             this->Home_panel->Controls->Add(this->button3);
             this->Home_panel->Controls->Add(this->label5);
+            this->Home_panel->Controls->Add(this->New_Property);
+            this->Home_panel->Controls->Add(this->Details_Panel);
             this->Home_panel->Location = System::Drawing::Point(6, 92);
             this->Home_panel->Name = L"Home_panel";
             this->Home_panel->Size = System::Drawing::Size(984, 631);
@@ -1000,12 +1031,12 @@ namespace LoginPage {
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(983, 713);
-            this->Controls->Add(this->Navigationbar_panel);
-            this->Controls->Add(this->Browse_panel);
             this->Controls->Add(this->Home_panel);
+            this->Controls->Add(this->Navigationbar_panel);
             this->Controls->Add(this->Profile_panel);
             this->Controls->Add(this->Welcome_panel);
             this->Controls->Add(this->Comparison_panel);
+            this->Controls->Add(this->Browse_panel);
             this->Name = L"UserForm";
             this->Text = L"User Form";
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &UserForm::UserForm_FormClosed);
@@ -1020,7 +1051,7 @@ namespace LoginPage {
             this->panel1->PerformLayout();
             this->New_Property->ResumeLayout(false);
             this->New_Property->PerformLayout();
-            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numBedrooms))->EndInit();
             this->Details_Panel->ResumeLayout(false);
             this->Details_Panel->PerformLayout();
             this->Home_panel->ResumeLayout(false);
@@ -1062,25 +1093,61 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
     Details_Panel->Visible = false; 
         
 }
-private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+    private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 
-    System::Windows::Forms::DialogResult result = System::Windows::Forms::MessageBox::Show(
-        "Do you want to save changes?",
-        "Confirmation",
-        System::Windows::Forms::MessageBoxButtons::OKCancel,
-        System::Windows::Forms::MessageBoxIcon::Question
-    );
+        System::Windows::Forms::DialogResult result = System::Windows::Forms::MessageBox::Show(
+            "Do you want to save changes?",
+            "Confirmation",
+            System::Windows::Forms::MessageBoxButtons::OKCancel,
+            System::Windows::Forms::MessageBoxIcon::Question
+        );
 
-    if (result == System::Windows::Forms::DialogResult::OK) {
-        System::Windows::Forms::MessageBox::Show("property is added successfully");
-        New_Property->Visible = false;
+        if (result == System::Windows::Forms::DialogResult::OK) {
+
+            std::string Type = msclr::interop::marshal_as<std::string>(TypeCompo->Text);
+            std::string Location = msclr::interop::marshal_as<std::string>(txtLocation->Text);
+            std::string Des = msclr::interop::marshal_as<std::string>(txtDescription->Text);
+
+
+            double Price;
+            try {
+                Price = Convert::ToDouble(txtPrice->Text); // Convert to double
+            }
+            catch (FormatException^ ex) {
+                MessageBox::Show("Invalid price format.");
+                return; // Exit early if price format is invalid
+            }
+
+            // Convert Area to double
+            double Area;
+            try {
+                Area = Convert::ToDouble(txtArea->Text); // Convert to double
+            }
+            catch (FormatException^ ex) {
+                MessageBox::Show("Invalid area format.");
+                return; // Exit early if area format is invalid
+            }
+
+            // Convert Bedrooms to integer (if it represents an integer value)
+            int Bedrooms;
+            try {
+                Bedrooms = Convert::ToInt32(numBedrooms->Text); // Convert to integer
+            }
+            catch (FormatException^ ex) {
+                MessageBox::Show("Invalid bedrooms format.");
+                return; // Exit early if bedrooms format is invalid
+            }
+
+            Global::currUser.addProperty(Type, Location, Price, Bedrooms, Area);
+
+            System::Windows::Forms::MessageBox::Show("property is added successfully");
+            New_Property->Visible = false;
+        }
+        else {
+            ResetControlsInPanel(New_Property);
+            New_Property->Visible = false; 
+        }
     }
-    else {
-        ResetControlsInPanel(New_Property);
-        New_Property->Visible = false; 
-
-    }
-}
 
 
        //make all controllers empty  
@@ -1174,5 +1241,19 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
     }
 
 }
+    private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+        this->Hide();
+        parent->Show();
+    }
+    private: System::Void button6_Click(System::Object^ sender, System::EventArgs^ e) {
+
+        New_Property->Visible = false;
+        txtArea->Clear();
+        txtPrice->Clear();
+        txtLocation->Clear();
+        txtDescription->Clear();
+        numBedrooms->Text = "0";
+        TypeCompo->Text = "";
+    }
 };
 }

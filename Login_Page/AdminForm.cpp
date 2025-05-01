@@ -2,5 +2,5 @@
 #include "FileHandler.h"
 System::Void LoginPage::AdminForm::AdminForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
 {
-    FileHandler::Save();
+    this->parent->Close();
 }
