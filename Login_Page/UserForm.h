@@ -998,11 +998,11 @@ namespace LoginPage {
             // 
             // Home_panel
             // 
+            this->Home_panel->Controls->Add(this->Details_Panel);
+            this->Home_panel->Controls->Add(this->New_Property);
             this->Home_panel->Controls->Add(this->panel1);
             this->Home_panel->Controls->Add(this->button3);
             this->Home_panel->Controls->Add(this->label5);
-            this->Home_panel->Controls->Add(this->New_Property);
-            this->Home_panel->Controls->Add(this->Details_Panel);
             this->Home_panel->Location = System::Drawing::Point(6, 92);
             this->Home_panel->Name = L"Home_panel";
             this->Home_panel->Size = System::Drawing::Size(984, 631);
