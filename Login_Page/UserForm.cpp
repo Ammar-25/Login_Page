@@ -1,5 +1,5 @@
 #include "UserForm.h"
-
+#include "FileHandler.h"
 //using namespace System;
 //using namespace System::Windows::Forms;
 //[STAThreadAttribute]
@@ -9,3 +9,9 @@
 //    Login_Page::UserForm form;
 //    Application::Run(% form);
 //}
+
+System::Void LoginPage::UserForm::UserForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
+{
+    //FileHandler::Save();
+    this->parent->Close();
+}

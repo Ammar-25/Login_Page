@@ -1,4 +1,7 @@
 #pragma once
+#include "Global.h"
+#include <msclr/marshal_cppstd.h>
+
 
 namespace LoginPage {
 
@@ -13,9 +16,12 @@ namespace LoginPage {
     public ref class UserForm : public System::Windows::Forms::Form
     {
     public:
-        UserForm(void)
+        UserForm(Form^ parentForm)
         {
             InitializeComponent();
+            this->parent = parentForm;
+            currentUserName = gcnew System::String(Global::currUser.getName().c_str());
+            Profile->Text = currentUserName;
         }
 
     protected:
@@ -26,6 +32,9 @@ namespace LoginPage {
                 delete components;
             }
         }
+    private: Form^ parent;
+    private: System::String^ currentUserName;
+    private: System::Void UserForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
     private: System::Windows::Forms::Button^ Home;
     protected:
     private: System::Windows::Forms::Button^ Browse;
@@ -200,7 +209,7 @@ namespace LoginPage {
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Home->FlatAppearance->BorderSize = 0;
             this->Home->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->Home->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->Home->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Home->ForeColor = System::Drawing::Color::White;
             this->Home->Location = System::Drawing::Point(278, 14);
@@ -217,7 +226,7 @@ namespace LoginPage {
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Browse->FlatAppearance->BorderSize = 0;
             this->Browse->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->Browse->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->Browse->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Browse->ForeColor = System::Drawing::Color::White;
             this->Browse->Location = System::Drawing::Point(400, 14);
@@ -234,7 +243,7 @@ namespace LoginPage {
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Comparison->FlatAppearance->BorderSize = 0;
             this->Comparison->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->Comparison->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->Comparison->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Comparison->ForeColor = System::Drawing::Color::White;
             this->Comparison->Location = System::Drawing::Point(522, 14);
@@ -248,13 +257,13 @@ namespace LoginPage {
             // label2
             // 
             this->label2->AutoSize = true;
-            this->label2->Font = (gcnew System::Drawing::Font(L"HouseofcardsW03-Bold", 49.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 49.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(160)), static_cast<System::Int32>(static_cast<System::Byte>(202)),
                 static_cast<System::Int32>(static_cast<System::Byte>(191)));
             this->label2->Location = System::Drawing::Point(82, 203);
             this->label2->Name = L"label2";
-            this->label2->Size = System::Drawing::Size(467, 87);
+            this->label2->Size = System::Drawing::Size(585, 95);
             this->label2->TabIndex = 1;
             this->label2->Text = L"Dream House ";
             // 
@@ -274,62 +283,62 @@ namespace LoginPage {
             // 
             this->Profile->AutoSize = true;
             this->Profile->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->Profile->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->Profile->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Profile->ForeColor = System::Drawing::Color::White;
             this->Profile->Location = System::Drawing::Point(820, 24);
             this->Profile->Name = L"Profile";
-            this->Profile->Size = System::Drawing::Size(104, 21);
+            this->Profile->Size = System::Drawing::Size(101, 20);
             this->Profile->TabIndex = 1;
-            this->Profile->Text = L"User_name ";
+            this->Profile->Text = L"user_name";
             this->Profile->Click += gcnew System::EventHandler(this, &UserForm::Profile_Click_1);
             // 
             // label3
             // 
             this->label3->AutoSize = true;
             this->label3->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->label3->Font = (gcnew System::Drawing::Font(L"Nexa Light", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label3->ForeColor = System::Drawing::Color::White;
             this->label3->Location = System::Drawing::Point(821, 45);
             this->label3->Name = L"label3";
-            this->label3->Size = System::Drawing::Size(49, 16);
+            this->label3->Size = System::Drawing::Size(48, 16);
             this->label3->TabIndex = 1;
             this->label3->Text = L"Logout";
             // 
             // label11
             // 
             this->label11->AutoSize = true;
-            this->label11->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label11->ForeColor = System::Drawing::Color::White;
             this->label11->Location = System::Drawing::Point(18, 16);
             this->label11->Name = L"label11";
-            this->label11->Size = System::Drawing::Size(74, 21);
+            this->label11->Size = System::Drawing::Size(77, 20);
             this->label11->TabIndex = 1;
             this->label11->Text = L"Balance";
             // 
             // Balance
             // 
             this->Balance->AutoSize = true;
-            this->Balance->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->Balance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Balance->ForeColor = System::Drawing::Color::PaleGreen;
             this->Balance->Location = System::Drawing::Point(18, 37);
             this->Balance->Name = L"Balance";
-            this->Balance->Size = System::Drawing::Size(68, 21);
+            this->Balance->Size = System::Drawing::Size(64, 20);
             this->Balance->TabIndex = 1;
             this->Balance->Text = L"10,000";
             // 
             // label4
             // 
             this->label4->AutoSize = true;
-            this->label4->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label4->ForeColor = System::Drawing::Color::White;
             this->label4->Location = System::Drawing::Point(82, 37);
             this->label4->Name = L"label4";
-            this->label4->Size = System::Drawing::Size(23, 21);
+            this->label4->Size = System::Drawing::Size(19, 20);
             this->label4->TabIndex = 1;
             this->label4->Text = L"$";
             // 
@@ -374,12 +383,12 @@ namespace LoginPage {
             // label1
             // 
             this->label1->AutoSize = true;
-            this->label1->Font = (gcnew System::Drawing::Font(L"HouseofcardsW03-Bold", 40.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 40.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label1->ForeColor = System::Drawing::Color::White;
             this->label1->Location = System::Drawing::Point(85, 143);
             this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(287, 70);
+            this->label1->Size = System::Drawing::Size(348, 76);
             this->label1->TabIndex = 1;
             this->label1->Text = L"Find Your ";
             // 
@@ -410,60 +419,60 @@ namespace LoginPage {
             // label5
             // 
             this->label5->AutoSize = true;
-            this->label5->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label5->ForeColor = System::Drawing::Color::White;
             this->label5->Location = System::Drawing::Point(16, 16);
             this->label5->Name = L"label5";
-            this->label5->Size = System::Drawing::Size(203, 31);
+            this->label5->Size = System::Drawing::Size(202, 29);
             this->label5->TabIndex = 1;
             this->label5->Text = L"Your Properties";
             // 
             // label6
             // 
             this->label6->AutoSize = true;
-            this->label6->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label6->ForeColor = System::Drawing::Color::White;
             this->label6->Location = System::Drawing::Point(30, 18);
             this->label6->Name = L"label6";
-            this->label6->Size = System::Drawing::Size(29, 21);
+            this->label6->Size = System::Drawing::Size(30, 20);
             this->label6->TabIndex = 1;
             this->label6->Text = L"Id:";
             // 
             // label7
             // 
             this->label7->AutoSize = true;
-            this->label7->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label7->ForeColor = System::Drawing::Color::White;
             this->label7->Location = System::Drawing::Point(344, 18);
             this->label7->Name = L"label7";
-            this->label7->Size = System::Drawing::Size(55, 21);
+            this->label7->Size = System::Drawing::Size(55, 20);
             this->label7->TabIndex = 1;
             this->label7->Text = L"Type:";
             // 
             // label8
             // 
             this->label8->AutoSize = true;
-            this->label8->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label8->ForeColor = System::Drawing::Color::White;
             this->label8->Location = System::Drawing::Point(30, 66);
             this->label8->Name = L"label8";
-            this->label8->Size = System::Drawing::Size(54, 21);
+            this->label8->Size = System::Drawing::Size(59, 20);
             this->label8->TabIndex = 1;
             this->label8->Text = L"Price:";
             // 
             // label9
             // 
             this->label9->AutoSize = true;
-            this->label9->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label9->ForeColor = System::Drawing::Color::White;
             this->label9->Location = System::Drawing::Point(344, 66);
             this->label9->Name = L"label9";
-            this->label9->Size = System::Drawing::Size(67, 21);
+            this->label9->Size = System::Drawing::Size(69, 20);
             this->label9->TabIndex = 1;
             this->label9->Text = L"Status:";
             // 
@@ -473,7 +482,7 @@ namespace LoginPage {
                 static_cast<System::Int32>(static_cast<System::Byte>(187)));
             this->button1->FlatAppearance->BorderSize = 0;
             this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button1->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button1->ForeColor = System::Drawing::Color::WhiteSmoke;
             this->button1->Location = System::Drawing::Point(705, 16);
@@ -490,7 +499,7 @@ namespace LoginPage {
                 static_cast<System::Int32>(static_cast<System::Byte>(187)));
             this->button2->FlatAppearance->BorderSize = 0;
             this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button2->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button2->ForeColor = System::Drawing::Color::WhiteSmoke;
             this->button2->Location = System::Drawing::Point(705, 63);
@@ -522,7 +531,7 @@ namespace LoginPage {
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->button3->FlatAppearance->BorderSize = 0;
             this->button3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button3->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button3->ForeColor = System::Drawing::Color::WhiteSmoke;
             this->button3->Location = System::Drawing::Point(404, 497);
@@ -563,7 +572,7 @@ namespace LoginPage {
             this->numericUpDown1->Location = System::Drawing::Point(350, 174);
             this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
             this->numericUpDown1->Name = L"numericUpDown1";
-            this->numericUpDown1->Size = System::Drawing::Size(122, 24);
+            this->numericUpDown1->Size = System::Drawing::Size(122, 22);
             this->numericUpDown1->TabIndex = 12;
             // 
             // comboBox1
@@ -591,32 +600,32 @@ namespace LoginPage {
             // 
             this->textBox5->Location = System::Drawing::Point(71, 174);
             this->textBox5->Name = L"textBox5";
-            this->textBox5->Size = System::Drawing::Size(121, 24);
+            this->textBox5->Size = System::Drawing::Size(121, 22);
             this->textBox5->TabIndex = 9;
             // 
             // textBox3
             // 
             this->textBox3->Location = System::Drawing::Point(350, 101);
             this->textBox3->Name = L"textBox3";
-            this->textBox3->Size = System::Drawing::Size(122, 24);
+            this->textBox3->Size = System::Drawing::Size(122, 22);
             this->textBox3->TabIndex = 9;
             // 
             // textBox2
             // 
             this->textBox2->Location = System::Drawing::Point(71, 241);
             this->textBox2->Name = L"textBox2";
-            this->textBox2->Size = System::Drawing::Size(450, 24);
+            this->textBox2->Size = System::Drawing::Size(450, 22);
             this->textBox2->TabIndex = 8;
             // 
             // label_New_Property
             // 
             this->label_New_Property->AutoSize = true;
-            this->label_New_Property->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label_New_Property->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label_New_Property->ForeColor = System::Drawing::Color::White;
             this->label_New_Property->Location = System::Drawing::Point(203, 17);
             this->label_New_Property->Name = L"label_New_Property";
-            this->label_New_Property->Size = System::Drawing::Size(239, 41);
+            this->label_New_Property->Size = System::Drawing::Size(228, 38);
             this->label_New_Property->TabIndex = 1;
             this->label_New_Property->Text = L"New Property";
             // 
@@ -625,7 +634,7 @@ namespace LoginPage {
             this->button4->BackColor = System::Drawing::Color::CadetBlue;
             this->button4->FlatAppearance->BorderSize = 0;
             this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button4->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button4->ForeColor = System::Drawing::Color::WhiteSmoke;
             this->button4->Location = System::Drawing::Point(250, 420);
@@ -639,48 +648,48 @@ namespace LoginPage {
             // label12
             // 
             this->label12->AutoSize = true;
-            this->label12->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label12->ForeColor = System::Drawing::Color::White;
             this->label12->Location = System::Drawing::Point(54, 300);
             this->label12->Name = L"label12";
-            this->label12->Size = System::Drawing::Size(105, 21);
+            this->label12->Size = System::Drawing::Size(112, 20);
             this->label12->TabIndex = 1;
             this->label12->Text = L"Description:";
             // 
             // label15
             // 
             this->label15->AutoSize = true;
-            this->label15->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label15->ForeColor = System::Drawing::Color::White;
             this->label15->Location = System::Drawing::Point(57, 214);
             this->label15->Name = L"label15";
-            this->label15->Size = System::Drawing::Size(83, 21);
+            this->label15->Size = System::Drawing::Size(87, 20);
             this->label15->TabIndex = 1;
             this->label15->Text = L"Location:";
             // 
             // label14
             // 
             this->label14->AutoSize = true;
-            this->label14->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label14->ForeColor = System::Drawing::Color::White;
             this->label14->Location = System::Drawing::Point(57, 75);
             this->label14->Name = L"label14";
-            this->label14->Size = System::Drawing::Size(55, 21);
+            this->label14->Size = System::Drawing::Size(55, 20);
             this->label14->TabIndex = 1;
             this->label14->Text = L"Type:";
             // 
             // label17
             // 
             this->label17->AutoSize = true;
-            this->label17->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label17->ForeColor = System::Drawing::Color::White;
             this->label17->Location = System::Drawing::Point(337, 145);
             this->label17->Name = L"label17";
-            this->label17->Size = System::Drawing::Size(184, 21);
+            this->label17->Size = System::Drawing::Size(190, 20);
             this->label17->TabIndex = 1;
             this->label17->Text = L"Number of bedrooms:";
             this->label17->Click += gcnew System::EventHandler(this, &UserForm::label17_Click);
@@ -688,24 +697,24 @@ namespace LoginPage {
             // label16
             // 
             this->label16->AutoSize = true;
-            this->label16->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label16->ForeColor = System::Drawing::Color::White;
             this->label16->Location = System::Drawing::Point(58, 145);
             this->label16->Name = L"label16";
-            this->label16->Size = System::Drawing::Size(54, 21);
+            this->label16->Size = System::Drawing::Size(54, 20);
             this->label16->TabIndex = 1;
             this->label16->Text = L"Area:";
             // 
             // label13
             // 
             this->label13->AutoSize = true;
-            this->label13->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label13->ForeColor = System::Drawing::Color::White;
             this->label13->Location = System::Drawing::Point(337, 75);
             this->label13->Name = L"label13";
-            this->label13->Size = System::Drawing::Size(54, 21);
+            this->label13->Size = System::Drawing::Size(59, 20);
             this->label13->TabIndex = 1;
             this->label13->Text = L"Price:";
             // 
@@ -834,12 +843,12 @@ namespace LoginPage {
             // label10
             // 
             this->label10->AutoSize = true;
-            this->label10->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label10->ForeColor = System::Drawing::Color::White;
             this->label10->Location = System::Drawing::Point(262, 9);
             this->label10->Name = L"label10";
-            this->label10->Size = System::Drawing::Size(125, 41);
+            this->label10->Size = System::Drawing::Size(124, 38);
             this->label10->TabIndex = 1;
             this->label10->Text = L"Details";
             // 
@@ -848,7 +857,7 @@ namespace LoginPage {
             this->button5->BackColor = System::Drawing::Color::CadetBlue;
             this->button5->FlatAppearance->BorderSize = 0;
             this->button5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button5->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button5->ForeColor = System::Drawing::Color::WhiteSmoke;
             this->button5->Location = System::Drawing::Point(274, 420);
@@ -862,48 +871,48 @@ namespace LoginPage {
             // label18
             // 
             this->label18->AutoSize = true;
-            this->label18->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label18->ForeColor = System::Drawing::Color::White;
             this->label18->Location = System::Drawing::Point(54, 300);
             this->label18->Name = L"label18";
-            this->label18->Size = System::Drawing::Size(105, 21);
+            this->label18->Size = System::Drawing::Size(112, 20);
             this->label18->TabIndex = 1;
             this->label18->Text = L"Description:";
             // 
             // label19
             // 
             this->label19->AutoSize = true;
-            this->label19->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label19->ForeColor = System::Drawing::Color::White;
             this->label19->Location = System::Drawing::Point(57, 214);
             this->label19->Name = L"label19";
-            this->label19->Size = System::Drawing::Size(83, 21);
+            this->label19->Size = System::Drawing::Size(87, 20);
             this->label19->TabIndex = 1;
             this->label19->Text = L"Location:";
             // 
             // label20
             // 
             this->label20->AutoSize = true;
-            this->label20->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label20->ForeColor = System::Drawing::Color::White;
             this->label20->Location = System::Drawing::Point(19, 25);
             this->label20->Name = L"label20";
-            this->label20->Size = System::Drawing::Size(29, 21);
+            this->label20->Size = System::Drawing::Size(30, 20);
             this->label20->TabIndex = 1;
             this->label20->Text = L"Id:";
             // 
             // label21
             // 
             this->label21->AutoSize = true;
-            this->label21->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label21->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label21->ForeColor = System::Drawing::Color::White;
             this->label21->Location = System::Drawing::Point(337, 145);
             this->label21->Name = L"label21";
-            this->label21->Size = System::Drawing::Size(184, 21);
+            this->label21->Size = System::Drawing::Size(190, 20);
             this->label21->TabIndex = 1;
             this->label21->Text = L"Number of bedrooms:";
             this->label21->Click += gcnew System::EventHandler(this, &UserForm::label17_Click);
@@ -911,48 +920,48 @@ namespace LoginPage {
             // label22
             // 
             this->label22->AutoSize = true;
-            this->label22->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label22->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label22->ForeColor = System::Drawing::Color::White;
             this->label22->Location = System::Drawing::Point(58, 145);
             this->label22->Name = L"label22";
-            this->label22->Size = System::Drawing::Size(54, 21);
+            this->label22->Size = System::Drawing::Size(54, 20);
             this->label22->TabIndex = 1;
             this->label22->Text = L"Area:";
             // 
             // label25
             // 
             this->label25->AutoSize = true;
-            this->label25->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label25->ForeColor = System::Drawing::Color::White;
             this->label25->Location = System::Drawing::Point(337, 214);
             this->label25->Name = L"label25";
-            this->label25->Size = System::Drawing::Size(54, 21);
+            this->label25->Size = System::Drawing::Size(59, 20);
             this->label25->TabIndex = 1;
             this->label25->Text = L"Price:";
             // 
             // label26
             // 
             this->label26->AutoSize = true;
-            this->label26->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label26->ForeColor = System::Drawing::Color::White;
             this->label26->Location = System::Drawing::Point(54, 75);
             this->label26->Name = L"label26";
-            this->label26->Size = System::Drawing::Size(63, 21);
+            this->label26->Size = System::Drawing::Size(63, 20);
             this->label26->TabIndex = 1;
             this->label26->Text = L"Status";
             // 
             // label23
             // 
             this->label23->AutoSize = true;
-            this->label23->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label23->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label23->ForeColor = System::Drawing::Color::White;
             this->label23->Location = System::Drawing::Point(337, 75);
             this->label23->Name = L"label23";
-            this->label23->Size = System::Drawing::Size(55, 21);
+            this->label23->Size = System::Drawing::Size(55, 20);
             this->label23->TabIndex = 1;
             this->label23->Text = L"Type:";
             // 
@@ -999,6 +1008,7 @@ namespace LoginPage {
             this->Controls->Add(this->Comparison_panel);
             this->Name = L"UserForm";
             this->Text = L"User Form";
+            this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &UserForm::UserForm_FormClosed);
             this->Load += gcnew System::EventHandler(this, &UserForm::UserForm_Load);
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
@@ -1141,6 +1151,7 @@ private: System::Void Comparison_Click(System::Object^ sender, System::EventArgs
 }
 private: System::Void Profile_Click_1(System::Object^ sender, System::EventArgs^ e) {
     ChangePanelAndButtonColor(Profile, Profile_panel, Home, Browse, Comparison);
+
 }
  private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
      ChangePanelAndButtonColor(Profile, Profile_panel, Home, Browse, Comparison);

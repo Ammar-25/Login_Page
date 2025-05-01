@@ -1,13 +1,12 @@
 #include "Property.h"
 #include <string>
 #include "Global.h"
-using namespace std;
 Property::Property()
 {
 
 }
 
-Property::Property(int id, string type, string location, double price, int ownerId, int availability, int numBedrooms, double area , bool isHighLighted)
+Property::Property(int id, std::string type, std::string location, double price, int ownerId, int availability, int numBedrooms, double area, bool isHighLighted)
 {
     this->id = id;
     this->type = type;
@@ -25,11 +24,11 @@ int Property::getId() {
     return id;
 }
 
-string Property::getType() {
+std::string Property::getType() {
     return type;
 }
 
-string Property::getLocation() {
+std::string Property::getLocation() {
     return location;
 }
 
@@ -53,17 +52,16 @@ double Property::getArea() {
     return area;
 }
 
-bool Property::getHighlight()
-{
+bool Property::getHighlight() {
     return this->isHighLighted;
 }
 
 // Setters
-void Property::setType(string& newType) {
+void Property::setType(std::string& newType) {
     type = newType;
 }
 
-void Property::setLocation(string& newLocation) {
+void Property::setLocation(std::string& newLocation) {
     location = newLocation;
 }
 
@@ -83,12 +81,11 @@ void Property::setArea(double newArea) {
     area = newArea;
 }
 
-void Property::setHighlight(bool h)
-{
+void Property::setHighlight(bool h) {
     this->isHighLighted = h;
 }
 
-string Property::to_string() {
+std::string Property::to_string() {
     return "ID: " + std::to_string(id) +
         "\nType: " + type +
         "\nLocation: " + location +

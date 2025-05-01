@@ -14,10 +14,13 @@ namespace LoginPage {
 	/// </summary>
 	public ref class AdminForm : public System::Windows::Forms::Form
 	{
+    private: System::Void AdminForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e);
+
 	public:
 		AdminForm(void)
 		{
 			InitializeComponent();
+            this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &LoginPage::AdminForm::AdminForm_FormClosed);
 			//
 			//TODO: Add the constructor code here
 			//

@@ -87,7 +87,7 @@ namespace LoginPage {
 		}
 #pragma endregion
 	private: System::Void WelcomeForm_Load(System::Object^ sender, System::EventArgs^ e) {
-		cout << "WelcomeForm_Load" << endl;
+		std::cout << "WelcomeForm_Load" << '\n';
 		std::string name = Global::currUser.getName(); // Assuming getName() returns std::string
 		String^ managedName = gcnew String(name.c_str()); // Convert std::string to System::String^
 		label1->Text = "Welcome " + managedName + " !";
