@@ -16,11 +16,7 @@ int main() {
 	Application::SetCompatibleTextRenderingDefault(false);
 	LoginPage::MyForm form;
 	Application::Run(% form);
-
-    
     FileHandler::Save();
-    std::cout << "Hello !\n";
-    system("pause");
    //**********run user form directly *************
    
     /*Application::EnableVisualStyles();
