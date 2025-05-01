@@ -9,6 +9,7 @@ using namespace System;
 using namespace System::Windows::Forms;
 [STAThreadAttribute]
 int main() {
+    // load data
     FileHandler::Load();
 
     //**********run Login Form directly *************
@@ -16,16 +17,8 @@ int main() {
 	Application::SetCompatibleTextRenderingDefault(false);
 	LoginPage::MyForm form;
 	Application::Run(% form);
-    FileHandler::Save();
-   //**********run user form directly *************
-   
-    /*Application::EnableVisualStyles();
-    Application::SetCompatibleTextRenderingDefault(false);
-    Application::Run(gcnew LoginPage::UserForm());*/
-    
-    ////**********run Admin form directly *************
 
-    //Application::EnableVisualStyles();
-    //Application::SetCompatibleTextRenderingDefault(false);
-    //Application::Run(gcnew LoginPage::AdminForm());
+
+    // save data 
+    FileHandler::Save();
 }   

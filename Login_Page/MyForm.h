@@ -36,7 +36,7 @@ namespace LoginPage {
             this->MinimizeBox = true;
             this->MaximizeBox = false;
             this->txtPass->Enter += gcnew System::EventHandler(this, &MyForm::txtPass_Enter);
-this->txtPass->Leave += gcnew System::EventHandler(this, &MyForm::txtPass_Leave);
+            this->txtPass->Leave += gcnew System::EventHandler(this, &MyForm::txtPass_Leave);
 
 		}
         //animation variable
