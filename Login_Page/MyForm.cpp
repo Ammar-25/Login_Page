@@ -19,8 +19,6 @@ int main() {
 
     
     FileHandler::Save();
-    std::cout << "Hello !\n";
-    system("pause");
    //**********run user form directly *************
    
     /*Application::EnableVisualStyles();
