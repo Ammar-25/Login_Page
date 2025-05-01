@@ -1,0 +1,4 @@
+0,1,5000,Ammar,ammar@gmail.com,12345678,01129264191,0
+1,0,0,Mostafa,mostafa@gmail.com,00000000,123123123,0
+2,0,0,sadek,sadek@gmail.com,00000000,0231231231,0
+3,0,0,mahmoud,mahmoud@gmail.com,00000000,12342315,0

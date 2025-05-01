@@ -1,150 +1,170 @@
 #include "user.h"
 #include "Property.h"
 #include "Global.h"
-
+#include "Authentication.h"
 
 user::user()
 {
 
 }
 
-user::user(int id, bool isAdmin, double balance, string name, string email, string password, string phonenumber, bool frozen)
+user::user(int id, bool isAdmin, double balance, std::string name, std::string email, std::string password, std::string phonenumber, bool frozen)
 {
-	this->id = id;
-	this->name = name;
-	this->email = email;
-	this->password = password;
-	this->phoneNumber = phonenumber;
-	this->isAdmin = isAdmin;
-	this->frozen = frozen;
-	this->balance = balance;
+    this->id = id;
+    this->name = name;
+    this->email = email;
+    this->password = password;
+    this->phoneNumber = phonenumber;
+    this->isAdmin = isAdmin;
+    this->frozen = frozen;
+    this->balance = balance;
+}
+bool user::getFrozen() {
+    return this->frozen;
+}
+double user::getBalance() {
+    return this->balance;
 }
 
 bool user::getAdmin() {
-	return this->isAdmin;
+    return this->isAdmin;
 }
 
 int user::getId()
 {
-	return id;
+    return id;
 }
 
-string user::getName()
+std::string user::getName()
 {
-	return name;
+    return name;
 }
 
-string user::getEmail() {
-	return email;
+std::string user::getEmail() {
+    return email;
 }
 
-string user::getPassword()
+std::string user::getPassword()
 {
-	return password;
+    return password;
 }
 
-string user::getPhoneNumber() {
-	return phoneNumber;
+std::string user::getPhoneNumber() {
+    return phoneNumber;
 }
 
-string user::to_string() {
-	return "User ID: " + std::to_string(id) + "\n" +
-		"Name: " + name + "\n" +
-		"Email: " + email + "\n" +
-		"Password: " + password + "\n" +
-		"Phone Number: " + phoneNumber + '\n' +
-		"Is Frozen: " + std::to_string(frozen) + '\n' +
-		"Is Admin: " + std::to_string(isAdmin);
+std::string user::to_string() {
+    return "User ID: " + std::to_string(id) + "\n" +
+        "Name: " + name + "\n" +
+        "Email: " + email + "\n" +
+        "Password: " + password + "\n" +
+        "Phone Number: " + phoneNumber + '\n' +
+        "Balance: " + std::to_string(balance) + '\n' + 
+        "Is Frozen: " + std::to_string(frozen) + '\n' +
+        "Is Admin: " + std::to_string(isAdmin);
 }
-
-
 
 void user::setFrozen(bool freeze)
 {
-	this->frozen = freeze;
+    this->frozen = freeze;
 }
 
 void user::addProperty(Property pro)
 {
-	if (!this->frozen) {
-		Global::properties.push_back(pro);
-	}
+    if (!this->frozen) {
+        Global::properties.push_back(pro);
+    }
 }
 
 bool user::removeProperty(int propertyID)
 {
-
-	if (!this->frozen) {
-		for (auto it = Global::properties.begin(); it != Global::properties.end(); ++it) {
-			if ((it)->getId() == propertyID && ((it)->getOwnerId() == Global::currId || this->isAdmin)) {
-				Global::properties.erase(it);
-				return true;
-			}
-		}
-	}
-	return false;
+    if (!this->frozen) {
+        for (auto it = Global::properties.begin(); it != Global::properties.end(); ++it) {
+            if ((it)->getId() == propertyID && ((it)->getOwnerId() == Global::currId || this->isAdmin)) {
+                Global::properties.erase(it);
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
 void user::editProperty(int proId, Property pro)
 {
-	if (!this->frozen) {
-		for (auto& p : Global::properties) {
-			if (p.getId() == proId) {
-				p = pro;
-				break;
-			}
-		}
-	}
+    if (!this->frozen) {
+        for (auto& p : Global::properties) {
+            if (p.getId() == proId) {
+                p = pro;
+                break;
+            }
+        }
+    }
 }
 
 void user::addBalance(int balance)
 {
-	this->balance += balance;
+    this->balance += balance;
 }
 
 void user::buyProperty(int proId)
 {
-	if (!this->frozen) {
-		for (auto& p : Global::properties) {
-			if (p.getId() == proId) {
-				if (this->balance >= p.getPrice() && p.getAvailability() == 1)  {
-					p.setAvailability(2);
-				}
-			}
-		}
-	}
+    if (!this->frozen) {
+        for (auto& p : Global::properties) {
+            if (p.getId() == proId) {
+                if (this->balance >= p.getPrice() && p.getAvailability() == 1) {
+                    p.setAvailability(2);
+                }
+            }
+        }
+    }
 }
 
 void user::setAvailability(int proId, int Availability)
 {
-	if (this->isAdmin) {
-		for (auto& p : Global::properties) {
-			if (p.getId() == proId) {
-				p.setAvailability(Availability);
-			}
-		}
-	}
+    if (this->isAdmin) {
+        for (auto& p : Global::properties) {
+            if (p.getId() == proId) {
+                p.setAvailability(Availability);
+            }
+        }
+    }
 }
 
 void user::Moderate(int id, bool freezeFlag)
 {
-	if (this->isAdmin) {
-		for (auto& User : Global::users) {
-			if (User.getId() == id) {
-				User.setFrozen(freezeFlag);
-				break;
-			}
-		}
-	}
+    if (this->isAdmin) {
+        Global::users[id].setFrozen(freezeFlag);
+    }
 }
 
 void user::highLight_property(int proId, bool h)
 {
-	if (this->isAdmin) {
-		for (auto& pro : Global::properties) {
-			if (pro.getId() == proId) {
-				pro.setHighlight(h);
-			}
-		}
-	}
+    if (this->isAdmin) {
+        for (auto& pro : Global::properties) {
+            if (pro.getId() == proId) {
+                pro.setHighlight(h);
+            }
+        }
+    }
+}
+
+int user::add_admin(std::string name, std::string email, std::string pass, std::string phone)
+{
+    if (this->isAdmin) {
+        if (pass.length() < 8) {
+            return 1;
+        }
+        bool ok = true;
+        int id = 0;
+        for (auto u : Global::users) {
+            id = std::max(id, u.second.getId());
+            if (u.second.getEmail() == email) {
+                ok = false;
+            }
+        }
+        if (!ok) return 2;
+        Global::users[id + 1] = user(id + 1, 1, 0, name, email, pass, phone, 0);
+        return 0;
+    }
+    else return 3;
 }

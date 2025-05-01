@@ -1,20 +1,15 @@
 #include "Global.h"
-#include "vector"
-#include <queue>
-#include <map>
-#include <iostream>
-using namespace std;
 
 int Global::currId = -1;
 user Global::currUser;
 
-vector<user> Global::users;
-vector<Property> Global::properties;
+std::map<int , user> Global::users;
+std::list<Property> Global::properties;
 
-string Global::toLowerCase(string s) {
-    string res;
-    for (auto c : s) {
-        res.push_back(tolower(c));
+std::string Global::toLowerCase(const std::string& s) {
+    std::string res;
+    for (char c : s) {
+        res.push_back(std::tolower(static_cast<unsigned char>(c)));
     }
     return res;
 }

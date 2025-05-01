@@ -121,18 +121,19 @@
   <ItemGroup>
     <ClCompile Include="AdminForm.cpp" />
     <ClCompile Include="Authentication.cpp" />
+    <ClCompile Include="FileHandler.cpp" />
     <ClCompile Include="Global.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="Property.cpp" />
     <ClCompile Include="user.cpp" />
     <ClCompile Include="UserForm.cpp" />
-    <ClCompile Include="WelcomeForm.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdminForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Authentication.h" />
+    <ClInclude Include="FileHandler.h" />
     <ClInclude Include="Global.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
@@ -140,9 +141,6 @@
     <ClInclude Include="Property.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="UserForm.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="WelcomeForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -155,9 +153,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WelcomeForm.resx">
-      <DependentUpon>WelcomeForm.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
