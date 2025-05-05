@@ -26,6 +26,11 @@ int user::getBalance() {
     return this->balance;
 }
 
+std::string user::getphoneNumber()
+{ 
+    return phoneNumber; 
+}
+
 bool user::getAdmin() {
     return this->isAdmin;
 }
@@ -172,4 +177,14 @@ int user::add_admin(std::string name, std::string email, std::string pass, std::
         return 0;
     }
     else return 3;
+}
+
+void user::setName(std::string name) {
+    this->name = name;
+}
+void user::setEmail(std::string email) {
+    this->email = email;
+}
+void user::setPhoneNumber(int phoneNumber) {
+    this->phoneNumber = phoneNumber;
 }
