@@ -218,7 +218,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
             this->pictureBox1->Location = System::Drawing::Point(3, 10);
             this->pictureBox1->Name = L"pictureBox1";
-            this->pictureBox1->Size = System::Drawing::Size(592, 456);
+            this->pictureBox1->Size = System::Drawing::Size(518, 456);
             this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
             this->pictureBox1->TabIndex = 9;
             this->pictureBox1->TabStop = false;
@@ -228,9 +228,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             // 
             this->Main_BG->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Main_BG->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"Main_BG.Image")));
-            this->Main_BG->Location = System::Drawing::Point(706, -2);
+            this->Main_BG->Location = System::Drawing::Point(618, -2);
             this->Main_BG->Name = L"Main_BG";
-            this->Main_BG->Size = System::Drawing::Size(517, 695);
+            this->Main_BG->Size = System::Drawing::Size(452, 695);
             this->Main_BG->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
             this->Main_BG->TabIndex = 13;
             this->Main_BG->TabStop = false;
@@ -242,7 +242,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F));
-            this->label3->Location = System::Drawing::Point(78, 126);
+            this->label3->Location = System::Drawing::Point(68, 126);
             this->label3->Name = L"label3";
             this->label3->Size = System::Drawing::Size(242, 16);
             this->label3->TabIndex = 6;
@@ -257,7 +257,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
-            this->label5->Location = System::Drawing::Point(169, 374);
+            this->label5->Location = System::Drawing::Point(148, 374);
             this->label5->Name = L"label5";
             this->label5->Size = System::Drawing::Size(283, 29);
             this->label5->TabIndex = 6;
@@ -275,7 +275,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->Signup_label->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
             this->Signup_label->LinkColor = System::Drawing::Color::Black;
-            this->Signup_label->Location = System::Drawing::Point(351, 410);
+            this->Signup_label->Location = System::Drawing::Point(307, 410);
             this->Signup_label->Name = L"Signup_label";
             this->Signup_label->Size = System::Drawing::Size(55, 16);
             this->Signup_label->TabIndex = 7;
@@ -289,9 +289,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
-            this->pictureBox2->Location = System::Drawing::Point(90, 177);
+            this->pictureBox2->Location = System::Drawing::Point(79, 177);
             this->pictureBox2->Name = L"pictureBox2";
-            this->pictureBox2->Size = System::Drawing::Size(422, 54);
+            this->pictureBox2->Size = System::Drawing::Size(369, 54);
             this->pictureBox2->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
             this->pictureBox2->TabIndex = 10;
             this->pictureBox2->TabStop = false;
@@ -303,9 +303,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->pictureBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
-            this->pictureBox4->Location = System::Drawing::Point(90, 246);
+            this->pictureBox4->Location = System::Drawing::Point(79, 246);
             this->pictureBox4->Name = L"pictureBox4";
-            this->pictureBox4->Size = System::Drawing::Size(422, 54);
+            this->pictureBox4->Size = System::Drawing::Size(369, 54);
             this->pictureBox4->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
             this->pictureBox4->TabIndex = 10;
             this->pictureBox4->TabStop = false;
@@ -318,7 +318,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Byte>(0)));
             this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->label2->Location = System::Drawing::Point(145, 182);
+            this->label2->Location = System::Drawing::Point(127, 182);
             this->label2->Name = L"label2";
             this->label2->Size = System::Drawing::Size(34, 36);
             this->label2->TabIndex = 12;
@@ -332,7 +332,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Byte>(0)));
             this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->label4->Location = System::Drawing::Point(145, 251);
+            this->label4->Location = System::Drawing::Point(127, 251);
             this->label4->Name = L"label4";
             this->label4->Size = System::Drawing::Size(34, 36);
             this->label4->TabIndex = 12;
@@ -342,9 +342,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             // 
             this->pictureBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
-            this->pictureBox3->Location = System::Drawing::Point(118, 188);
+            this->pictureBox3->Location = System::Drawing::Point(103, 188);
             this->pictureBox3->Name = L"pictureBox3";
-            this->pictureBox3->Size = System::Drawing::Size(33, 31);
+            this->pictureBox3->Size = System::Drawing::Size(29, 31);
             this->pictureBox3->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
             this->pictureBox3->TabIndex = 11;
             this->pictureBox3->TabStop = false;
@@ -353,9 +353,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             // 
             this->pictureBox5->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
-            this->pictureBox5->Location = System::Drawing::Point(118, 257);
+            this->pictureBox5->Location = System::Drawing::Point(103, 257);
             this->pictureBox5->Name = L"pictureBox5";
-            this->pictureBox5->Size = System::Drawing::Size(33, 31);
+            this->pictureBox5->Size = System::Drawing::Size(29, 31);
             this->pictureBox5->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
             this->pictureBox5->TabIndex = 11;
             this->pictureBox5->TabStop = false;
@@ -365,9 +365,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->txtEmail->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtEmail->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->txtEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11));
-            this->txtEmail->Location = System::Drawing::Point(175, 189);
+            this->txtEmail->Location = System::Drawing::Point(153, 189);
             this->txtEmail->Name = L"txtEmail";
-            this->txtEmail->Size = System::Drawing::Size(309, 21);
+            this->txtEmail->Size = System::Drawing::Size(270, 21);
             this->txtEmail->TabIndex = 1;
             this->txtEmail->TextChanged += gcnew System::EventHandler(this, &MyForm::txtEmail_TextChanged);
             // 
@@ -376,9 +376,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->txtPass->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtPass->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->txtPass->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 11));
-            this->txtPass->Location = System::Drawing::Point(175, 260);
+            this->txtPass->Location = System::Drawing::Point(153, 260);
             this->txtPass->Name = L"txtPass";
-            this->txtPass->Size = System::Drawing::Size(309, 21);
+            this->txtPass->Size = System::Drawing::Size(270, 21);
             this->txtPass->TabIndex = 2;
             this->txtPass->UseSystemPasswordChar = true;
             // 
@@ -387,9 +387,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->showPass->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->showPass->Cursor = System::Windows::Forms::Cursors::Hand;
             this->showPass->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"showPass.Image")));
-            this->showPass->Location = System::Drawing::Point(454, 257);
+            this->showPass->Location = System::Drawing::Point(397, 257);
             this->showPass->Name = L"showPass";
-            this->showPass->Size = System::Drawing::Size(33, 31);
+            this->showPass->Size = System::Drawing::Size(29, 31);
             this->showPass->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
             this->showPass->TabIndex = 8;
             this->showPass->TabStop = false;
@@ -401,9 +401,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->pictureBox8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
-            this->pictureBox8->Location = System::Drawing::Point(199, 52);
+            this->pictureBox8->Location = System::Drawing::Point(174, 52);
             this->pictureBox8->Name = L"pictureBox8";
-            this->pictureBox8->Size = System::Drawing::Size(80, 46);
+            this->pictureBox8->Size = System::Drawing::Size(70, 46);
             this->pictureBox8->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
             this->pictureBox8->TabIndex = 15;
             this->pictureBox8->TabStop = false;
@@ -417,7 +417,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold));
             this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
-            this->label1->Location = System::Drawing::Point(77, 83);
+            this->label1->Location = System::Drawing::Point(67, 83);
             this->label1->Name = L"label1";
             this->label1->Size = System::Drawing::Size(117, 36);
             this->label1->TabIndex = 3;
@@ -429,9 +429,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->pictureBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->pictureBox7->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.Image")));
-            this->pictureBox7->Location = System::Drawing::Point(187, 317);
+            this->pictureBox7->Location = System::Drawing::Point(164, 317);
             this->pictureBox7->Name = L"pictureBox7";
-            this->pictureBox7->Size = System::Drawing::Size(243, 52);
+            this->pictureBox7->Size = System::Drawing::Size(213, 52);
             this->pictureBox7->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
             this->pictureBox7->TabIndex = 14;
             this->pictureBox7->TabStop = false;
@@ -452,9 +452,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->Loginbtn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
             this->Loginbtn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10, System::Drawing::FontStyle::Bold));
             this->Loginbtn->ForeColor = System::Drawing::Color::White;
-            this->Loginbtn->Location = System::Drawing::Point(245, 323);
+            this->Loginbtn->Location = System::Drawing::Point(214, 323);
             this->Loginbtn->Name = L"Loginbtn";
-            this->Loginbtn->Size = System::Drawing::Size(125, 38);
+            this->Loginbtn->Size = System::Drawing::Size(109, 38);
             this->Loginbtn->TabIndex = 0;
             this->Loginbtn->Text = L"Login";
             this->Loginbtn->UseVisualStyleBackColor = false;
@@ -471,7 +471,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label17->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
             this->label17->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-            this->label17->Location = System::Drawing::Point(193, 410);
+            this->label17->Location = System::Drawing::Point(169, 410);
             this->label17->Name = L"label17";
             this->label17->Size = System::Drawing::Size(139, 16);
             this->label17->TabIndex = 16;
@@ -482,9 +482,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->pictureBox9->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->pictureBox9->Location = System::Drawing::Point(706, 135);
+            this->pictureBox9->Location = System::Drawing::Point(618, 135);
             this->pictureBox9->Name = L"pictureBox9";
-            this->pictureBox9->Size = System::Drawing::Size(469, 435);
+            this->pictureBox9->Size = System::Drawing::Size(410, 435);
             this->pictureBox9->TabIndex = 17;
             this->pictureBox9->TabStop = false;
             this->pictureBox9->Click += gcnew System::EventHandler(this, &MyForm::pictureBox9_Click);
@@ -496,9 +496,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label6->Location = System::Drawing::Point(763, 202);
+            this->label6->Location = System::Drawing::Point(668, 202);
             this->label6->Name = L"label6";
-            this->label6->Size = System::Drawing::Size(82, 28);
+            this->label6->Size = System::Drawing::Size(72, 28);
             this->label6->TabIndex = 0;
             this->label6->Text = L"Name:";
             this->label6->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
@@ -508,9 +508,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->txtName->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtName->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->txtName->Font = (gcnew System::Drawing::Font(L"Tahoma", 10));
-            this->txtName->Location = System::Drawing::Point(767, 235);
+            this->txtName->Location = System::Drawing::Point(671, 235);
             this->txtName->Name = L"txtName";
-            this->txtName->Size = System::Drawing::Size(177, 21);
+            this->txtName->Size = System::Drawing::Size(155, 21);
             this->txtName->TabIndex = 18;
             // 
             // label7
@@ -520,9 +520,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label7->Location = System::Drawing::Point(971, 202);
+            this->label7->Location = System::Drawing::Point(850, 202);
             this->label7->Name = L"label7";
-            this->label7->Size = System::Drawing::Size(82, 28);
+            this->label7->Size = System::Drawing::Size(72, 28);
             this->label7->TabIndex = 0;
             this->label7->Text = L"Phone:";
             this->label7->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
@@ -532,9 +532,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->txtPhone->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtPhone->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->txtPhone->Font = (gcnew System::Drawing::Font(L"Tahoma", 10));
-            this->txtPhone->Location = System::Drawing::Point(976, 232);
+            this->txtPhone->Location = System::Drawing::Point(854, 232);
             this->txtPhone->Name = L"txtPhone";
-            this->txtPhone->Size = System::Drawing::Size(177, 21);
+            this->txtPhone->Size = System::Drawing::Size(155, 21);
             this->txtPhone->TabIndex = 18;
             // 
             // label8
@@ -544,9 +544,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label8->Location = System::Drawing::Point(763, 272);
+            this->label8->Location = System::Drawing::Point(668, 272);
             this->label8->Name = L"label8";
-            this->label8->Size = System::Drawing::Size(82, 28);
+            this->label8->Size = System::Drawing::Size(72, 28);
             this->label8->TabIndex = 0;
             this->label8->Text = L"Email:";
             this->label8->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
@@ -556,9 +556,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->signup_Email->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->signup_Email->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->signup_Email->Font = (gcnew System::Drawing::Font(L"Tahoma", 10));
-            this->signup_Email->Location = System::Drawing::Point(767, 305);
+            this->signup_Email->Location = System::Drawing::Point(671, 305);
             this->signup_Email->Name = L"signup_Email";
-            this->signup_Email->Size = System::Drawing::Size(333, 21);
+            this->signup_Email->Size = System::Drawing::Size(291, 21);
             this->signup_Email->TabIndex = 18;
             // 
             // label9
@@ -568,9 +568,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label9->Location = System::Drawing::Point(765, 341);
+            this->label9->Location = System::Drawing::Point(669, 341);
             this->label9->Name = L"label9";
-            this->label9->Size = System::Drawing::Size(141, 28);
+            this->label9->Size = System::Drawing::Size(123, 28);
             this->label9->TabIndex = 0;
             this->label9->Text = L"Password:";
             this->label9->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
@@ -580,9 +580,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->signup_Pass->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->signup_Pass->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->signup_Pass->Font = (gcnew System::Drawing::Font(L"Tahoma", 10));
-            this->signup_Pass->Location = System::Drawing::Point(768, 374);
+            this->signup_Pass->Location = System::Drawing::Point(672, 374);
             this->signup_Pass->Name = L"signup_Pass";
-            this->signup_Pass->Size = System::Drawing::Size(333, 21);
+            this->signup_Pass->Size = System::Drawing::Size(291, 21);
             this->signup_Pass->TabIndex = 18;
             // 
             // label10
@@ -592,9 +592,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
             this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label10->Location = System::Drawing::Point(765, 407);
+            this->label10->Location = System::Drawing::Point(669, 407);
             this->label10->Name = L"label10";
-            this->label10->Size = System::Drawing::Size(289, 28);
+            this->label10->Size = System::Drawing::Size(253, 28);
             this->label10->TabIndex = 0;
             this->label10->Text = L"Confirm Password:";
             this->label10->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
@@ -604,9 +604,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->signup_Pass2->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->signup_Pass2->BorderStyle = System::Windows::Forms::BorderStyle::None;
             this->signup_Pass2->Font = (gcnew System::Drawing::Font(L"Tahoma", 10));
-            this->signup_Pass2->Location = System::Drawing::Point(768, 440);
+            this->signup_Pass2->Location = System::Drawing::Point(672, 440);
             this->signup_Pass2->Name = L"signup_Pass2";
-            this->signup_Pass2->Size = System::Drawing::Size(333, 21);
+            this->signup_Pass2->Size = System::Drawing::Size(291, 21);
             this->signup_Pass2->TabIndex = 18;
             // 
             // button1
@@ -619,9 +619,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
             this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Bold));
             this->button1->ForeColor = System::Drawing::SystemColors::Window;
-            this->button1->Location = System::Drawing::Point(741, 480);
+            this->button1->Location = System::Drawing::Point(648, 480);
             this->button1->Name = L"button1";
-            this->button1->Size = System::Drawing::Size(413, 29);
+            this->button1->Size = System::Drawing::Size(361, 29);
             this->button1->TabIndex = 19;
             this->button1->Text = L"Sign Up";
             this->button1->UseVisualStyleBackColor = false;
@@ -636,7 +636,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 18, System::Drawing::FontStyle::Bold));
             this->label11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
-            this->label11->Location = System::Drawing::Point(835, 156);
+            this->label11->Location = System::Drawing::Point(731, 156);
             this->label11->Name = L"label11";
             this->label11->Size = System::Drawing::Size(204, 36);
             this->label11->TabIndex = 3;
@@ -653,7 +653,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label12->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
             this->label12->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-            this->label12->Location = System::Drawing::Point(839, 529);
+            this->label12->Location = System::Drawing::Point(734, 529);
             this->label12->Name = L"label12";
             this->label12->Size = System::Drawing::Size(158, 16);
             this->label12->TabIndex = 16;
@@ -671,7 +671,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->singin_label->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
             this->singin_label->LinkColor = System::Drawing::Color::Black;
-            this->singin_label->Location = System::Drawing::Point(1019, 529);
+            this->singin_label->Location = System::Drawing::Point(892, 529);
             this->singin_label->Name = L"singin_label";
             this->singin_label->Size = System::Drawing::Size(47, 16);
             this->singin_label->TabIndex = 7;
@@ -705,9 +705,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->singin_panel->Controls->Add(this->label5);
             this->singin_panel->Controls->Add(this->label3);
             this->singin_panel->Controls->Add(this->pictureBox1);
-            this->singin_panel->Location = System::Drawing::Point(51, 104);
+            this->singin_panel->Location = System::Drawing::Point(45, 104);
             this->singin_panel->Name = L"singin_panel";
-            this->singin_panel->Size = System::Drawing::Size(614, 475);
+            this->singin_panel->Size = System::Drawing::Size(537, 475);
             this->singin_panel->TabIndex = 20;
             // 
             // signup_timer
@@ -717,10 +717,10 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             // 
             // MyForm
             // 
-            this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+            this->AutoScaleDimensions = System::Drawing::SizeF(7, 16);
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
-            this->ClientSize = System::Drawing::Size(1222, 690);
+            this->ClientSize = System::Drawing::Size(1069, 690);
             this->Controls->Add(this->Main_BG);
             this->Controls->Add(this->singin_panel);
             this->Controls->Add(this->label12);
