@@ -6,7 +6,7 @@ Property::Property()
 
 }
 
-Property::Property(int id, std::string type, std::string location, int price, int ownerId, int availability, int numBedrooms, double area, bool isHighLighted)
+Property::Property(int id, std::string type, std::string location, int price, int ownerId, int availability, int numBedrooms, double area, bool isHighLighted , std::string description)
 {
     this->id = id;
     this->type = type;
@@ -17,6 +17,7 @@ Property::Property(int id, std::string type, std::string location, int price, in
     this->numBedrooms = numBedrooms;
     this->area = area;
     this->isHighLighted = isHighLighted;
+    this->description = description;
 }
 
 // Getters
@@ -30,6 +31,11 @@ std::string Property::getType() {
 
 std::string Property::getLocation() {
     return location;
+}
+
+std::string Property::getDescription()
+{
+    return this->description;
 }
 
 int Property::getPrice() {
@@ -83,6 +89,11 @@ void Property::setArea(double newArea) {
 
 void Property::setHighlight(bool h) {
     this->isHighLighted = h;
+}
+
+void Property::setDescription(std::string description)
+{
+    this->description = description;
 }
 
 std::string Property::to_string() {

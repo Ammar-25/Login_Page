@@ -139,6 +139,17 @@ namespace LoginPage {
 private: System::Windows::Forms::PictureBox^ pictureBox8;
 private: System::Windows::Forms::Button^ start_btn;
 
+
+
+
+
+private: System::Windows::Forms::Button^ button24;
+private: System::Windows::Forms::TextBox^ textBox12;
+private: System::Windows::Forms::ComboBox^ comboBox2;
+private: System::Windows::Forms::NumericUpDown^ numericUpDown2;
+private: System::Windows::Forms::TextBox^ textBox14;
+private: System::Windows::Forms::TextBox^ textBox13;
+
     protected:
 
     protected:
@@ -148,7 +159,7 @@ private: System::Windows::Forms::Button^ start_btn;
 
      System::String^ currentField;
 
-        /// Ammar panel
+        /// Ammar panels
         Panel^ CreatePropertyPanel(String^ id, String^ type, String^ price, String^ status) {
             Panel^ panel = gcnew Panel();
             panel->Size = System::Drawing::Size(900, 150);
@@ -240,6 +251,9 @@ private: System::Windows::Forms::Button^ start_btn;
             button1->TabIndex = 11;
             button1->Text = L"More Details";
             button1->UseVisualStyleBackColor = false;
+            button1->Click += gcnew EventHandler(this, &UserForm::MoreDetails_Click);
+            button1->Tag = id; 
+
 
             // Add controls
             panel->Controls->Add(label8);
@@ -257,6 +271,190 @@ private: System::Windows::Forms::Button^ start_btn;
 
 
 
+        //Panel^ CreatePropertyBrowsePanel(String^ id, String^ type, String^ price, String^ status) {
+        //   
+        //    Panel^ panel = gcnew Panel();
+
+        //    // 
+        //    // panel2
+        //    // 
+        //    this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
+        //        static_cast<System::Int32>(static_cast<System::Byte>(122)));
+        //    this->panel2->Controls->Add(this->button18);
+        //    this->panel2->Controls->Add(this->label9);
+        //    this->panel2->Controls->Add(this->button19);
+        //    this->panel2->Controls->Add(this->label35);
+        //    this->panel2->Controls->Add(this->button20);
+        //    this->panel2->Controls->Add(this->label36);
+        //    this->panel2->Controls->Add(this->label37);
+        //    this->panel2->Controls->Add(this->label38);
+        //    this->panel2->Controls->Add(this->label39);
+        //    this->panel2->Controls->Add(this->label40);
+        //    this->panel2->Controls->Add(this->label41);
+        //    this->panel2->Location = System::Drawing::Point(245, 54);
+        //    this->panel2->Name = L"panel2";
+        //    this->panel2->Size = System::Drawing::Size(682, 119);
+        //    this->panel2->TabIndex = 4;
+        //    // 
+        //    // button18
+        //    // 
+        //    this->button18->BackColor = System::Drawing::Color::CadetBlue;
+        //    this->button18->Cursor = System::Windows::Forms::Cursors::Hand;
+        //    this->button18->FlatAppearance->BorderSize = 0;
+        //    this->button18->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+        //    this->button18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold));
+        //    this->button18->ForeColor = System::Drawing::Color::WhiteSmoke;
+        //    this->button18->Location = System::Drawing::Point(516, 81);
+        //    this->button18->Name = L"button18";
+        //    this->button18->Size = System::Drawing::Size(148, 30);
+        //    this->button18->TabIndex = 17;
+        //    this->button18->Text = L"BUY";
+        //    this->button18->UseVisualStyleBackColor = false;
+        //    // 
+        //    // label9
+        //    // 
+        //    this->label9->AutoSize = true;
+        //    this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label9->ForeColor = System::Drawing::Color::White;
+        //    this->label9->Location = System::Drawing::Point(356, 61);
+        //    this->label9->Name = L"label9";
+        //    this->label9->Size = System::Drawing::Size(74, 20);
+        //    this->label9->TabIndex = 3;
+        //    this->label9->Text = L"$10,000";
+        //    // 
+        //    // button19
+        //    // 
+        //    this->button19->BackColor = System::Drawing::Color::CadetBlue;
+        //    this->button19->Cursor = System::Windows::Forms::Cursors::Hand;
+        //    this->button19->FlatAppearance->BorderSize = 0;
+        //    this->button19->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+        //    this->button19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->button19->ForeColor = System::Drawing::Color::WhiteSmoke;
+        //    this->button19->Location = System::Drawing::Point(516, 46);
+        //    this->button19->Name = L"button19";
+        //    this->button19->Size = System::Drawing::Size(146, 30);
+        //    this->button19->TabIndex = 16;
+        //    this->button19->Text = L"COMPARISON";
+        //    this->button19->UseVisualStyleBackColor = false;
+        //    // 
+        //    // label35
+        //    // 
+        //    this->label35->AutoSize = true;
+        //    this->label35->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label35->ForeColor = System::Drawing::Color::White;
+        //    this->label35->Location = System::Drawing::Point(357, 18);
+        //    this->label35->Name = L"label35";
+        //    this->label35->Size = System::Drawing::Size(46, 20);
+        //    this->label35->TabIndex = 3;
+        //    this->label35->Text = L"Villa";
+        //    // 
+        //    // button20
+        //    // 
+        //    this->button20->BackColor = System::Drawing::Color::CadetBlue;
+        //    this->button20->Cursor = System::Windows::Forms::Cursors::Hand;
+        //    this->button20->FlatAppearance->BorderSize = 0;
+        //    this->button20->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+        //    this->button20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold));
+        //    this->button20->ForeColor = System::Drawing::Color::WhiteSmoke;
+        //    this->button20->Location = System::Drawing::Point(516, 9);
+        //    this->button20->Name = L"button20";
+        //    this->button20->Size = System::Drawing::Size(146, 30);
+        //    this->button20->TabIndex = 15;
+        //    this->button20->Text = L"DETAILS";
+        //    this->button20->UseVisualStyleBackColor = false;
+        //    // 
+        //    // label36
+        //    // 
+        //    this->label36->AutoSize = true;
+        //    this->label36->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label36->ForeColor = System::Drawing::Color::White;
+        //    this->label36->Location = System::Drawing::Point(296, 61);
+        //    this->label36->Name = L"label36";
+        //    this->label36->Size = System::Drawing::Size(59, 20);
+        //    this->label36->TabIndex = 3;
+        //    this->label36->Text = L"Price:";
+        //    // 
+        //    // label37
+        //    // 
+        //    this->label37->AutoSize = true;
+        //    this->label37->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label37->ForeColor = System::Drawing::Color::White;
+        //    this->label37->Location = System::Drawing::Point(74, 64);
+        //    this->label37->Name = L"label37";
+        //    this->label37->Size = System::Drawing::Size(39, 20);
+        //    this->label37->TabIndex = 3;
+        //    this->label37->Text = L"100";
+        //    // 
+        //    // label38
+        //    // 
+        //    this->label38->AutoSize = true;
+        //    this->label38->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label38->ForeColor = System::Drawing::Color::White;
+        //    this->label38->Location = System::Drawing::Point(43, 21);
+        //    this->label38->Name = L"label38";
+        //    this->label38->Size = System::Drawing::Size(29, 20);
+        //    this->label38->TabIndex = 3;
+        //    this->label38->Text = L"10";
+        //    // 
+        //    // label39
+        //    // 
+        //    this->label39->AutoSize = true;
+        //    this->label39->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label39->ForeColor = System::Drawing::Color::White;
+        //    this->label39->Location = System::Drawing::Point(17, 64);
+        //    this->label39->Name = L"label39";
+        //    this->label39->Size = System::Drawing::Size(60, 20);
+        //    this->label39->TabIndex = 3;
+        //    this->label39->Text = L"Area: ";
+        //    // 
+        //    // label40
+        //    // 
+        //    this->label40->AutoSize = true;
+        //    this->label40->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label40->ForeColor = System::Drawing::Color::White;
+        //    this->label40->Location = System::Drawing::Point(296, 18);
+        //    this->label40->Name = L"label40";
+        //    this->label40->Size = System::Drawing::Size(61, 20);
+        //    this->label40->TabIndex = 3;
+        //    this->label40->Text = L"Type: ";
+        //    // 
+        //    // label41
+        //    // 
+        //    this->label41->AutoSize = true;
+        //    this->label41->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label41->ForeColor = System::Drawing::Color::White;
+        //    this->label41->Location = System::Drawing::Point(17, 21);
+        //    this->label41->Name = L"label41";
+        //    this->label41->Size = System::Drawing::Size(36, 20);
+        //    this->label41->TabIndex = 3;
+        //    this->label41->Text = L"Id: ";
+
+
+        //    // 
+        //    // label58
+        //    // 
+        //    this->label58->AutoSize = true;
+        //    this->label58->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+        //        static_cast<System::Byte>(0)));
+        //    this->label58->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(220)),
+        //        static_cast<System::Int32>(static_cast<System::Byte>(100)));
+        //    this->label58->Location = System::Drawing::Point(41, 90);
+        //    this->label58->Name = L"label58";
+        //    this->label58->Size = System::Drawing::Size(190, 20);
+        //    this->label58->TabIndex = 7;
+        //    this->label58->Text = L"Highlighted By Admin";
+
+        //    //return panel;
+        //}
 
 
 
@@ -414,6 +612,7 @@ private: System::Windows::Forms::Button^ button2;
 
     private: Form^ parent;
     private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e);
+    private: System::Void MoreDetails_Click(System::Object^ sender, System::EventArgs^ e);
     private: System::Void DeleteProperty_Click(System::Object^ sender, System::EventArgs^ e);
     private: System::Windows::Forms::Button^ button6;
     private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
@@ -488,11 +687,11 @@ private: System::Windows::Forms::Button^ button2;
     private: System::Windows::Forms::Label^ label25;
     private: System::Windows::Forms::Label^ label26;
     private: System::Windows::Forms::TextBox^ textBox6;
-    private: System::Windows::Forms::Label^ label28;
-    private: System::Windows::Forms::Label^ label32;
-    private: System::Windows::Forms::Label^ label31;
-    private: System::Windows::Forms::Label^ label30;
-    private: System::Windows::Forms::Label^ label29;
+
+
+
+
+
     private: System::Windows::Forms::Label^ label24;
     private: System::Windows::Forms::Label^ label27;
     private: System::Windows::Forms::Panel^ Home_panel;
@@ -584,12 +783,13 @@ private: System::Windows::Forms::Button^ button2;
             this->label16 = (gcnew System::Windows::Forms::Label());
             this->label13 = (gcnew System::Windows::Forms::Label());
             this->Details_Panel = (gcnew System::Windows::Forms::Panel());
+            this->textBox14 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox13 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox12 = (gcnew System::Windows::Forms::TextBox());
+            this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
+            this->numericUpDown2 = (gcnew System::Windows::Forms::NumericUpDown());
+            this->button24 = (gcnew System::Windows::Forms::Button());
             this->textBox6 = (gcnew System::Windows::Forms::TextBox());
-            this->label28 = (gcnew System::Windows::Forms::Label());
-            this->label32 = (gcnew System::Windows::Forms::Label());
-            this->label31 = (gcnew System::Windows::Forms::Label());
-            this->label30 = (gcnew System::Windows::Forms::Label());
-            this->label29 = (gcnew System::Windows::Forms::Label());
             this->label24 = (gcnew System::Windows::Forms::Label());
             this->label27 = (gcnew System::Windows::Forms::Label());
             this->label10 = (gcnew System::Windows::Forms::Label());
@@ -632,17 +832,6 @@ private: System::Windows::Forms::Button^ button2;
             this->label48 = (gcnew System::Windows::Forms::Label());
             this->label49 = (gcnew System::Windows::Forms::Label());
             this->panel2 = (gcnew System::Windows::Forms::Panel());
-            this->button18 = (gcnew System::Windows::Forms::Button());
-            this->label9 = (gcnew System::Windows::Forms::Label());
-            this->button19 = (gcnew System::Windows::Forms::Button());
-            this->label35 = (gcnew System::Windows::Forms::Label());
-            this->button20 = (gcnew System::Windows::Forms::Button());
-            this->label36 = (gcnew System::Windows::Forms::Label());
-            this->label37 = (gcnew System::Windows::Forms::Label());
-            this->label38 = (gcnew System::Windows::Forms::Label());
-            this->label39 = (gcnew System::Windows::Forms::Label());
-            this->label40 = (gcnew System::Windows::Forms::Label());
-            this->label41 = (gcnew System::Windows::Forms::Label());
             this->panel1 = (gcnew System::Windows::Forms::Panel());
             this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
             this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
@@ -658,6 +847,17 @@ private: System::Windows::Forms::Button^ button2;
             this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
             this->label33 = (gcnew System::Windows::Forms::Label());
             this->label34 = (gcnew System::Windows::Forms::Label());
+            this->button18 = (gcnew System::Windows::Forms::Button());
+            this->label9 = (gcnew System::Windows::Forms::Label());
+            this->button19 = (gcnew System::Windows::Forms::Button());
+            this->label35 = (gcnew System::Windows::Forms::Label());
+            this->button20 = (gcnew System::Windows::Forms::Button());
+            this->label36 = (gcnew System::Windows::Forms::Label());
+            this->label37 = (gcnew System::Windows::Forms::Label());
+            this->label38 = (gcnew System::Windows::Forms::Label());
+            this->label39 = (gcnew System::Windows::Forms::Label());
+            this->label40 = (gcnew System::Windows::Forms::Label());
+            this->label41 = (gcnew System::Windows::Forms::Label());
             this->Comparison_panel = (gcnew System::Windows::Forms::Panel());
             this->panel7 = (gcnew System::Windows::Forms::Panel());
             this->pictureBox21 = (gcnew System::Windows::Forms::PictureBox());
@@ -724,12 +924,12 @@ private: System::Windows::Forms::Button^ button2;
             this->New_Property->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numBedrooms))->BeginInit();
             this->Details_Panel->SuspendLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->BeginInit();
             this->Home_panel->SuspendLayout();
             this->Browse_panel->SuspendLayout();
             this->panel6->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
             this->panel3->SuspendLayout();
-            this->panel2->SuspendLayout();
             this->panel1->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
@@ -1038,12 +1238,12 @@ private: System::Windows::Forms::Button^ button2;
             // label89
             // 
             this->label89->AutoSize = true;
-            this->label89->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label89->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label89->ForeColor = System::Drawing::Color::White;
             this->label89->Location = System::Drawing::Point(185, 22);
             this->label89->Name = L"label89";
-            this->label89->Size = System::Drawing::Size(61, 31);
+            this->label89->Size = System::Drawing::Size(61, 29);
             this->label89->TabIndex = 15;
             this->label89->Text = L"Edit";
             // 
@@ -1083,18 +1283,18 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->editBox->Location = System::Drawing::Point(166, 101);
             this->editBox->Name = L"editBox";
-            this->editBox->Size = System::Drawing::Size(250, 24);
+            this->editBox->Size = System::Drawing::Size(250, 22);
             this->editBox->TabIndex = 11;
             // 
             // editLabel
             // 
             this->editLabel->AutoSize = true;
-            this->editLabel->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->editLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->editLabel->ForeColor = System::Drawing::Color::White;
             this->editLabel->Location = System::Drawing::Point(32, 98);
             this->editLabel->Name = L"editLabel";
-            this->editLabel->Size = System::Drawing::Size(95, 31);
+            this->editLabel->Size = System::Drawing::Size(101, 29);
             this->editLabel->TabIndex = 10;
             this->editLabel->Text = L"Name: ";
             // 
@@ -1161,111 +1361,111 @@ private: System::Windows::Forms::Button^ button2;
             // user_balance
             // 
             this->user_balance->AutoSize = true;
-            this->user_balance->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->user_balance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_balance->ForeColor = System::Drawing::Color::White;
             this->user_balance->Location = System::Drawing::Point(150, 371);
             this->user_balance->Name = L"user_balance";
-            this->user_balance->Size = System::Drawing::Size(155, 31);
+            this->user_balance->Size = System::Drawing::Size(158, 29);
             this->user_balance->TabIndex = 2;
             this->user_balance->Text = L"Placeholder";
             // 
             // user_phone
             // 
             this->user_phone->AutoSize = true;
-            this->user_phone->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->user_phone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_phone->ForeColor = System::Drawing::Color::White;
             this->user_phone->Location = System::Drawing::Point(131, 268);
             this->user_phone->Name = L"user_phone";
-            this->user_phone->Size = System::Drawing::Size(155, 31);
+            this->user_phone->Size = System::Drawing::Size(158, 29);
             this->user_phone->TabIndex = 2;
             this->user_phone->Text = L"Placeholder";
             // 
             // user_email
             // 
             this->user_email->AutoSize = true;
-            this->user_email->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->user_email->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_email->ForeColor = System::Drawing::Color::White;
             this->user_email->Location = System::Drawing::Point(131, 171);
             this->user_email->Name = L"user_email";
-            this->user_email->Size = System::Drawing::Size(155, 31);
+            this->user_email->Size = System::Drawing::Size(158, 29);
             this->user_email->TabIndex = 3;
             this->user_email->Text = L"Placeholder";
             // 
             // user_name
             // 
             this->user_name->AutoSize = true;
-            this->user_name->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->user_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_name->ForeColor = System::Drawing::Color::White;
             this->user_name->Location = System::Drawing::Point(131, 79);
             this->user_name->Name = L"user_name";
-            this->user_name->Size = System::Drawing::Size(155, 31);
+            this->user_name->Size = System::Drawing::Size(158, 29);
             this->user_name->TabIndex = 4;
             this->user_name->Text = L"Placeholder";
             // 
             // user_password
             // 
             this->user_password->AutoSize = true;
-            this->user_password->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->user_password->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_password->ForeColor = System::Drawing::Color::White;
             this->user_password->Location = System::Drawing::Point(169, 483);
             this->user_password->Name = L"user_password";
-            this->user_password->Size = System::Drawing::Size(32, 31);
+            this->user_password->Size = System::Drawing::Size(35, 29);
             this->user_password->TabIndex = 5;
             this->user_password->Text = L"**";
             // 
             // label90
             // 
             this->label90->AutoSize = true;
-            this->label90->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->label90->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label90->ForeColor = System::Drawing::Color::White;
             this->label90->Location = System::Drawing::Point(31, 476);
             this->label90->Name = L"label90";
-            this->label90->Size = System::Drawing::Size(139, 31);
+            this->label90->Size = System::Drawing::Size(140, 29);
             this->label90->TabIndex = 5;
             this->label90->Text = L"Password:";
             // 
             // label79
             // 
             this->label79->AutoSize = true;
-            this->label79->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->label79->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label79->ForeColor = System::Drawing::Color::White;
             this->label79->Location = System::Drawing::Point(31, 369);
             this->label79->Name = L"label79";
-            this->label79->Size = System::Drawing::Size(120, 31);
+            this->label79->Size = System::Drawing::Size(128, 29);
             this->label79->TabIndex = 5;
             this->label79->Text = L"Balance: ";
             // 
             // label59
             // 
             this->label59->AutoSize = true;
-            this->label59->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->label59->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label59->ForeColor = System::Drawing::Color::White;
             this->label59->Location = System::Drawing::Point(31, 268);
             this->label59->Name = L"label59";
-            this->label59->Size = System::Drawing::Size(101, 31);
+            this->label59->Size = System::Drawing::Size(107, 29);
             this->label59->TabIndex = 5;
             this->label59->Text = L"Phone: ";
             // 
             // label60
             // 
             this->label60->AutoSize = true;
-            this->label60->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold));
+            this->label60->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label60->ForeColor = System::Drawing::Color::White;
             this->label60->Location = System::Drawing::Point(35, 171);
             this->label60->Name = L"label60";
-            this->label60->Size = System::Drawing::Size(90, 31);
+            this->label60->Size = System::Drawing::Size(99, 29);
             this->label60->TabIndex = 6;
             this->label60->Text = L"Email: ";
             // 
             // label61
             // 
             this->label61->AutoSize = true;
-            this->label61->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label61->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label61->ForeColor = System::Drawing::Color::White;
             this->label61->Location = System::Drawing::Point(35, 79);
             this->label61->Name = L"label61";
-            this->label61->Size = System::Drawing::Size(95, 31);
+            this->label61->Size = System::Drawing::Size(101, 29);
             this->label61->TabIndex = 7;
             this->label61->Text = L"Name: ";
             // 
@@ -1289,30 +1489,30 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->textBox11->Location = System::Drawing::Point(234, 163);
             this->textBox11->Name = L"textBox11";
-            this->textBox11->Size = System::Drawing::Size(197, 24);
+            this->textBox11->Size = System::Drawing::Size(197, 22);
             this->textBox11->TabIndex = 17;
             // 
             // label94
             // 
             this->label94->AutoSize = true;
-            this->label94->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label94->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label94->ForeColor = System::Drawing::Color::White;
             this->label94->Location = System::Drawing::Point(26, 162);
             this->label94->Name = L"label94";
-            this->label94->Size = System::Drawing::Size(200, 31);
+            this->label94->Size = System::Drawing::Size(201, 29);
             this->label94->TabIndex = 16;
             this->label94->Text = L"New Password:";
             // 
             // label92
             // 
             this->label92->AutoSize = true;
-            this->label92->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label92->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label92->ForeColor = System::Drawing::Color::White;
             this->label92->Location = System::Drawing::Point(120, 21);
             this->label92->Name = L"label92";
-            this->label92->Size = System::Drawing::Size(229, 31);
+            this->label92->Size = System::Drawing::Size(234, 29);
             this->label92->TabIndex = 15;
             this->label92->Text = L"Change Password";
             // 
@@ -1351,18 +1551,18 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->textBox10->Location = System::Drawing::Point(234, 97);
             this->textBox10->Name = L"textBox10";
-            this->textBox10->Size = System::Drawing::Size(197, 24);
+            this->textBox10->Size = System::Drawing::Size(197, 22);
             this->textBox10->TabIndex = 11;
             // 
             // label93
             // 
             this->label93->AutoSize = true;
-            this->label93->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label93->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label93->ForeColor = System::Drawing::Color::White;
             this->label93->Location = System::Drawing::Point(27, 94);
             this->label93->Name = L"label93";
-            this->label93->Size = System::Drawing::Size(185, 31);
+            this->label93->Size = System::Drawing::Size(190, 29);
             this->label93->TabIndex = 10;
             this->label93->Text = L"Old Password:";
             // 
@@ -1457,7 +1657,7 @@ private: System::Windows::Forms::Button^ button2;
             this->numBedrooms->Location = System::Drawing::Point(350, 174);
             this->numBedrooms->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
             this->numBedrooms->Name = L"numBedrooms";
-            this->numBedrooms->Size = System::Drawing::Size(122, 24);
+            this->numBedrooms->Size = System::Drawing::Size(122, 22);
             this->numBedrooms->TabIndex = 12;
             // 
             // TypeCompo
@@ -1485,21 +1685,21 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->txtArea->Location = System::Drawing::Point(71, 174);
             this->txtArea->Name = L"txtArea";
-            this->txtArea->Size = System::Drawing::Size(121, 24);
+            this->txtArea->Size = System::Drawing::Size(121, 22);
             this->txtArea->TabIndex = 9;
             // 
             // txtPrice
             // 
             this->txtPrice->Location = System::Drawing::Point(350, 101);
             this->txtPrice->Name = L"txtPrice";
-            this->txtPrice->Size = System::Drawing::Size(122, 24);
+            this->txtPrice->Size = System::Drawing::Size(122, 22);
             this->txtPrice->TabIndex = 9;
             // 
             // txtLocation
             // 
             this->txtLocation->Location = System::Drawing::Point(71, 241);
             this->txtLocation->Name = L"txtLocation";
-            this->txtLocation->Size = System::Drawing::Size(450, 24);
+            this->txtLocation->Size = System::Drawing::Size(450, 22);
             this->txtLocation->TabIndex = 8;
             // 
             // label_New_Property
@@ -1608,12 +1808,13 @@ private: System::Windows::Forms::Button^ button2;
             this->Details_Panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->Details_Panel->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+            this->Details_Panel->Controls->Add(this->textBox14);
+            this->Details_Panel->Controls->Add(this->textBox13);
+            this->Details_Panel->Controls->Add(this->textBox12);
+            this->Details_Panel->Controls->Add(this->comboBox2);
+            this->Details_Panel->Controls->Add(this->numericUpDown2);
+            this->Details_Panel->Controls->Add(this->button24);
             this->Details_Panel->Controls->Add(this->textBox6);
-            this->Details_Panel->Controls->Add(this->label28);
-            this->Details_Panel->Controls->Add(this->label32);
-            this->Details_Panel->Controls->Add(this->label31);
-            this->Details_Panel->Controls->Add(this->label30);
-            this->Details_Panel->Controls->Add(this->label29);
             this->Details_Panel->Controls->Add(this->label24);
             this->Details_Panel->Controls->Add(this->label27);
             this->Details_Panel->Controls->Add(this->label10);
@@ -1632,98 +1833,93 @@ private: System::Windows::Forms::Button^ button2;
             this->Details_Panel->TabIndex = 9;
             this->Details_Panel->Visible = false;
             // 
+            // textBox14
+            // 
+            this->textBox14->Location = System::Drawing::Point(64, 247);
+            this->textBox14->Name = L"textBox14";
+            this->textBox14->Size = System::Drawing::Size(122, 22);
+            this->textBox14->TabIndex = 20;
+            // 
+            // textBox13
+            // 
+            this->textBox13->Location = System::Drawing::Point(64, 182);
+            this->textBox13->Name = L"textBox13";
+            this->textBox13->Size = System::Drawing::Size(122, 22);
+            this->textBox13->TabIndex = 19;
+            // 
+            // textBox12
+            // 
+            this->textBox12->Location = System::Drawing::Point(361, 246);
+            this->textBox12->Name = L"textBox12";
+            this->textBox12->Size = System::Drawing::Size(122, 22);
+            this->textBox12->TabIndex = 18;
+            // 
+            // comboBox2
+            // 
+            this->comboBox2->FormattingEnabled = true;
+            this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+                L"Apartment", L"Condominium", L"Townhouse", L"Duplex",
+                    L"Villa"
+            });
+            this->comboBox2->Location = System::Drawing::Point(358, 110);
+            this->comboBox2->Name = L"comboBox2";
+            this->comboBox2->Size = System::Drawing::Size(121, 24);
+            this->comboBox2->TabIndex = 17;
+            // 
+            // numericUpDown2
+            // 
+            this->numericUpDown2->Location = System::Drawing::Point(361, 181);
+            this->numericUpDown2->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
+            this->numericUpDown2->Name = L"numericUpDown2";
+            this->numericUpDown2->Size = System::Drawing::Size(122, 22);
+            this->numericUpDown2->TabIndex = 16;
+            // 
+            // button24
+            // 
+            this->button24->BackColor = System::Drawing::Color::CadetBlue;
+            this->button24->FlatAppearance->BorderSize = 0;
+            this->button24->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->button24->ForeColor = System::Drawing::Color::WhiteSmoke;
+            this->button24->Location = System::Drawing::Point(371, 415);
+            this->button24->Name = L"button24";
+            this->button24->Size = System::Drawing::Size(151, 44);
+            this->button24->TabIndex = 15;
+            this->button24->Text = L"Save Changes";
+            this->button24->UseVisualStyleBackColor = false;
+            this->button24->Click += gcnew System::EventHandler(this, &UserForm::button24_Click);
+            // 
             // textBox6
             // 
             this->textBox6->Location = System::Drawing::Point(166, 300);
             this->textBox6->Multiline = true;
             this->textBox6->Name = L"textBox6";
-            this->textBox6->ReadOnly = true;
             this->textBox6->Size = System::Drawing::Size(402, 97);
             this->textBox6->TabIndex = 9;
-            // 
-            // label28
-            // 
-            this->label28->AutoSize = true;
-            this->label28->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label28->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label28->Location = System::Drawing::Point(351, 102);
-            this->label28->Name = L"label28";
-            this->label28->Size = System::Drawing::Size(85, 17);
-            this->label28->TabIndex = 8;
-            this->label28->Text = L"Place_holder";
-            // 
-            // label32
-            // 
-            this->label32->AutoSize = true;
-            this->label32->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label32->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label32->Location = System::Drawing::Point(351, 246);
-            this->label32->Name = L"label32";
-            this->label32->Size = System::Drawing::Size(85, 17);
-            this->label32->TabIndex = 8;
-            this->label32->Text = L"Place_holder";
-            // 
-            // label31
-            // 
-            this->label31->AutoSize = true;
-            this->label31->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label31->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label31->Location = System::Drawing::Point(70, 246);
-            this->label31->Name = L"label31";
-            this->label31->Size = System::Drawing::Size(85, 17);
-            this->label31->TabIndex = 8;
-            this->label31->Text = L"Place_holder";
-            // 
-            // label30
-            // 
-            this->label30->AutoSize = true;
-            this->label30->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label30->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label30->Location = System::Drawing::Point(351, 177);
-            this->label30->Name = L"label30";
-            this->label30->Size = System::Drawing::Size(85, 17);
-            this->label30->TabIndex = 8;
-            this->label30->Text = L"Place_holder";
-            // 
-            // label29
-            // 
-            this->label29->AutoSize = true;
-            this->label29->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label29->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label29->Location = System::Drawing::Point(70, 177);
-            this->label29->Name = L"label29";
-            this->label29->Size = System::Drawing::Size(85, 17);
-            this->label29->TabIndex = 8;
-            this->label29->Text = L"Place_holder";
             // 
             // label24
             // 
             this->label24->AutoSize = true;
-            this->label24->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label24->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label24->ForeColor = System::Drawing::Color::PaleGoldenrod;
             this->label24->Location = System::Drawing::Point(70, 102);
             this->label24->Name = L"label24";
-            this->label24->Size = System::Drawing::Size(85, 17);
+            this->label24->Size = System::Drawing::Size(110, 23);
             this->label24->TabIndex = 8;
             this->label24->Text = L"Place_holder";
             // 
             // label27
             // 
             this->label27->AutoSize = true;
-            this->label27->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label27->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label27->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label27->Location = System::Drawing::Point(45, 28);
+            this->label27->Location = System::Drawing::Point(48, 25);
             this->label27->Name = L"label27";
-            this->label27->Size = System::Drawing::Size(85, 17);
+            this->label27->Size = System::Drawing::Size(110, 23);
             this->label27->TabIndex = 8;
             this->label27->Text = L"Place_holder";
+            this->label27->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
             // 
             // label10
             // 
@@ -1745,7 +1941,7 @@ private: System::Windows::Forms::Button^ button2;
             this->button5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button5->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button5->Location = System::Drawing::Point(274, 420);
+            this->button5->Location = System::Drawing::Point(173, 415);
             this->button5->Name = L"button5";
             this->button5->Size = System::Drawing::Size(142, 44);
             this->button5->TabIndex = 7;
@@ -1854,8 +2050,8 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->Home_panel->Controls->Add(this->button3);
             this->Home_panel->Controls->Add(this->label5);
-            this->Home_panel->Controls->Add(this->New_Property);
             this->Home_panel->Controls->Add(this->Details_Panel);
+            this->Home_panel->Controls->Add(this->New_Property);
             this->Home_panel->Controls->Add(this->flowLayoutPanel1);
             this->Home_panel->Location = System::Drawing::Point(6, 92);
             this->Home_panel->Name = L"Home_panel";
@@ -1880,8 +2076,8 @@ private: System::Windows::Forms::Button^ button2;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Browse_panel->Controls->Add(this->panel6);
             this->Browse_panel->Controls->Add(this->panel3);
-            this->Browse_panel->Controls->Add(this->panel2);
             this->Browse_panel->Controls->Add(this->panel1);
+            this->Browse_panel->Controls->Add(this->panel2);
             this->Browse_panel->Location = System::Drawing::Point(6, 93);
             this->Browse_panel->Name = L"Browse_panel";
             this->Browse_panel->Size = System::Drawing::Size(972, 621);
@@ -1937,25 +2133,25 @@ private: System::Windows::Forms::Button^ button2;
             // label58
             // 
             this->label58->AutoSize = true;
-            this->label58->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label58->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label58->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(220)),
                 static_cast<System::Int32>(static_cast<System::Byte>(100)));
             this->label58->Location = System::Drawing::Point(41, 90);
             this->label58->Name = L"label58";
-            this->label58->Size = System::Drawing::Size(181, 21);
+            this->label58->Size = System::Drawing::Size(190, 20);
             this->label58->TabIndex = 7;
             this->label58->Text = L"Highlighted By Admin";
             // 
             // label70
             // 
             this->label70->AutoSize = true;
-            this->label70->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label70->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label70->ForeColor = System::Drawing::Color::White;
             this->label70->Location = System::Drawing::Point(356, 56);
             this->label70->Name = L"label70";
-            this->label70->Size = System::Drawing::Size(81, 21);
+            this->label70->Size = System::Drawing::Size(74, 20);
             this->label70->TabIndex = 3;
             this->label70->Text = L"$10,000";
             // 
@@ -1978,12 +2174,12 @@ private: System::Windows::Forms::Button^ button2;
             // label71
             // 
             this->label71->AutoSize = true;
-            this->label71->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label71->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label71->ForeColor = System::Drawing::Color::White;
             this->label71->Location = System::Drawing::Point(357, 18);
             this->label71->Name = L"label71";
-            this->label71->Size = System::Drawing::Size(45, 21);
+            this->label71->Size = System::Drawing::Size(46, 20);
             this->label71->TabIndex = 3;
             this->label71->Text = L"Villa";
             // 
@@ -2005,72 +2201,72 @@ private: System::Windows::Forms::Button^ button2;
             // label72
             // 
             this->label72->AutoSize = true;
-            this->label72->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label72->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label72->ForeColor = System::Drawing::Color::White;
             this->label72->Location = System::Drawing::Point(296, 56);
             this->label72->Name = L"label72";
-            this->label72->Size = System::Drawing::Size(54, 21);
+            this->label72->Size = System::Drawing::Size(59, 20);
             this->label72->TabIndex = 3;
             this->label72->Text = L"Price:";
             // 
             // label73
             // 
             this->label73->AutoSize = true;
-            this->label73->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label73->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label73->ForeColor = System::Drawing::Color::White;
             this->label73->Location = System::Drawing::Point(74, 59);
             this->label73->Name = L"label73";
-            this->label73->Size = System::Drawing::Size(40, 21);
+            this->label73->Size = System::Drawing::Size(39, 20);
             this->label73->TabIndex = 3;
             this->label73->Text = L"100";
             // 
             // label74
             // 
             this->label74->AutoSize = true;
-            this->label74->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label74->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label74->ForeColor = System::Drawing::Color::White;
             this->label74->Location = System::Drawing::Point(43, 21);
             this->label74->Name = L"label74";
-            this->label74->Size = System::Drawing::Size(22, 21);
+            this->label74->Size = System::Drawing::Size(29, 20);
             this->label74->TabIndex = 3;
             this->label74->Text = L"11";
             // 
             // label75
             // 
             this->label75->AutoSize = true;
-            this->label75->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label75->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label75->ForeColor = System::Drawing::Color::White;
             this->label75->Location = System::Drawing::Point(17, 59);
             this->label75->Name = L"label75";
-            this->label75->Size = System::Drawing::Size(57, 21);
+            this->label75->Size = System::Drawing::Size(60, 20);
             this->label75->TabIndex = 3;
             this->label75->Text = L"Area: ";
             // 
             // label76
             // 
             this->label76->AutoSize = true;
-            this->label76->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label76->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label76->ForeColor = System::Drawing::Color::White;
             this->label76->Location = System::Drawing::Point(296, 18);
             this->label76->Name = L"label76";
-            this->label76->Size = System::Drawing::Size(58, 21);
+            this->label76->Size = System::Drawing::Size(61, 20);
             this->label76->TabIndex = 3;
             this->label76->Text = L"Type: ";
             // 
             // label77
             // 
             this->label77->AutoSize = true;
-            this->label77->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label77->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label77->ForeColor = System::Drawing::Color::White;
             this->label77->Location = System::Drawing::Point(17, 21);
             this->label77->Name = L"label77";
-            this->label77->Size = System::Drawing::Size(32, 21);
+            this->label77->Size = System::Drawing::Size(36, 20);
             this->label77->TabIndex = 3;
             this->label77->Text = L"Id: ";
             // 
@@ -2112,12 +2308,12 @@ private: System::Windows::Forms::Button^ button2;
             // label42
             // 
             this->label42->AutoSize = true;
-            this->label42->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label42->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label42->ForeColor = System::Drawing::Color::White;
             this->label42->Location = System::Drawing::Point(356, 61);
             this->label42->Name = L"label42";
-            this->label42->Size = System::Drawing::Size(81, 21);
+            this->label42->Size = System::Drawing::Size(74, 20);
             this->label42->TabIndex = 3;
             this->label42->Text = L"$10,000";
             // 
@@ -2141,12 +2337,12 @@ private: System::Windows::Forms::Button^ button2;
             // label43
             // 
             this->label43->AutoSize = true;
-            this->label43->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label43->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label43->ForeColor = System::Drawing::Color::White;
             this->label43->Location = System::Drawing::Point(357, 18);
             this->label43->Name = L"label43";
-            this->label43->Size = System::Drawing::Size(45, 21);
+            this->label43->Size = System::Drawing::Size(46, 20);
             this->label43->TabIndex = 3;
             this->label43->Text = L"Villa";
             // 
@@ -2168,236 +2364,81 @@ private: System::Windows::Forms::Button^ button2;
             // label44
             // 
             this->label44->AutoSize = true;
-            this->label44->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label44->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label44->ForeColor = System::Drawing::Color::White;
             this->label44->Location = System::Drawing::Point(296, 61);
             this->label44->Name = L"label44";
-            this->label44->Size = System::Drawing::Size(54, 21);
+            this->label44->Size = System::Drawing::Size(59, 20);
             this->label44->TabIndex = 3;
             this->label44->Text = L"Price:";
             // 
             // label45
             // 
             this->label45->AutoSize = true;
-            this->label45->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label45->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label45->ForeColor = System::Drawing::Color::White;
             this->label45->Location = System::Drawing::Point(74, 64);
             this->label45->Name = L"label45";
-            this->label45->Size = System::Drawing::Size(40, 21);
+            this->label45->Size = System::Drawing::Size(39, 20);
             this->label45->TabIndex = 3;
             this->label45->Text = L"100";
             // 
             // label46
             // 
             this->label46->AutoSize = true;
-            this->label46->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label46->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label46->ForeColor = System::Drawing::Color::White;
             this->label46->Location = System::Drawing::Point(43, 21);
             this->label46->Name = L"label46";
-            this->label46->Size = System::Drawing::Size(28, 21);
+            this->label46->Size = System::Drawing::Size(29, 20);
             this->label46->TabIndex = 3;
             this->label46->Text = L"10";
             // 
             // label47
             // 
             this->label47->AutoSize = true;
-            this->label47->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label47->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label47->ForeColor = System::Drawing::Color::White;
             this->label47->Location = System::Drawing::Point(17, 64);
             this->label47->Name = L"label47";
-            this->label47->Size = System::Drawing::Size(57, 21);
+            this->label47->Size = System::Drawing::Size(60, 20);
             this->label47->TabIndex = 3;
             this->label47->Text = L"Area: ";
             // 
             // label48
             // 
             this->label48->AutoSize = true;
-            this->label48->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label48->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label48->ForeColor = System::Drawing::Color::White;
             this->label48->Location = System::Drawing::Point(296, 18);
             this->label48->Name = L"label48";
-            this->label48->Size = System::Drawing::Size(58, 21);
+            this->label48->Size = System::Drawing::Size(61, 20);
             this->label48->TabIndex = 3;
             this->label48->Text = L"Type: ";
             // 
             // label49
             // 
             this->label49->AutoSize = true;
-            this->label49->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label49->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label49->ForeColor = System::Drawing::Color::White;
             this->label49->Location = System::Drawing::Point(17, 21);
             this->label49->Name = L"label49";
-            this->label49->Size = System::Drawing::Size(32, 21);
+            this->label49->Size = System::Drawing::Size(36, 20);
             this->label49->TabIndex = 3;
             this->label49->Text = L"Id: ";
             // 
             // panel2
             // 
-            this->panel2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
-                static_cast<System::Int32>(static_cast<System::Byte>(122)));
-            this->panel2->Controls->Add(this->button18);
-            this->panel2->Controls->Add(this->label9);
-            this->panel2->Controls->Add(this->button19);
-            this->panel2->Controls->Add(this->label35);
-            this->panel2->Controls->Add(this->button20);
-            this->panel2->Controls->Add(this->label36);
-            this->panel2->Controls->Add(this->label37);
-            this->panel2->Controls->Add(this->label38);
-            this->panel2->Controls->Add(this->label39);
-            this->panel2->Controls->Add(this->label40);
-            this->panel2->Controls->Add(this->label41);
-            this->panel2->Location = System::Drawing::Point(245, 54);
+            this->panel2->Location = System::Drawing::Point(0, 0);
             this->panel2->Name = L"panel2";
-            this->panel2->Size = System::Drawing::Size(682, 119);
-            this->panel2->TabIndex = 4;
-            // 
-            // button18
-            // 
-            this->button18->BackColor = System::Drawing::Color::CadetBlue;
-            this->button18->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->button18->FlatAppearance->BorderSize = 0;
-            this->button18->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button18->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold));
-            this->button18->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button18->Location = System::Drawing::Point(516, 81);
-            this->button18->Name = L"button18";
-            this->button18->Size = System::Drawing::Size(148, 30);
-            this->button18->TabIndex = 17;
-            this->button18->Text = L"BUY";
-            this->button18->UseVisualStyleBackColor = false;
-            // 
-            // label9
-            // 
-            this->label9->AutoSize = true;
-            this->label9->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label9->ForeColor = System::Drawing::Color::White;
-            this->label9->Location = System::Drawing::Point(356, 61);
-            this->label9->Name = L"label9";
-            this->label9->Size = System::Drawing::Size(81, 21);
-            this->label9->TabIndex = 3;
-            this->label9->Text = L"$10,000";
-            // 
-            // button19
-            // 
-            this->button19->BackColor = System::Drawing::Color::CadetBlue;
-            this->button19->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->button19->FlatAppearance->BorderSize = 0;
-            this->button19->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button19->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->button19->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button19->Location = System::Drawing::Point(516, 46);
-            this->button19->Name = L"button19";
-            this->button19->Size = System::Drawing::Size(146, 30);
-            this->button19->TabIndex = 16;
-            this->button19->Text = L"COMPARISON";
-            this->button19->UseVisualStyleBackColor = false;
-            // 
-            // label35
-            // 
-            this->label35->AutoSize = true;
-            this->label35->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label35->ForeColor = System::Drawing::Color::White;
-            this->label35->Location = System::Drawing::Point(357, 18);
-            this->label35->Name = L"label35";
-            this->label35->Size = System::Drawing::Size(45, 21);
-            this->label35->TabIndex = 3;
-            this->label35->Text = L"Villa";
-            // 
-            // button20
-            // 
-            this->button20->BackColor = System::Drawing::Color::CadetBlue;
-            this->button20->Cursor = System::Windows::Forms::Cursors::Hand;
-            this->button20->FlatAppearance->BorderSize = 0;
-            this->button20->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button20->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold));
-            this->button20->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button20->Location = System::Drawing::Point(516, 9);
-            this->button20->Name = L"button20";
-            this->button20->Size = System::Drawing::Size(146, 30);
-            this->button20->TabIndex = 15;
-            this->button20->Text = L"DETAILS";
-            this->button20->UseVisualStyleBackColor = false;
-            // 
-            // label36
-            // 
-            this->label36->AutoSize = true;
-            this->label36->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label36->ForeColor = System::Drawing::Color::White;
-            this->label36->Location = System::Drawing::Point(296, 61);
-            this->label36->Name = L"label36";
-            this->label36->Size = System::Drawing::Size(54, 21);
-            this->label36->TabIndex = 3;
-            this->label36->Text = L"Price:";
-            // 
-            // label37
-            // 
-            this->label37->AutoSize = true;
-            this->label37->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label37->ForeColor = System::Drawing::Color::White;
-            this->label37->Location = System::Drawing::Point(74, 64);
-            this->label37->Name = L"label37";
-            this->label37->Size = System::Drawing::Size(40, 21);
-            this->label37->TabIndex = 3;
-            this->label37->Text = L"100";
-            // 
-            // label38
-            // 
-            this->label38->AutoSize = true;
-            this->label38->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label38->ForeColor = System::Drawing::Color::White;
-            this->label38->Location = System::Drawing::Point(43, 21);
-            this->label38->Name = L"label38";
-            this->label38->Size = System::Drawing::Size(28, 21);
-            this->label38->TabIndex = 3;
-            this->label38->Text = L"10";
-            // 
-            // label39
-            // 
-            this->label39->AutoSize = true;
-            this->label39->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label39->ForeColor = System::Drawing::Color::White;
-            this->label39->Location = System::Drawing::Point(17, 64);
-            this->label39->Name = L"label39";
-            this->label39->Size = System::Drawing::Size(57, 21);
-            this->label39->TabIndex = 3;
-            this->label39->Text = L"Area: ";
-            // 
-            // label40
-            // 
-            this->label40->AutoSize = true;
-            this->label40->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label40->ForeColor = System::Drawing::Color::White;
-            this->label40->Location = System::Drawing::Point(296, 18);
-            this->label40->Name = L"label40";
-            this->label40->Size = System::Drawing::Size(58, 21);
-            this->label40->TabIndex = 3;
-            this->label40->Text = L"Type: ";
-            // 
-            // label41
-            // 
-            this->label41->AutoSize = true;
-            this->label41->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label41->ForeColor = System::Drawing::Color::White;
-            this->label41->Location = System::Drawing::Point(17, 21);
-            this->label41->Name = L"label41";
-            this->label41->Size = System::Drawing::Size(32, 21);
-            this->label41->TabIndex = 3;
-            this->label41->Text = L"Id: ";
+            this->panel2->Size = System::Drawing::Size(200, 100);
+            this->panel2->TabIndex = 21;
             // 
             // panel1
             // 
@@ -2448,12 +2489,12 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->numericUpDown1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
-            this->numericUpDown1->Font = (gcnew System::Drawing::Font(L"Nexa Light", 8.999999F));
+            this->numericUpDown1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
             this->numericUpDown1->ForeColor = System::Drawing::Color::White;
             this->numericUpDown1->Location = System::Drawing::Point(48, 373);
             this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
             this->numericUpDown1->Name = L"numericUpDown1";
-            this->numericUpDown1->Size = System::Drawing::Size(143, 26);
+            this->numericUpDown1->Size = System::Drawing::Size(143, 24);
             this->numericUpDown1->TabIndex = 15;
             // 
             // label4
@@ -2508,45 +2549,45 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->textBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
-            this->textBox7->Font = (gcnew System::Drawing::Font(L"Nexa Light", 8.999999F));
+            this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
             this->textBox7->ForeColor = System::Drawing::Color::White;
             this->textBox7->Location = System::Drawing::Point(141, 216);
             this->textBox7->Name = L"textBox7";
-            this->textBox7->Size = System::Drawing::Size(50, 26);
+            this->textBox7->Size = System::Drawing::Size(50, 24);
             this->textBox7->TabIndex = 4;
             // 
             // textBox1
             // 
             this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
-            this->textBox1->Font = (gcnew System::Drawing::Font(L"Nexa Light", 8.999999F));
+            this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
             this->textBox1->ForeColor = System::Drawing::Color::White;
             this->textBox1->Location = System::Drawing::Point(48, 216);
             this->textBox1->Name = L"textBox1";
-            this->textBox1->Size = System::Drawing::Size(50, 26);
+            this->textBox1->Size = System::Drawing::Size(50, 24);
             this->textBox1->TabIndex = 4;
             // 
             // textBox8
             // 
             this->textBox8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
-            this->textBox8->Font = (gcnew System::Drawing::Font(L"Nexa Light", 8.999999F));
+            this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
             this->textBox8->ForeColor = System::Drawing::Color::White;
             this->textBox8->Location = System::Drawing::Point(46, 290);
             this->textBox8->Name = L"textBox8";
-            this->textBox8->Size = System::Drawing::Size(145, 26);
+            this->textBox8->Size = System::Drawing::Size(145, 24);
             this->textBox8->TabIndex = 4;
             // 
             // textBox5
             // 
             this->textBox5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
-            this->textBox5->Font = (gcnew System::Drawing::Font(L"Nexa Light", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->textBox5->ForeColor = System::Drawing::Color::White;
             this->textBox5->Location = System::Drawing::Point(53, 61);
             this->textBox5->Name = L"textBox5";
-            this->textBox5->Size = System::Drawing::Size(138, 26);
+            this->textBox5->Size = System::Drawing::Size(138, 24);
             this->textBox5->TabIndex = 4;
             // 
             // comboBox1
@@ -2554,7 +2595,7 @@ private: System::Windows::Forms::Button^ button2;
             this->comboBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->comboBox1->Font = (gcnew System::Drawing::Font(L"Nexa Light", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+            this->comboBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->comboBox1->ForeColor = System::Drawing::Color::White;
             this->comboBox1->FormattingEnabled = true;
@@ -2564,32 +2605,109 @@ private: System::Windows::Forms::Button^ button2;
             });
             this->comboBox1->Location = System::Drawing::Point(53, 132);
             this->comboBox1->Name = L"comboBox1";
-            this->comboBox1->Size = System::Drawing::Size(138, 27);
+            this->comboBox1->Size = System::Drawing::Size(138, 26);
             this->comboBox1->TabIndex = 14;
             // 
             // label33
             // 
             this->label33->AutoSize = true;
-            this->label33->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label33->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label33->ForeColor = System::Drawing::Color::White;
             this->label33->Location = System::Drawing::Point(19, 100);
             this->label33->Name = L"label33";
-            this->label33->Size = System::Drawing::Size(51, 21);
+            this->label33->Size = System::Drawing::Size(49, 20);
             this->label33->TabIndex = 3;
             this->label33->Text = L"Type";
             // 
             // label34
             // 
             this->label34->AutoSize = true;
-            this->label34->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label34->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label34->ForeColor = System::Drawing::Color::White;
             this->label34->Location = System::Drawing::Point(19, 31);
             this->label34->Name = L"label34";
-            this->label34->Size = System::Drawing::Size(79, 21);
+            this->label34->Size = System::Drawing::Size(81, 20);
             this->label34->TabIndex = 3;
             this->label34->Text = L"Location";
+            // 
+            // button18
+            // 
+            this->button18->Location = System::Drawing::Point(0, 0);
+            this->button18->Name = L"button18";
+            this->button18->Size = System::Drawing::Size(75, 23);
+            this->button18->TabIndex = 0;
+            // 
+            // label9
+            // 
+            this->label9->Location = System::Drawing::Point(0, 0);
+            this->label9->Name = L"label9";
+            this->label9->Size = System::Drawing::Size(100, 23);
+            this->label9->TabIndex = 0;
+            // 
+            // button19
+            // 
+            this->button19->Location = System::Drawing::Point(0, 0);
+            this->button19->Name = L"button19";
+            this->button19->Size = System::Drawing::Size(75, 23);
+            this->button19->TabIndex = 0;
+            // 
+            // label35
+            // 
+            this->label35->Location = System::Drawing::Point(0, 0);
+            this->label35->Name = L"label35";
+            this->label35->Size = System::Drawing::Size(100, 23);
+            this->label35->TabIndex = 0;
+            // 
+            // button20
+            // 
+            this->button20->Location = System::Drawing::Point(0, 0);
+            this->button20->Name = L"button20";
+            this->button20->Size = System::Drawing::Size(75, 23);
+            this->button20->TabIndex = 0;
+            // 
+            // label36
+            // 
+            this->label36->Location = System::Drawing::Point(0, 0);
+            this->label36->Name = L"label36";
+            this->label36->Size = System::Drawing::Size(100, 23);
+            this->label36->TabIndex = 0;
+            // 
+            // label37
+            // 
+            this->label37->Location = System::Drawing::Point(0, 0);
+            this->label37->Name = L"label37";
+            this->label37->Size = System::Drawing::Size(100, 23);
+            this->label37->TabIndex = 0;
+            // 
+            // label38
+            // 
+            this->label38->Location = System::Drawing::Point(0, 0);
+            this->label38->Name = L"label38";
+            this->label38->Size = System::Drawing::Size(100, 23);
+            this->label38->TabIndex = 0;
+            // 
+            // label39
+            // 
+            this->label39->Location = System::Drawing::Point(0, 0);
+            this->label39->Name = L"label39";
+            this->label39->Size = System::Drawing::Size(100, 23);
+            this->label39->TabIndex = 0;
+            // 
+            // label40
+            // 
+            this->label40->Location = System::Drawing::Point(0, 0);
+            this->label40->Name = L"label40";
+            this->label40->Size = System::Drawing::Size(100, 23);
+            this->label40->TabIndex = 0;
+            // 
+            // label41
+            // 
+            this->label41->Location = System::Drawing::Point(0, 0);
+            this->label41->Name = L"label41";
+            this->label41->Size = System::Drawing::Size(100, 23);
+            this->label41->TabIndex = 0;
             // 
             // Comparison_panel
             // 
@@ -2654,25 +2772,25 @@ private: System::Windows::Forms::Button^ button2;
             // label103
             // 
             this->label103->AutoSize = true;
-            this->label103->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label103->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label103->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(220)),
                 static_cast<System::Int32>(static_cast<System::Byte>(100)));
             this->label103->Location = System::Drawing::Point(41, 90);
             this->label103->Name = L"label103";
-            this->label103->Size = System::Drawing::Size(181, 21);
+            this->label103->Size = System::Drawing::Size(190, 20);
             this->label103->TabIndex = 7;
             this->label103->Text = L"Highlighted By Admin";
             // 
             // label95
             // 
             this->label95->AutoSize = true;
-            this->label95->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label95->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label95->ForeColor = System::Drawing::Color::White;
             this->label95->Location = System::Drawing::Point(356, 56);
             this->label95->Name = L"label95";
-            this->label95->Size = System::Drawing::Size(81, 21);
+            this->label95->Size = System::Drawing::Size(74, 20);
             this->label95->TabIndex = 3;
             this->label95->Text = L"$10,000";
             // 
@@ -2696,12 +2814,12 @@ private: System::Windows::Forms::Button^ button2;
             // label96
             // 
             this->label96->AutoSize = true;
-            this->label96->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label96->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label96->ForeColor = System::Drawing::Color::White;
             this->label96->Location = System::Drawing::Point(357, 18);
             this->label96->Name = L"label96";
-            this->label96->Size = System::Drawing::Size(45, 21);
+            this->label96->Size = System::Drawing::Size(46, 20);
             this->label96->TabIndex = 3;
             this->label96->Text = L"Villa";
             // 
@@ -2723,72 +2841,72 @@ private: System::Windows::Forms::Button^ button2;
             // label97
             // 
             this->label97->AutoSize = true;
-            this->label97->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label97->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label97->ForeColor = System::Drawing::Color::White;
             this->label97->Location = System::Drawing::Point(296, 56);
             this->label97->Name = L"label97";
-            this->label97->Size = System::Drawing::Size(54, 21);
+            this->label97->Size = System::Drawing::Size(59, 20);
             this->label97->TabIndex = 3;
             this->label97->Text = L"Price:";
             // 
             // label98
             // 
             this->label98->AutoSize = true;
-            this->label98->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label98->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label98->ForeColor = System::Drawing::Color::White;
             this->label98->Location = System::Drawing::Point(74, 59);
             this->label98->Name = L"label98";
-            this->label98->Size = System::Drawing::Size(40, 21);
+            this->label98->Size = System::Drawing::Size(39, 20);
             this->label98->TabIndex = 3;
             this->label98->Text = L"100";
             // 
             // label99
             // 
             this->label99->AutoSize = true;
-            this->label99->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label99->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label99->ForeColor = System::Drawing::Color::White;
             this->label99->Location = System::Drawing::Point(43, 21);
             this->label99->Name = L"label99";
-            this->label99->Size = System::Drawing::Size(22, 21);
+            this->label99->Size = System::Drawing::Size(29, 20);
             this->label99->TabIndex = 3;
             this->label99->Text = L"11";
             // 
             // label100
             // 
             this->label100->AutoSize = true;
-            this->label100->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label100->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label100->ForeColor = System::Drawing::Color::White;
             this->label100->Location = System::Drawing::Point(17, 59);
             this->label100->Name = L"label100";
-            this->label100->Size = System::Drawing::Size(57, 21);
+            this->label100->Size = System::Drawing::Size(60, 20);
             this->label100->TabIndex = 3;
             this->label100->Text = L"Area: ";
             // 
             // label101
             // 
             this->label101->AutoSize = true;
-            this->label101->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label101->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label101->ForeColor = System::Drawing::Color::White;
             this->label101->Location = System::Drawing::Point(296, 18);
             this->label101->Name = L"label101";
-            this->label101->Size = System::Drawing::Size(58, 21);
+            this->label101->Size = System::Drawing::Size(61, 20);
             this->label101->TabIndex = 3;
             this->label101->Text = L"Type: ";
             // 
             // label102
             // 
             this->label102->AutoSize = true;
-            this->label102->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label102->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label102->ForeColor = System::Drawing::Color::White;
             this->label102->Location = System::Drawing::Point(17, 21);
             this->label102->Name = L"label102";
-            this->label102->Size = System::Drawing::Size(32, 21);
+            this->label102->Size = System::Drawing::Size(36, 20);
             this->label102->TabIndex = 3;
             this->label102->Text = L"Id: ";
             // 
@@ -2861,12 +2979,12 @@ private: System::Windows::Forms::Button^ button2;
             // label62
             // 
             this->label62->AutoSize = true;
-            this->label62->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label62->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label62->ForeColor = System::Drawing::Color::White;
             this->label62->Location = System::Drawing::Point(356, 61);
             this->label62->Name = L"label62";
-            this->label62->Size = System::Drawing::Size(81, 21);
+            this->label62->Size = System::Drawing::Size(74, 20);
             this->label62->TabIndex = 3;
             this->label62->Text = L"$10,000";
             // 
@@ -2890,12 +3008,12 @@ private: System::Windows::Forms::Button^ button2;
             // label63
             // 
             this->label63->AutoSize = true;
-            this->label63->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label63->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label63->ForeColor = System::Drawing::Color::White;
             this->label63->Location = System::Drawing::Point(357, 18);
             this->label63->Name = L"label63";
-            this->label63->Size = System::Drawing::Size(45, 21);
+            this->label63->Size = System::Drawing::Size(46, 20);
             this->label63->TabIndex = 3;
             this->label63->Text = L"Villa";
             // 
@@ -2917,72 +3035,72 @@ private: System::Windows::Forms::Button^ button2;
             // label64
             // 
             this->label64->AutoSize = true;
-            this->label64->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label64->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label64->ForeColor = System::Drawing::Color::White;
             this->label64->Location = System::Drawing::Point(296, 61);
             this->label64->Name = L"label64";
-            this->label64->Size = System::Drawing::Size(54, 21);
+            this->label64->Size = System::Drawing::Size(59, 20);
             this->label64->TabIndex = 3;
             this->label64->Text = L"Price:";
             // 
             // label65
             // 
             this->label65->AutoSize = true;
-            this->label65->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label65->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label65->ForeColor = System::Drawing::Color::White;
             this->label65->Location = System::Drawing::Point(74, 64);
             this->label65->Name = L"label65";
-            this->label65->Size = System::Drawing::Size(40, 21);
+            this->label65->Size = System::Drawing::Size(39, 20);
             this->label65->TabIndex = 3;
             this->label65->Text = L"100";
             // 
             // label66
             // 
             this->label66->AutoSize = true;
-            this->label66->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label66->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label66->ForeColor = System::Drawing::Color::White;
             this->label66->Location = System::Drawing::Point(43, 21);
             this->label66->Name = L"label66";
-            this->label66->Size = System::Drawing::Size(28, 21);
+            this->label66->Size = System::Drawing::Size(29, 20);
             this->label66->TabIndex = 3;
             this->label66->Text = L"10";
             // 
             // label67
             // 
             this->label67->AutoSize = true;
-            this->label67->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label67->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label67->ForeColor = System::Drawing::Color::White;
             this->label67->Location = System::Drawing::Point(17, 64);
             this->label67->Name = L"label67";
-            this->label67->Size = System::Drawing::Size(57, 21);
+            this->label67->Size = System::Drawing::Size(60, 20);
             this->label67->TabIndex = 3;
             this->label67->Text = L"Area: ";
             // 
             // label68
             // 
             this->label68->AutoSize = true;
-            this->label68->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label68->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label68->ForeColor = System::Drawing::Color::White;
             this->label68->Location = System::Drawing::Point(296, 18);
             this->label68->Name = L"label68";
-            this->label68->Size = System::Drawing::Size(58, 21);
+            this->label68->Size = System::Drawing::Size(61, 20);
             this->label68->TabIndex = 3;
             this->label68->Text = L"Type: ";
             // 
             // label69
             // 
             this->label69->AutoSize = true;
-            this->label69->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label69->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label69->ForeColor = System::Drawing::Color::White;
             this->label69->Location = System::Drawing::Point(17, 21);
             this->label69->Name = L"label69";
-            this->label69->Size = System::Drawing::Size(32, 21);
+            this->label69->Size = System::Drawing::Size(36, 20);
             this->label69->TabIndex = 3;
             this->label69->Text = L"Id: ";
             // 
@@ -3165,14 +3283,14 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->textBox9->Location = System::Drawing::Point(123, 419);
             this->textBox9->Name = L"textBox9";
-            this->textBox9->Size = System::Drawing::Size(126, 24);
+            this->textBox9->Size = System::Drawing::Size(126, 22);
             this->textBox9->TabIndex = 9;
             // 
             // textBox3
             // 
             this->textBox3->Location = System::Drawing::Point(45, 201);
             this->textBox3->Name = L"textBox3";
-            this->textBox3->Size = System::Drawing::Size(264, 24);
+            this->textBox3->Size = System::Drawing::Size(264, 22);
             this->textBox3->TabIndex = 9;
             this->textBox3->TextChanged += gcnew System::EventHandler(this, &UserForm::textBox3_TextChanged);
             // 
@@ -3180,21 +3298,21 @@ private: System::Windows::Forms::Button^ button2;
             // 
             this->expiryBox->Location = System::Drawing::Point(45, 343);
             this->expiryBox->Name = L"expiryBox";
-            this->expiryBox->Size = System::Drawing::Size(74, 24);
+            this->expiryBox->Size = System::Drawing::Size(74, 22);
             this->expiryBox->TabIndex = 9;
             // 
             // textBox4
             // 
             this->textBox4->Location = System::Drawing::Point(249, 343);
             this->textBox4->Name = L"textBox4";
-            this->textBox4->Size = System::Drawing::Size(74, 24);
+            this->textBox4->Size = System::Drawing::Size(74, 22);
             this->textBox4->TabIndex = 9;
             // 
             // textBox2
             // 
             this->textBox2->Location = System::Drawing::Point(45, 270);
             this->textBox2->Name = L"textBox2";
-            this->textBox2->Size = System::Drawing::Size(264, 24);
+            this->textBox2->Size = System::Drawing::Size(264, 22);
             this->textBox2->TabIndex = 9;
             this->textBox2->TextChanged += gcnew System::EventHandler(this, &UserForm::textBox2_TextChanged);
             // 
@@ -3204,12 +3322,12 @@ private: System::Windows::Forms::Button^ button2;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(983, 713);
             this->Controls->Add(this->Navigationbar_panel);
+            this->Controls->Add(this->Browse_panel);
             this->Controls->Add(this->Home_panel);
             this->Controls->Add(this->Profile_panel);
             this->Controls->Add(this->payement_panel);
             this->Controls->Add(this->Welcome_panel);
             this->Controls->Add(this->Comparison_panel);
-            this->Controls->Add(this->Browse_panel);
             this->Name = L"UserForm";
             this->Text = L"User Form";
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &UserForm::UserForm_FormClosed);
@@ -3240,6 +3358,7 @@ private: System::Windows::Forms::Button^ button2;
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numBedrooms))->EndInit();
             this->Details_Panel->ResumeLayout(false);
             this->Details_Panel->PerformLayout();
+            (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown2))->EndInit();
             this->Home_panel->ResumeLayout(false);
             this->Home_panel->PerformLayout();
             this->Browse_panel->ResumeLayout(false);
@@ -3248,8 +3367,6 @@ private: System::Windows::Forms::Button^ button2;
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
             this->panel3->ResumeLayout(false);
             this->panel3->PerformLayout();
-            this->panel2->ResumeLayout(false);
-            this->panel2->PerformLayout();
             this->panel1->ResumeLayout(false);
             this->panel1->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
@@ -3359,12 +3476,12 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
                 return; // Exit early if bedrooms format is invalid
             }
 
-            Global::currUser.addProperty(Type, Location, Price, Bedrooms, Area);
+            Global::currUser.addProperty(Type, Location, Price, Bedrooms, Area , Des);
             Property& p = Global::properties.back();
 
             System::String^ idStr = p.getId().ToString();
             System::String^ typeStr = gcnew System::String(p.getType().c_str());
-            System::String^ priceStr = "$ " + p.getPrice().ToString();
+            System::String^ priceStr = "$ " + p.getPrice().ToString("N0");
             System::String^ statusStr = gcnew System::String("Pending"); // Since availability = 0
 
             Panel^ panel = CreatePropertyPanel(idStr, typeStr, priceStr, statusStr);
@@ -3624,5 +3741,50 @@ private: System::Void saveButton_Click_1(System::Object^ sender, System::EventAr
 private: System::Void start_btn_Click(System::Object^ sender, System::EventArgs^ e) {
     ChangePanelAndButtonColor(Browse, Browse_panel, Home, Browse, Comparison);
 }
+    private: System::Void button24_Click(System::Object^ sender, System::EventArgs^ e) {
+        
+        System::Windows::Forms::DialogResult result = MessageBox::Show(
+            "Are you sure you want to save changes?",
+            "Confirmation",
+            System::Windows::Forms::MessageBoxButtons::YesNo,
+            MessageBoxIcon::Question
+        );
+
+        if (result == System::Windows::Forms::DialogResult::Yes) {
+            int propertyId = Convert::ToInt32(this->label27->Text);
+            Property p;
+            for (auto& x : Global::properties) {
+                if (x.getId() == propertyId) {
+                    for (auto& x : Global::properties) {
+                        if (x.getId() == propertyId) {
+                            try {
+
+                                double area = Convert::ToDouble(this->textBox13->Text);
+                                double price = Convert::ToDouble(this->textBox12->Text);
+                                std::string location = msclr::interop::marshal_as<std::string>(this->textBox14->Text);
+                                std::string type = msclr::interop::marshal_as<std::string>(this->comboBox2->Text);
+                                std::string des = msclr::interop::marshal_as<std::string>(this->textBox6->Text);
+                                x.setArea(area);
+                                x.setPrice(price);
+                                x.setLocation(location);
+                                x.setType(type);
+                                x.setNumBedrooms(static_cast<int>(this->numericUpDown2->Value));
+                                x.setDescription(des);
+                                MessageBox::Show("Changes saved successfully!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+                                this->flowLayoutPanel1->Controls->Clear();
+                                this->Form1_Load(sender, e);
+                                this->Details_Panel->Hide();
+                                break;
+                            }
+                            catch (Exception^ ex) {
+                                MessageBox::Show("Error saving changes: " + ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                            }
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
 };
 }

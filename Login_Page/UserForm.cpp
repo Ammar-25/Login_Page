@@ -32,6 +32,40 @@ System::Void LoginPage::UserForm::DeleteProperty_Click(System::Object^ sender, S
         }
     }
 }
+System::Void LoginPage::UserForm::MoreDetails_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    Button^ button = dynamic_cast<Button^>(sender);
+    if (button != nullptr)
+    {
+        String^ propertyId = dynamic_cast<String^>(button->Tag);
+        int id = Convert::ToInt32(propertyId);
+        Property p;
+        for (auto& x : Global::properties) {
+            if (x.getId() == id) {
+                p = x;
+                break;
+            }
+        }
+        std::string statusStr;
+        switch (p.getAvailability()) {
+        case 0: statusStr = "Pending"; break;
+        case 1: statusStr = "Available"; break;
+        case 2: statusStr = "Sold"; break;
+        case 3: statusStr = "Declined"; break;
+        }
+        this->textBox6->Text = gcnew String(p.getDescription().c_str());
+        this->numericUpDown2->Value = p.getNumBedrooms();
+        this->label24->Text = gcnew String(statusStr.c_str());
+        this->textBox13->Text = p.getArea().ToString();
+        this->textBox12->Text = p.getPrice().ToString();
+        this->textBox14->Text = gcnew String(p.getLocation().c_str());
+        this->label27->Text = id.ToString();
+        this->comboBox2->Text = gcnew String(p.getType().c_str());
+        this->Details_Panel->Show();
+
+    }
+}
+
 
 
 System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::EventArgs^ e)
@@ -52,7 +86,7 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
 
             // Convert std::string and int to System::String^
             System::String^ idStr = id.ToString();
-            System::String^ type = gcnew System::String(typeStr.c_str());      
+            System::String^ type = gcnew System::String(typeStr.c_str());
             System::String^ priceStr = "$ " + price.ToString("N0");
             System::String^ status = gcnew System::String(statusStr.c_str());
 
@@ -62,6 +96,7 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
         }
     }
 }
+
 
 System::Void LoginPage::UserForm::UserForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
 {

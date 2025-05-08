@@ -35,7 +35,8 @@ void FileHandler::Save()
             << p.getAvailability() << ","
             << p.getNumBedrooms() << ","
             << p.getArea() << ","
-            << p.getHighlight() << "\n";
+            << p.getHighlight() << ","
+            << p.getDescription() << "\n";
     }
 
     userFile.close();
@@ -87,22 +88,22 @@ void FileHandler::Load()
         std::string temp;
 
         int id, ownerId, availability, numBedrooms;
-        std::string type, location;
+        std::string type, location , description;
         double price, area;
         bool isHighlighted;
 
-        getline(ss, temp, ','); //Reads the first field from the line into temp 
-        id = stoi(temp); //Converts that string to an int using stoi() and assigns it to id.
-        getline(ss, type, ','); // second value: property type (string)
-        getline(ss, location, ','); // third value: property location (string)
-        getline(ss, temp, ','); price = stod(temp); // fourth value: property price (double)
-        getline(ss, temp, ','); ownerId = stoi(temp); // fifth value: property owner id (int)
-        getline(ss, temp, ','); availability = stoi(temp); // sixth value: property availability (int)
-        getline(ss, temp, ','); numBedrooms = stoi(temp); // seventh value: property number of bedrooms (int)
-        getline(ss, temp, ','); area = stod(temp); // eighth value: property area (double)
-        getline(ss, temp); isHighlighted = stoi(temp); // ninth value: property highlight (bool)
+        std::getline(ss, temp, ','); id = std::stoi(temp);
+        std::getline(ss, type, ',');
+        std::getline(ss, location, ',');
+        std::getline(ss, temp, ','); price = std::stod(temp);
+        std::getline(ss, temp, ','); ownerId = std::stoi(temp);
+        std::getline(ss, temp, ','); availability = std::stoi(temp);
+        std::getline(ss, temp, ','); numBedrooms = std::stoi(temp);
+        std::getline(ss, temp, ','); area = std::stod(temp);
+        std::getline(ss, temp, ','); isHighlighted = std::stoi(temp);
+        std::getline(ss, description);
 
-        Global::properties.emplace_back(id, type, location, price, ownerId, availability, numBedrooms, area, isHighlighted);
+        Global::properties.emplace_back(id, type, location, price, ownerId, availability, numBedrooms, area, isHighlighted , description);
         // Adds a new Property object to the properties vector using emplace_back().
     }
 
