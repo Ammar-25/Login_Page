@@ -26,6 +26,11 @@ int user::getBalance() {
     return this->balance;
 }
 
+std::string user::getphoneNumber()
+{ 
+    return phoneNumber; 
+}
+
 bool user::getAdmin() {
     return this->isAdmin;
 }
@@ -69,7 +74,7 @@ void user::setFrozen(bool freeze)
     this->frozen = freeze;
 }
 
-void user::addProperty(std::string type, std::string location, int price, int bedrooms, double area)
+void user::addProperty(std::string type, std::string location, int price, int bedrooms, double area , std::string description)
 {
     int id = 0;
     for (auto p : Global::properties) {
@@ -77,7 +82,7 @@ void user::addProperty(std::string type, std::string location, int price, int be
     }
     if (!this->frozen) {
 
-        Global::properties.push_back(Property(id + 1 , type , location , price , Global::currId, 0 , bedrooms , area , 0));
+        Global::properties.push_back(Property(id + 1 , type , location , price , Global::currId, 0 , bedrooms , area , 0 , description));
     }
 }
 
@@ -172,4 +177,14 @@ int user::add_admin(std::string name, std::string email, std::string pass, std::
         return 0;
     }
     else return 3;
+}
+
+void user::setName(std::string name) {
+    this->name = name;
+}
+void user::setEmail(std::string email) {
+    this->email = email;
+}
+void user::setPhoneNumber(int phoneNumber) {
+    this->phoneNumber = phoneNumber;
 }

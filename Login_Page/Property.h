@@ -6,6 +6,7 @@ private:
     int id;
     std::string type;
     std::string location;
+    std::string description;
     int price;
     int ownerId;
     int availability; // 0-> pending, 1 -> approved, 2 -> sold, 3 -> declined
@@ -17,19 +18,20 @@ public:
     // Constructor
     Property();
     Property(int id, std::string type, std::string location, int price,
-        int ownerId, int availability, int numBedrooms, double area, bool isHighLighted = 0);
+        int ownerId, int availability, int numBedrooms, double area, bool isHighLighted = 0 , std::string description = "");
 
     // Getters
     int getId();
     std::string getType();
     std::string getLocation();
+    std::string getDescription();
     int getPrice();
     int getOwnerId();
     int getAvailability();
     int getNumBedrooms();
     double getArea();
     bool getHighlight();
-
+    
     // Setters
     void setType(std::string& newType);
     void setLocation(std::string& newLocation);
@@ -38,6 +40,7 @@ public:
     void setNumBedrooms(int newNumBedrooms);
     void setArea(double newArea);
     void setHighlight(bool h);
+    void setDescription(std::string description);
 
     std::string to_string();
 };

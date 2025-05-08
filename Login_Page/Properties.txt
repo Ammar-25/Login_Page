@@ -1,8 +1,1 @@
-2,Duplex,Roxy,1500000,4,0,3,400,0
-3,Duplex,Roxy,1500000,4,0,3,400,0
-5,Duplex,Roxy,1500000,4,0,3,400,0
-4,Duplex,Roxy,1500000,4,0,3,400,0
-6,Duplex,Roxy,1500000,4,0,3,400,0
-7,Duplex,Roxy,1500000,4,0,3,400,0
-8,Duplex,Roxy,1500000,4,0,3,400,0
-9,Villa,asdvkma,340581345,4,0,5,150,0
+2,Villa,Roxy,150000,8,0,3,200,0,has a good view
