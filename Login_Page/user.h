@@ -36,6 +36,7 @@ public:
     void setName(std::string name);
     void setPhoneNumber(int phone);
     void setEmail(std::string email);
+    void setPassword(std::string password); 
     // Property functions
     void addProperty(std::string type, std::string location, int price, int bedrooms, double area , std::string description = "");
     bool removeProperty(int propertyID);

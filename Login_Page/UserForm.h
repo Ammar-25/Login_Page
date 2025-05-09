@@ -423,7 +423,8 @@ private: System::Windows::Forms::Label^ label51;
 
             if (highlighted) {
                 // ammar's star location
-                pictureBox7->Image = System::Drawing::Image::FromFile("C:\\Users\\ammar\\Desktop\\Login_Page\\star.png");;
+                pictureBox7->Image = System::Drawing::Image::FromFile("E:\\2nd FCIS\\Fourth term\\Data Structure\\Project\\Project Versions\\V4\\Login_Page\\star.png");
+
                 pictureBox7->Location = System::Drawing::Point(5, 86);
                 pictureBox7->Name = L"pictureBox7";
                 pictureBox7->Size = System::Drawing::Size(38, 31);
