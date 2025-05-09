@@ -50,10 +50,14 @@ namespace LoginPage {
     private: System::Windows::Forms::Label^ label7;
     private: System::Windows::Forms::Label^ label6;
     private: System::Windows::Forms::Label^ label5;
-    private: System::Windows::Forms::TextBox^ textBox4;
-    private: System::Windows::Forms::TextBox^ textBox3;
-    private: System::Windows::Forms::TextBox^ textBox2;
-    private: System::Windows::Forms::TextBox^ textBox1;
+    private: System::Windows::Forms::TextBox^ phoneTextBox;
+
+    private: System::Windows::Forms::TextBox^ passwordTextBox;
+
+    private: System::Windows::Forms::TextBox^ emailTextBox;
+
+    private: System::Windows::Forms::TextBox^ nameTextBox;
+
     private: System::Windows::Forms::TextBox^ Search_textbox;
 
 
@@ -62,7 +66,8 @@ namespace LoginPage {
 
 
     private: System::Windows::Forms::Button^ button1;
-    private: System::Windows::Forms::Button^ button4;
+    private: System::Windows::Forms::Button^ addAdminButton;
+
 
 
 
@@ -78,14 +83,20 @@ namespace LoginPage {
     private: System::Windows::Forms::PictureBox^ pictureBox6;
     private: System::Windows::Forms::PictureBox^ pictureBox7;
     private: System::Windows::Forms::PictureBox^ pictureBox5;
-    private: System::Windows::Forms::Label^ Requests_label;
-    private: System::Windows::Forms::Label^ label14;
+    private: System::Windows::Forms::Label^ requests_label;
+    private: System::Windows::Forms::Label^ soldnum;
+
+
     private: System::Windows::Forms::Label^ Sold_label;
-    private: System::Windows::Forms::Label^ label13;
+    private: System::Windows::Forms::Label^ propertiesnum;
+
     private: System::Windows::Forms::Label^ Properties_label;
-    private: System::Windows::Forms::Label^ label12;
-    private: System::Windows::Forms::Label^ label11;
-    private: System::Windows::Forms::Label^ label10;
+    private: System::Windows::Forms::Label^ usernum;
+
+    private: System::Windows::Forms::Label^ requestnum;
+    private: System::Windows::Forms::Label^ user_num;
+
+
     private: System::Windows::Forms::PictureBox^ pictureBox9;
     private: System::Windows::Forms::PictureBox^ pictureBox2;
     private: System::Windows::Forms::Panel^ panel1;
@@ -203,10 +214,15 @@ private: System::Windows::Forms::TextBox^ editBox;
 private: System::Windows::Forms::Label^ editLabel;
 private: System::Windows::Forms::PictureBox^ pictureBox27;
 private: System::Windows::Forms::Panel^ change_password_panel;
-private: System::Windows::Forms::TextBox^ textBox11;
-private: System::Windows::Forms::Label^ label94;
+private: System::Windows::Forms::TextBox^ new_pass;
+
+private: System::Windows::Forms::Label^ label_new_pass;
+
+
+
 private: System::Windows::Forms::Label^ label92;
-private: System::Windows::Forms::TextBox^ textBox10;
+private: System::Windows::Forms::TextBox^ old_pass;
+
 private: System::Windows::Forms::Label^ label93;
 private: System::Windows::Forms::Panel^ Profile_panel;
 private: System::Windows::Forms::PictureBox^ pictureBox28;
@@ -464,14 +480,14 @@ private: System::Windows::Forms::Label^ label103;
             this->Moderate_Users = (gcnew System::Windows::Forms::Button());
             this->Requests = (gcnew System::Windows::Forms::Button());
             this->Dashboard_panel = (gcnew System::Windows::Forms::Panel());
-            this->label14 = (gcnew System::Windows::Forms::Label());
+            this->soldnum = (gcnew System::Windows::Forms::Label());
             this->Sold_label = (gcnew System::Windows::Forms::Label());
-            this->label13 = (gcnew System::Windows::Forms::Label());
+            this->propertiesnum = (gcnew System::Windows::Forms::Label());
             this->Properties_label = (gcnew System::Windows::Forms::Label());
-            this->label12 = (gcnew System::Windows::Forms::Label());
-            this->label11 = (gcnew System::Windows::Forms::Label());
-            this->label10 = (gcnew System::Windows::Forms::Label());
-            this->Requests_label = (gcnew System::Windows::Forms::Label());
+            this->usernum = (gcnew System::Windows::Forms::Label());
+            this->requestnum = (gcnew System::Windows::Forms::Label());
+            this->user_num = (gcnew System::Windows::Forms::Label());
+            this->requests_label = (gcnew System::Windows::Forms::Label());
             this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
             this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
             this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
@@ -620,18 +636,18 @@ private: System::Windows::Forms::Label^ label103;
             this->label45 = (gcnew System::Windows::Forms::Label());
             this->button9 = (gcnew System::Windows::Forms::Button());
             this->Add_admin_panel = (gcnew System::Windows::Forms::Panel());
-            this->pictureBox19 = (gcnew System::Windows::Forms::PictureBox());
             this->button1 = (gcnew System::Windows::Forms::Button());
-            this->button4 = (gcnew System::Windows::Forms::Button());
-            this->textBox4 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox3 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-            this->textBox1 = (gcnew System::Windows::Forms::TextBox());
+            this->addAdminButton = (gcnew System::Windows::Forms::Button());
+            this->phoneTextBox = (gcnew System::Windows::Forms::TextBox());
+            this->passwordTextBox = (gcnew System::Windows::Forms::TextBox());
+            this->emailTextBox = (gcnew System::Windows::Forms::TextBox());
+            this->nameTextBox = (gcnew System::Windows::Forms::TextBox());
             this->label7 = (gcnew System::Windows::Forms::Label());
             this->label6 = (gcnew System::Windows::Forms::Label());
             this->label5 = (gcnew System::Windows::Forms::Label());
             this->label4 = (gcnew System::Windows::Forms::Label());
             this->label1 = (gcnew System::Windows::Forms::Label());
+            this->pictureBox19 = (gcnew System::Windows::Forms::PictureBox());
             this->label9 = (gcnew System::Windows::Forms::Label());
             this->label8 = (gcnew System::Windows::Forms::Label());
             this->label2 = (gcnew System::Windows::Forms::Label());
@@ -650,10 +666,10 @@ private: System::Windows::Forms::Label^ label103;
             this->change_password_panel = (gcnew System::Windows::Forms::Panel());
             this->save_pass = (gcnew System::Windows::Forms::Button());
             this->cancel_pass = (gcnew System::Windows::Forms::Button());
-            this->textBox11 = (gcnew System::Windows::Forms::TextBox());
-            this->label94 = (gcnew System::Windows::Forms::Label());
+            this->new_pass = (gcnew System::Windows::Forms::TextBox());
+            this->label_new_pass = (gcnew System::Windows::Forms::Label());
             this->label92 = (gcnew System::Windows::Forms::Label());
-            this->textBox10 = (gcnew System::Windows::Forms::TextBox());
+            this->old_pass = (gcnew System::Windows::Forms::TextBox());
             this->label93 = (gcnew System::Windows::Forms::Label());
             this->Profile_panel = (gcnew System::Windows::Forms::Panel());
             this->pictureBox30 = (gcnew System::Windows::Forms::PictureBox());
@@ -842,14 +858,14 @@ private: System::Windows::Forms::Label^ label103;
             // 
             // Dashboard_panel
             // 
-            this->Dashboard_panel->Controls->Add(this->label14);
+            this->Dashboard_panel->Controls->Add(this->soldnum);
             this->Dashboard_panel->Controls->Add(this->Sold_label);
-            this->Dashboard_panel->Controls->Add(this->label13);
+            this->Dashboard_panel->Controls->Add(this->propertiesnum);
             this->Dashboard_panel->Controls->Add(this->Properties_label);
-            this->Dashboard_panel->Controls->Add(this->label12);
-            this->Dashboard_panel->Controls->Add(this->label11);
-            this->Dashboard_panel->Controls->Add(this->label10);
-            this->Dashboard_panel->Controls->Add(this->Requests_label);
+            this->Dashboard_panel->Controls->Add(this->usernum);
+            this->Dashboard_panel->Controls->Add(this->requestnum);
+            this->Dashboard_panel->Controls->Add(this->user_num);
+            this->Dashboard_panel->Controls->Add(this->requests_label);
             this->Dashboard_panel->Controls->Add(this->pictureBox8);
             this->Dashboard_panel->Controls->Add(this->pictureBox6);
             this->Dashboard_panel->Controls->Add(this->pictureBox7);
@@ -860,20 +876,20 @@ private: System::Windows::Forms::Label^ label103;
             this->Dashboard_panel->TabIndex = 8;
             this->Dashboard_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminForm::Dashboard_panel_Paint);
             // 
-            // label14
+            // soldnum
             // 
-            this->label14->AutoSize = true;
-            this->label14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+            this->soldnum->AutoSize = true;
+            this->soldnum->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->label14->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->soldnum->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label14->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
+            this->soldnum->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
-            this->label14->Location = System::Drawing::Point(692, 445);
-            this->label14->Name = L"label14";
-            this->label14->Size = System::Drawing::Size(45, 39);
-            this->label14->TabIndex = 2;
-            this->label14->Text = L"11";
+            this->soldnum->Location = System::Drawing::Point(692, 445);
+            this->soldnum->Name = L"soldnum";
+            this->soldnum->Size = System::Drawing::Size(45, 39);
+            this->soldnum->TabIndex = 2;
+            this->soldnum->Text = L"11";
             // 
             // Sold_label
             // 
@@ -890,20 +906,20 @@ private: System::Windows::Forms::Label^ label103;
             this->Sold_label->TabIndex = 2;
             this->Sold_label->Text = L"Sold";
             // 
-            // label13
+            // propertiesnum
             // 
-            this->label13->AutoSize = true;
-            this->label13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+            this->propertiesnum->AutoSize = true;
+            this->propertiesnum->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->label13->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->propertiesnum->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label13->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
+            this->propertiesnum->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
-            this->label13->Location = System::Drawing::Point(234, 445);
-            this->label13->Name = L"label13";
-            this->label13->Size = System::Drawing::Size(45, 39);
-            this->label13->TabIndex = 2;
-            this->label13->Text = L"11";
+            this->propertiesnum->Location = System::Drawing::Point(234, 445);
+            this->propertiesnum->Name = L"propertiesnum";
+            this->propertiesnum->Size = System::Drawing::Size(45, 39);
+            this->propertiesnum->TabIndex = 2;
+            this->propertiesnum->Text = L"11";
             // 
             // Properties_label
             // 
@@ -920,65 +936,65 @@ private: System::Windows::Forms::Label^ label103;
             this->Properties_label->TabIndex = 2;
             this->Properties_label->Text = L"Properties";
             // 
-            // label12
+            // usernum
             // 
-            this->label12->AutoSize = true;
-            this->label12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+            this->usernum->AutoSize = true;
+            this->usernum->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->label12->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->usernum->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label12->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
+            this->usernum->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
-            this->label12->Location = System::Drawing::Point(690, 158);
-            this->label12->Name = L"label12";
-            this->label12->Size = System::Drawing::Size(53, 39);
-            this->label12->TabIndex = 2;
-            this->label12->Text = L"10";
+            this->usernum->Location = System::Drawing::Point(690, 158);
+            this->usernum->Name = L"usernum";
+            this->usernum->Size = System::Drawing::Size(53, 39);
+            this->usernum->TabIndex = 2;
+            this->usernum->Text = L"10";
             // 
-            // label11
+            // requestnum
             // 
-            this->label11->AutoSize = true;
-            this->label11->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+            this->requestnum->AutoSize = true;
+            this->requestnum->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->label11->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->requestnum->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label11->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
+            this->requestnum->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
-            this->label11->Location = System::Drawing::Point(234, 158);
-            this->label11->Name = L"label11";
-            this->label11->Size = System::Drawing::Size(53, 39);
-            this->label11->TabIndex = 2;
-            this->label11->Text = L"18";
+            this->requestnum->Location = System::Drawing::Point(234, 158);
+            this->requestnum->Name = L"requestnum";
+            this->requestnum->Size = System::Drawing::Size(53, 39);
+            this->requestnum->TabIndex = 2;
+            this->requestnum->Text = L"18";
             // 
-            // label10
+            // user_num
             // 
-            this->label10->AutoSize = true;
-            this->label10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+            this->user_num->AutoSize = true;
+            this->user_num->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->label10->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->user_num->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label10->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
+            this->user_num->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
-            this->label10->Location = System::Drawing::Point(670, 72);
-            this->label10->Name = L"label10";
-            this->label10->Size = System::Drawing::Size(101, 39);
-            this->label10->TabIndex = 2;
-            this->label10->Text = L"Users";
+            this->user_num->Location = System::Drawing::Point(670, 72);
+            this->user_num->Name = L"user_num";
+            this->user_num->Size = System::Drawing::Size(101, 39);
+            this->user_num->TabIndex = 2;
+            this->user_num->Text = L"Users";
             // 
-            // Requests_label
+            // requests_label
             // 
-            this->Requests_label->AutoSize = true;
-            this->Requests_label->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
+            this->requests_label->AutoSize = true;
+            this->requests_label->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(248)), static_cast<System::Int32>(static_cast<System::Byte>(248)),
                 static_cast<System::Int32>(static_cast<System::Byte>(248)));
-            this->Requests_label->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->requests_label->Font = (gcnew System::Drawing::Font(L"Nexa Black", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->Requests_label->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
+            this->requests_label->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
-            this->Requests_label->Location = System::Drawing::Point(194, 72);
-            this->Requests_label->Name = L"Requests_label";
-            this->Requests_label->Size = System::Drawing::Size(155, 39);
-            this->Requests_label->TabIndex = 2;
-            this->Requests_label->Text = L"Requests";
+            this->requests_label->Location = System::Drawing::Point(194, 72);
+            this->requests_label->Name = L"requests_label";
+            this->requests_label->Size = System::Drawing::Size(155, 39);
+            this->requests_label->TabIndex = 2;
+            this->requests_label->Text = L"Requests";
             // 
             // pictureBox8
             // 
@@ -2879,33 +2895,23 @@ private: System::Windows::Forms::Label^ label103;
             // 
             // Add_admin_panel
             // 
-            this->Add_admin_panel->Controls->Add(this->pictureBox19);
             this->Add_admin_panel->Controls->Add(this->button1);
-            this->Add_admin_panel->Controls->Add(this->button4);
-            this->Add_admin_panel->Controls->Add(this->textBox4);
-            this->Add_admin_panel->Controls->Add(this->textBox3);
-            this->Add_admin_panel->Controls->Add(this->textBox2);
-            this->Add_admin_panel->Controls->Add(this->textBox1);
+            this->Add_admin_panel->Controls->Add(this->addAdminButton);
+            this->Add_admin_panel->Controls->Add(this->phoneTextBox);
+            this->Add_admin_panel->Controls->Add(this->passwordTextBox);
+            this->Add_admin_panel->Controls->Add(this->emailTextBox);
+            this->Add_admin_panel->Controls->Add(this->nameTextBox);
             this->Add_admin_panel->Controls->Add(this->label7);
             this->Add_admin_panel->Controls->Add(this->label6);
             this->Add_admin_panel->Controls->Add(this->label5);
             this->Add_admin_panel->Controls->Add(this->label4);
             this->Add_admin_panel->Controls->Add(this->label1);
+            this->Add_admin_panel->Controls->Add(this->pictureBox19);
             this->Add_admin_panel->Location = System::Drawing::Point(2, 83);
             this->Add_admin_panel->Name = L"Add_admin_panel";
             this->Add_admin_panel->Size = System::Drawing::Size(977, 608);
             this->Add_admin_panel->TabIndex = 10;
             this->Add_admin_panel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminForm::Add_admin_panel_Paint);
-            // 
-            // pictureBox19
-            // 
-            this->pictureBox19->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox19.Image")));
-            this->pictureBox19->Location = System::Drawing::Point(592, 132);
-            this->pictureBox19->Name = L"pictureBox19";
-            this->pictureBox19->Size = System::Drawing::Size(330, 310);
-            this->pictureBox19->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
-            this->pictureBox19->TabIndex = 9;
-            this->pictureBox19->TabStop = false;
             // 
             // button1
             // 
@@ -2923,54 +2929,54 @@ private: System::Windows::Forms::Label^ label103;
             this->button1->UseVisualStyleBackColor = false;
             this->button1->Click += gcnew System::EventHandler(this, &AdminForm::button1_Click);
             // 
-            // button4
+            // addAdminButton
             // 
-            this->button4->BackColor = System::Drawing::Color::CadetBlue;
-            this->button4->FlatAppearance->BorderSize = 0;
-            this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->addAdminButton->BackColor = System::Drawing::Color::CadetBlue;
+            this->addAdminButton->FlatAppearance->BorderSize = 0;
+            this->addAdminButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->addAdminButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->button4->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button4->Location = System::Drawing::Point(568, 470);
-            this->button4->Name = L"button4";
-            this->button4->Size = System::Drawing::Size(161, 61);
-            this->button4->TabIndex = 8;
-            this->button4->Text = L"ADD";
-            this->button4->UseVisualStyleBackColor = false;
-            this->button4->Click += gcnew System::EventHandler(this, &AdminForm::button4_Click);
+            this->addAdminButton->ForeColor = System::Drawing::Color::WhiteSmoke;
+            this->addAdminButton->Location = System::Drawing::Point(568, 470);
+            this->addAdminButton->Name = L"addAdminButton";
+            this->addAdminButton->Size = System::Drawing::Size(161, 61);
+            this->addAdminButton->TabIndex = 8;
+            this->addAdminButton->Text = L"ADD";
+            this->addAdminButton->UseVisualStyleBackColor = false;
+            this->addAdminButton->Click += gcnew System::EventHandler(this, &AdminForm::button4_Click);
             // 
-            // textBox4
+            // phoneTextBox
             // 
-            this->textBox4->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold));
-            this->textBox4->Location = System::Drawing::Point(105, 507);
-            this->textBox4->Name = L"textBox4";
-            this->textBox4->Size = System::Drawing::Size(327, 28);
-            this->textBox4->TabIndex = 1;
+            this->phoneTextBox->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold));
+            this->phoneTextBox->Location = System::Drawing::Point(105, 507);
+            this->phoneTextBox->Name = L"phoneTextBox";
+            this->phoneTextBox->Size = System::Drawing::Size(327, 28);
+            this->phoneTextBox->TabIndex = 1;
             // 
-            // textBox3
+            // passwordTextBox
             // 
-            this->textBox3->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold));
-            this->textBox3->Location = System::Drawing::Point(105, 390);
-            this->textBox3->Name = L"textBox3";
-            this->textBox3->Size = System::Drawing::Size(327, 28);
-            this->textBox3->TabIndex = 1;
+            this->passwordTextBox->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold));
+            this->passwordTextBox->Location = System::Drawing::Point(105, 390);
+            this->passwordTextBox->Name = L"passwordTextBox";
+            this->passwordTextBox->Size = System::Drawing::Size(327, 28);
+            this->passwordTextBox->TabIndex = 1;
             // 
-            // textBox2
+            // emailTextBox
             // 
-            this->textBox2->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold));
-            this->textBox2->Location = System::Drawing::Point(105, 266);
-            this->textBox2->Name = L"textBox2";
-            this->textBox2->Size = System::Drawing::Size(327, 28);
-            this->textBox2->TabIndex = 1;
+            this->emailTextBox->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold));
+            this->emailTextBox->Location = System::Drawing::Point(105, 266);
+            this->emailTextBox->Name = L"emailTextBox";
+            this->emailTextBox->Size = System::Drawing::Size(327, 28);
+            this->emailTextBox->TabIndex = 1;
             // 
-            // textBox1
+            // nameTextBox
             // 
-            this->textBox1->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->nameTextBox->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->textBox1->Location = System::Drawing::Point(105, 158);
-            this->textBox1->Name = L"textBox1";
-            this->textBox1->Size = System::Drawing::Size(327, 28);
-            this->textBox1->TabIndex = 1;
+            this->nameTextBox->Location = System::Drawing::Point(105, 158);
+            this->nameTextBox->Name = L"nameTextBox";
+            this->nameTextBox->Size = System::Drawing::Size(327, 28);
+            this->nameTextBox->TabIndex = 1;
             // 
             // label7
             // 
@@ -3033,6 +3039,16 @@ private: System::Windows::Forms::Label^ label103;
             this->label1->TabIndex = 0;
             this->label1->Text = L"Add New Admin";
             // 
+            // pictureBox19
+            // 
+            this->pictureBox19->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox19.Image")));
+            this->pictureBox19->Location = System::Drawing::Point(592, 132);
+            this->pictureBox19->Name = L"pictureBox19";
+            this->pictureBox19->Size = System::Drawing::Size(330, 310);
+            this->pictureBox19->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
+            this->pictureBox19->TabIndex = 9;
+            this->pictureBox19->TabStop = false;
+            // 
             // label9
             // 
             this->label9->AutoSize = true;
@@ -3088,6 +3104,7 @@ private: System::Windows::Forms::Label^ label103;
             this->user_password->Size = System::Drawing::Size(131, 31);
             this->user_password->TabIndex = 24;
             this->user_password->Text = L"*************";
+            this->user_password->Click += gcnew System::EventHandler(this, &AdminForm::user_password_Click);
             // 
             // user_name
             // 
@@ -3215,10 +3232,10 @@ private: System::Windows::Forms::Label^ label103;
                 static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->change_password_panel->Controls->Add(this->save_pass);
             this->change_password_panel->Controls->Add(this->cancel_pass);
-            this->change_password_panel->Controls->Add(this->textBox11);
-            this->change_password_panel->Controls->Add(this->label94);
+            this->change_password_panel->Controls->Add(this->new_pass);
+            this->change_password_panel->Controls->Add(this->label_new_pass);
             this->change_password_panel->Controls->Add(this->label92);
-            this->change_password_panel->Controls->Add(this->textBox10);
+            this->change_password_panel->Controls->Add(this->old_pass);
             this->change_password_panel->Controls->Add(this->label93);
             this->change_password_panel->Location = System::Drawing::Point(465, 151);
             this->change_password_panel->Name = L"change_password_panel";
@@ -3238,6 +3255,7 @@ private: System::Windows::Forms::Label^ label103;
             this->save_pass->TabIndex = 39;
             this->save_pass->Text = L"SAVE";
             this->save_pass->UseVisualStyleBackColor = false;
+            this->save_pass->Click += gcnew System::EventHandler(this, &AdminForm::save_pass_Click);
             // 
             // cancel_pass
             // 
@@ -3254,24 +3272,24 @@ private: System::Windows::Forms::Label^ label103;
             this->cancel_pass->UseVisualStyleBackColor = false;
             this->cancel_pass->Click += gcnew System::EventHandler(this, &AdminForm::cancel_pass_Click);
             // 
-            // textBox11
+            // new_pass
             // 
-            this->textBox11->Location = System::Drawing::Point(234, 163);
-            this->textBox11->Name = L"textBox11";
-            this->textBox11->Size = System::Drawing::Size(197, 24);
-            this->textBox11->TabIndex = 17;
+            this->new_pass->Location = System::Drawing::Point(234, 163);
+            this->new_pass->Name = L"new_pass";
+            this->new_pass->Size = System::Drawing::Size(197, 24);
+            this->new_pass->TabIndex = 17;
             // 
-            // label94
+            // label_new_pass
             // 
-            this->label94->AutoSize = true;
-            this->label94->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+            this->label_new_pass->AutoSize = true;
+            this->label_new_pass->Font = (gcnew System::Drawing::Font(L"Nexa Bold", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
-            this->label94->ForeColor = System::Drawing::Color::White;
-            this->label94->Location = System::Drawing::Point(26, 162);
-            this->label94->Name = L"label94";
-            this->label94->Size = System::Drawing::Size(200, 31);
-            this->label94->TabIndex = 16;
-            this->label94->Text = L"New Password:";
+            this->label_new_pass->ForeColor = System::Drawing::Color::White;
+            this->label_new_pass->Location = System::Drawing::Point(26, 162);
+            this->label_new_pass->Name = L"label_new_pass";
+            this->label_new_pass->Size = System::Drawing::Size(200, 31);
+            this->label_new_pass->TabIndex = 16;
+            this->label_new_pass->Text = L"New Password:";
             // 
             // label92
             // 
@@ -3285,12 +3303,12 @@ private: System::Windows::Forms::Label^ label103;
             this->label92->TabIndex = 15;
             this->label92->Text = L"Change Password";
             // 
-            // textBox10
+            // old_pass
             // 
-            this->textBox10->Location = System::Drawing::Point(234, 97);
-            this->textBox10->Name = L"textBox10";
-            this->textBox10->Size = System::Drawing::Size(197, 24);
-            this->textBox10->TabIndex = 11;
+            this->old_pass->Location = System::Drawing::Point(234, 97);
+            this->old_pass->Name = L"old_pass";
+            this->old_pass->Size = System::Drawing::Size(197, 24);
+            this->old_pass->TabIndex = 11;
             // 
             // label93
             // 
@@ -3318,8 +3336,8 @@ private: System::Windows::Forms::Label^ label103;
             this->Profile_panel->Controls->Add(this->label2);
             this->Profile_panel->Controls->Add(this->label8);
             this->Profile_panel->Controls->Add(this->label9);
-            this->Profile_panel->Controls->Add(this->EditFieldPanel);
             this->Profile_panel->Controls->Add(this->change_password_panel);
+            this->Profile_panel->Controls->Add(this->EditFieldPanel);
             this->Profile_panel->Location = System::Drawing::Point(4, 88);
             this->Profile_panel->Name = L"Profile_panel";
             this->Profile_panel->Size = System::Drawing::Size(979, 606);
@@ -3370,12 +3388,12 @@ private: System::Windows::Forms::Label^ label103;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(977, 705);
             this->Controls->Add(this->Navigationbar_panel);
-            this->Controls->Add(this->Profile_panel);
-            this->Controls->Add(this->Moderate_users_panel);
-            this->Controls->Add(this->Add_admin_panel);
             this->Controls->Add(this->Dashboard_panel);
             this->Controls->Add(this->Browse_panel);
             this->Controls->Add(this->Requests_panel);
+            this->Controls->Add(this->Profile_panel);
+            this->Controls->Add(this->Moderate_users_panel);
+            this->Controls->Add(this->Add_admin_panel);
             this->Name = L"AdminForm";
             this->Text = L"AdminForm";
             this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
@@ -3575,29 +3593,37 @@ private: System::Void Search_textbox_TextChanged(System::Object^ sender, System:
 private: System::Void flowLayoutPanel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 }
 private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-
-    textBox1->Text = ""; 
-    textBox2->Text = "";
-    textBox3->Text = "";
-    textBox4->Text = "";
+    ResetControlsInPanel(Add_admin_panel);
 }
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
-    System::Windows::Forms::DialogResult result = MessageBox::Show(
-        "Are you sure you want to add this admin?",
-        "Admin Confirmation",
-        MessageBoxButtons::YesNo,
-        MessageBoxIcon::Warning
-    );
 
-    if (result == System::Windows::Forms::DialogResult::Yes) {
-        MessageBox::Show(
-            "Admin added successfully!",
-            "Success",
-            MessageBoxButtons::OK,
-            MessageBoxIcon::Information
-        );
+
+    std::string name = msclr::interop::marshal_as<std::string>(nameTextBox->Text);
+    std::string email = msclr::interop::marshal_as<std::string>(emailTextBox->Text);
+    std::string password = msclr::interop::marshal_as<std::string>(passwordTextBox->Text);
+    std::string phone = msclr::interop::marshal_as<std::string>(phoneTextBox->Text);
+
+    // Call the function
+    int result = Global::currUser.add_admin(name, email, password, phone);
+
+    // Show feedback to the user
+    switch (result) {
+    case 0:
+        MessageBox::Show("Admin added successfully!");
+        break;
+    case 1:
+        MessageBox::Show("Password must be at least 8 characters.");
+        break;
+    case 2:
+        MessageBox::Show("Email already in use.");
+        break;
+    default:
+        MessageBox::Show("Unknown error.");
+        break;
     }
 }
+
+
 private: System::Void pictureBox2_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void label15_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -3684,22 +3710,40 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 
        // Save button click event to save the edited values
     private: System::Void save_edit_Click(System::Object^ sender, System::EventArgs^ e) {
-        String^ newValue = editBox->Text;  // get the new value from the textbox
+        String^ newValue = editBox->Text;  // Get new value from TextBox
+        int id = Global::currUser.getId(); // Current user ID
 
         if (currentField == "Name") {
-
+            std::string name = marshal_as<std::string>(newValue);
+            Global::currUser.setName(name);
+            Global::users[id].setName(name);
+            Profile->Text = newValue;
+            user_name->Text = newValue;
         }
         else if (currentField == "Email") {
+            std::string email = marshal_as<std::string>(newValue);
+            Global::currUser.setEmail(email);
+            Global::users[id].setEmail(email);
+            user_email->Text = newValue;
 
         }
         else if (currentField == "Phone") {
-
+            try {
+                int phoneInt = System::Convert::ToInt32(newValue);
+                Global::currUser.setPhoneNumber(phoneInt);
+                Global::users[id].setPhoneNumber(phoneInt);
+                user_phone->Text = newValue;
+            }
+            catch (FormatException^) {
+                MessageBox::Show("Please enter a valid phone number.", "Invalid Input", MessageBoxButtons::OK, MessageBoxIcon::Error);
+                return;
+            }
         }
 
         // Show a success message
         MessageBox::Show(currentField + " updated successfully!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 
-        // Hide the edit panel after saving
+        // Hide the edit panel
         EditFieldPanel->Visible = false;
     }
 
@@ -3719,6 +3763,47 @@ private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ 
     user_details->Visible = false;
 }
 private: System::Void label97_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void save_pass_Click(System::Object^ sender, System::EventArgs^ e) {
+    // Get values from textboxes
+    String^ oldPassStr = old_pass->Text;
+    String^ newPassStr = new_pass->Text;
+
+    std::string oldPass = marshal_as<std::string>(oldPassStr);
+    std::string newPass = marshal_as<std::string>(newPassStr);
+
+    // Get current user ID
+    int id = Global::currUser.getId();
+
+    // Check if old password matches
+    if (oldPass != Global::currUser.getPassword()) {
+        MessageBox::Show("Old password is incorrect.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        return;
+    }
+
+    // Check if new password is valid (at least 8 characters long)
+    if (newPass.length() < 8) {
+        MessageBox::Show("New password must be at least 8 characters long.", "Invalid Password", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+        return;
+    }
+
+    // Update password
+    Global::currUser.setPassword(newPass);
+    Global::users[id].setPassword(newPass);
+    std::string password = Global::currUser.getPassword();
+    std::string masked(password.length(), '*');
+    user_password->Text = gcnew String(masked.c_str());
+    // Success message
+    MessageBox::Show("Password updated successfully!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+
+    // Clear fields (optional)
+    old_pass->Text = "";
+    new_pass->Text = "";
+    change_password_panel->Visible = false; 
+}
+       
+
+private: System::Void user_password_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }

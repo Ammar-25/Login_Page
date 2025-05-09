@@ -185,6 +185,10 @@ void user::setName(std::string name) {
 void user::setEmail(std::string email) {
     this->email = email;
 }
+void user::setPassword(std::string password)
+{
+    this->password = password;
+}
 void user::setPhoneNumber(int phoneNumber) {
     this->phoneNumber = phoneNumber;
 }
