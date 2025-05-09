@@ -2,7 +2,7 @@
 1,0,0,Mostafa,mostafa@gmail.com,00000000,123123123,0
 2,0,0,sadek,sadek@gmail.com,00000000,0231231231,0
 3,0,0,mahmoud,mahmoud@gmail.com,00000000,12342315,0
-4,0,10000000,Ammar,ammar2@gmail.com,12345678,0111,0
+4,0,7801667,Ammar,ammar2@gmail.com,12345678,0111,0
 5,0,0,Ammar,ammar3@gmail.com,12345678,0111111,0
 6,0,0,ammar,ammar34@gmail.com,12345678,01212121,0
 7,1,5000,Moustafa,z,z,12121312,0

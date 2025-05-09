@@ -332,6 +332,8 @@ private: System::Windows::Forms::Label^ label51;
             button18->Location = System::Drawing::Point(516, 81);
             button18->Size = System::Drawing::Size(148, 30);
             button18->Text = L"BUY";
+            button18->Click += gcnew EventHandler(this, &UserForm::Buy_click);
+            button18->Tag = id;
 
             // COMPARISON button
             Button^ button19 = gcnew Button();
@@ -640,10 +642,6 @@ private: System::Windows::Forms::Button^ button2;
 
 
     private: System::Windows::Forms::Label^ label5;
-
-
-
-
 
 
 
@@ -3215,12 +3213,12 @@ private: System::Windows::Forms::Button^ button2;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(988, 713);
             this->Controls->Add(this->Navigationbar_panel);
+            this->Controls->Add(this->Home_panel);
             this->Controls->Add(this->Profile_panel);
             this->Controls->Add(this->Welcome_panel);
             this->Controls->Add(this->payement_panel);
             this->Controls->Add(this->Comparison_panel);
             this->Controls->Add(this->Browse_panel);
-            this->Controls->Add(this->Home_panel);
             this->Name = L"UserForm";
             this->Text = L"User Form";
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &UserForm::UserForm_FormClosed);
@@ -3381,7 +3379,7 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
 
             System::Windows::Forms::MessageBox::Show("Property is added successfully");
             New_Property->Visible = false;
-
+            this->ResetControlsInPanel(this->New_Property);
         }
         else {
             ResetControlsInPanel(New_Property);
@@ -3677,6 +3675,8 @@ private: System::Void start_btn_Click(System::Object^ sender, System::EventArgs^
             
         }
     }
+private: System::Void Buy_click(System::Object^ sender, System::EventArgs^ e);
+
 private: System::Void button22_Click(System::Object^ sender, System::EventArgs^ e) {
     this->panel3->Visible = 0;
 }

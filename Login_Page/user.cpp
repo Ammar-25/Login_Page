@@ -116,17 +116,25 @@ void user::addBalance(int balance)
     this->balance += balance;
 }
 
-void user::buyProperty(int proId)
+int user::buyProperty(int proId)
 {
     if (!this->frozen) {
         for (auto& p : Global::properties) {
             if (p.getId() == proId) {
                 if (this->balance >= p.getPrice() && p.getAvailability() == 1) {
+                    Global::users[Global::currId].addBalance(-p.getPrice());
+                    p.setOwnerId(Global::currId);
                     p.setAvailability(2);
+                    return 0;
+                }
+                else {
+                    return 2;
                 }
             }
         }
     }
+    else return 1;
+    return 0;
 }
 
 void user::setAvailability(int proId, int Availability)

@@ -41,6 +41,7 @@ public:
     void setArea(double newArea);
     void setHighlight(bool h);
     void setDescription(std::string description);
+    void setOwnerId(int id);
 
     std::string to_string();
 };

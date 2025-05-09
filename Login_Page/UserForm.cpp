@@ -50,7 +50,7 @@ System::Void LoginPage::UserForm::MoreDetails_Click(System::Object^ sender, Syst
         switch (p.getAvailability()) {
         case 0: statusStr = "Pending"; break;
         case 1: statusStr = "Available"; break;
-        case 2: statusStr = "Sold"; break;
+        case 2: statusStr = "Bought"; break;
         case 3: statusStr = "Declined"; break;
         }
         this->textBox6->Text = gcnew String(p.getDescription().c_str());
@@ -113,7 +113,7 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
         switch (p.getAvailability()) {
         case 0: statusStr = "Pending"; break;
         case 1: statusStr = "Available"; break;
-        case 2: statusStr = "Sold"; break;
+        case 2: statusStr = "Bought"; break;
         case 3: statusStr = "Declined"; break;
         }
 
@@ -137,6 +137,52 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
         }
         
     }
+}
+// buy
+System::Void LoginPage::UserForm::Buy_click(System::Object^ sender, System::EventArgs^ e)
+{
+
+    System::Windows::Forms::DialogResult result = MessageBox::Show(
+        "Are you sure you want to buy this property?",
+        "Confirm Purchase",
+        MessageBoxButtons::YesNo,
+        MessageBoxIcon::Question
+    );
+    if (result == System::Windows::Forms::DialogResult::No) {
+        return;
+    }
+
+    Button^ btn = dynamic_cast<Button^>(sender);
+    int id = System::Convert::ToInt32(btn->Tag);
+
+    int b = Global::currUser.buyProperty(id);
+
+    switch (b) {
+    case 0:
+        MessageBox::Show("Property bought successfully!", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+        break;
+
+    case 1:
+        MessageBox::Show("Your account is frozen. You can't purchase properties.", "Account Frozen", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+        break;
+
+    case 2:
+        MessageBox::Show("Insufficient balance to buy this property.", "Purchase Failed", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        break;
+
+    default:
+        MessageBox::Show("An unexpected error occurred.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+        break;
+    }
+    this->Form1_Load(sender, e);
+    
+    int balance = Global::users[Global::currId].getBalance();
+    std::stringstream ss;
+    ss.imbue(std::locale("en_US.UTF-8"));
+    ss << balance;
+
+    String^ currBalance = gcnew System::String(ss.str().c_str());
+    Balance->Text = currBalance + " $";
 }
 
 //search
