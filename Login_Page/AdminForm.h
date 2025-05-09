@@ -3201,6 +3201,7 @@ private: System::Windows::Forms::Label^ label103;
             this->editBox->Name = L"editBox";
             this->editBox->Size = System::Drawing::Size(250, 24);
             this->editBox->TabIndex = 11;
+            this->editBox->TextChanged += gcnew System::EventHandler(this, &AdminForm::editBox_TextChanged);
             // 
             // editLabel
             // 
@@ -3336,8 +3337,8 @@ private: System::Windows::Forms::Label^ label103;
             this->Profile_panel->Controls->Add(this->label2);
             this->Profile_panel->Controls->Add(this->label8);
             this->Profile_panel->Controls->Add(this->label9);
-            this->Profile_panel->Controls->Add(this->change_password_panel);
             this->Profile_panel->Controls->Add(this->EditFieldPanel);
+            this->Profile_panel->Controls->Add(this->change_password_panel);
             this->Profile_panel->Location = System::Drawing::Point(4, 88);
             this->Profile_panel->Name = L"Profile_panel";
             this->Profile_panel->Size = System::Drawing::Size(979, 606);
@@ -3388,12 +3389,12 @@ private: System::Windows::Forms::Label^ label103;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(977, 705);
             this->Controls->Add(this->Navigationbar_panel);
-            this->Controls->Add(this->Dashboard_panel);
-            this->Controls->Add(this->Browse_panel);
             this->Controls->Add(this->Requests_panel);
             this->Controls->Add(this->Profile_panel);
             this->Controls->Add(this->Moderate_users_panel);
             this->Controls->Add(this->Add_admin_panel);
+            this->Controls->Add(this->Dashboard_panel);
+            this->Controls->Add(this->Browse_panel);
             this->Name = L"AdminForm";
             this->Text = L"AdminForm";
             this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
@@ -3727,6 +3728,7 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
             user_email->Text = newValue;
 
         }
+
         else if (currentField == "Phone") {
             try {
                 int phoneInt = System::Convert::ToInt32(newValue);
@@ -3804,6 +3806,8 @@ private: System::Void save_pass_Click(System::Object^ sender, System::EventArgs^
        
 
 private: System::Void user_password_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void editBox_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 }
