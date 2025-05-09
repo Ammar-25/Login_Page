@@ -1,1 +1,6 @@
-2,Villa,Roxy,150000,8,0,3,200,0,has a good view
+1,Townhouse,asdfasdf,12353125,8,1,2,1234,0,has a good view , has 2 balcony
+2,Apartment,dfsvsfdv,2315325,9,1,2,13214,0,fdvsfdvsfdv
+3,Townhouse,saraEgypt,150000,8,1,3,1.5e+07,0,asvkmsdfvsdfbs
+4,Villa,Cairo,44444444,9,1,3,1333,1,Mohamed's apartment 1
+5,Duplex,Alex,1233333,9,1,4,150,1,Mohamed's Apartment 2
+6,Apartment,Alex,5000000,9,1,4,150,1,Mohamed's Apartment 3
