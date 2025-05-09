@@ -12,7 +12,7 @@ private:
     int availability; // 0-> pending, 1 -> approved, 2 -> sold, 3 -> declined
     int numBedrooms;
     double area;
-    bool isHighLighted; // 0 -> unHighLighted , 1-> highLighted 
+    bool isHighLighted; // 0 -> unHighLighted , 1-> highLighted
 
 public:
     // Constructor

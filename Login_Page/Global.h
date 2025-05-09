@@ -4,6 +4,7 @@
 #include <string>
 #include <queue>
 #include <map>
+#include <vector>
 #include "Property.h"
 #include "user.h"
 
@@ -19,4 +20,9 @@ public:
 
     // Global functions
     static std::string toLowerCase(const std::string& s); // for searching
+	static bool isContain(std::string a, std::string b);
+
+
+   static std::vector<Property>search(std::string location, std::string type , int area , int mnPrice , int mxPrice , int nmOfbedrooms);
+
 };
