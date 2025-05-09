@@ -41,7 +41,7 @@ public:
     bool removeProperty(int propertyID);
     void editProperty(int proId, Property pro);
     void addBalance(int balance);
-    void buyProperty(int proId);
+    int buyProperty(int proId); // 0-> bought successfully , 1-> user is forzen , 2-> insufficient balance
     void setAvailability(int proId, int Availability); // for Admin
     void Moderate(int id, bool freezeFlag); // for Admin
     void highLight_property(int proId, bool h); // for Admin

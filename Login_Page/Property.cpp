@@ -96,6 +96,11 @@ void Property::setDescription(std::string description)
     this->description = description;
 }
 
+void Property::setOwnerId(int id)
+{
+    this->ownerId = id;
+}
+
 std::string Property::to_string() {
     return "ID: " + std::to_string(id) +
         "\nType: " + type +
