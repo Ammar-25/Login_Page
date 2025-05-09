@@ -231,8 +231,9 @@ System::Void LoginPage::UserForm::pictureBox10_Click(System::Object^ sender, Sys
     std::vector <Property> s;
     s = Global::search(location, type, area, mnPrice, mxPrice, nmofBedrooms);
     for (auto& p : s) {
-        if (p.getOwnerId() == Global::currId)
+        if (p.getOwnerId() == Global::currId || p.getAvailability()!=1)
             continue;
+        
         std::string typeStr = p.getType();
         int id = p.getId();
         int price = p.getPrice();
