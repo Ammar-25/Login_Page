@@ -13,12 +13,13 @@ private:
     int numBedrooms;
     double area;
     bool isHighLighted; // 0 -> unHighLighted , 1-> highLighted
+    bool inComparison;
 
 public:
     // Constructor
     Property();
     Property(int id, std::string type, std::string location, int price,
-        int ownerId, int availability, int numBedrooms, double area, bool isHighLighted = 0 , std::string description = "");
+        int ownerId, int availability, int numBedrooms, double area, bool isHighLighted = 0 , std::string description = "" , bool inComparison = false);
 
     // Getters
     int getId();
@@ -31,7 +32,8 @@ public:
     int getNumBedrooms();
     double getArea();
     bool getHighlight();
-    
+    bool getInComparison();
+
     // Setters
     void setType(std::string& newType);
     void setLocation(std::string& newLocation);
@@ -42,6 +44,7 @@ public:
     void setHighlight(bool h);
     void setDescription(std::string description);
     void setOwnerId(int id);
+    void setInComparison(bool inComp);
 
     std::string to_string();
 };

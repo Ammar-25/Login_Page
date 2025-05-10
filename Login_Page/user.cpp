@@ -122,6 +122,8 @@ int user::buyProperty(int proId)
         for (auto& p : Global::properties) {
             if (p.getId() == proId) {
                 if (this->balance >= p.getPrice() && p.getAvailability() == 1) {
+                    int i = p.getOwnerId();
+                    Global::users[i].addBalance(p.getPrice());
                     Global::users[Global::currId].addBalance(-p.getPrice());
                     p.setOwnerId(Global::currId);
                     p.setAvailability(2);
