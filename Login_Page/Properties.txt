@@ -2,3 +2,4 @@
 2,Apartment,Roxy,120000,4,2,3,120,0,0,AP1
 3,Duplex,Masr EL Gdeda,745000,8,1,4,300,0,0,D1
 4,Townhouse,Down Town,1500000,4,2,4,200,0,0,T1
+
