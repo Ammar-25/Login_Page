@@ -53,16 +53,16 @@ System::Void LoginPage::UserForm::MoreDetails_Click(System::Object^ sender, Syst
         case 2: statusStr = "Bought"; break;
         case 3: statusStr = "Declined"; break;
         }
-        this->textBox6->Text = gcnew String(p.getDescription().c_str());
-        this->numericUpDown2->Value = p.getNumBedrooms();
-        this->label24->Text = gcnew String(statusStr.c_str());
-        this->textBox13->Text = p.getArea().ToString();
-        this->textBox12->Text = p.getPrice().ToString();
-        this->textBox14->Text = gcnew String(p.getLocation().c_str());
-        this->label27->Text = id.ToString();
-        this->comboBox2->Text = gcnew String(p.getType().c_str());
-        this->Details_Panel->Visible = 1;
-
+        this->panel3->BringToFront();
+        this->textBox18->Text = gcnew String(p.getDescription().c_str());
+        this->label51->Text = p.getNumBedrooms().ToString();
+        this->label28->Text = gcnew String(statusStr.c_str());
+        this->label48->Text = p.getArea().ToString();
+        this->label49->Text = "$" + p.getPrice().ToString("N0");
+        this->label50->Text = gcnew String(p.getLocation().c_str());
+        this->label29->Text = id.ToString();
+        this->label52->Text = gcnew String(p.getType().c_str());
+        this->panel3->Visible = 1;
     }
 }
 
@@ -311,5 +311,11 @@ System::Void LoginPage::UserForm::pictureBox10_Click(System::Object^ sender, Sys
 
 System::Void LoginPage::UserForm::UserForm_FormClosed(System::Object^ sender, System::Windows::Forms::FormClosedEventArgs^ e)
 {
+    Global::inComp = 0;
+    for (auto& p : Global::properties) {
+        if (p.getInComparison()) {
+            p.setInComparison(0);
+        }
+    }
     this->parent->Close();
 }
