@@ -36,6 +36,7 @@ void FileHandler::Save()
             << p.getNumBedrooms() << ","
             << p.getArea() << ","
             << p.getHighlight() << ","
+            << p.getInComparison()<< ","
             << p.getDescription() << "\n";
     }
 
@@ -90,7 +91,7 @@ void FileHandler::Load()
         int id, ownerId, availability, numBedrooms;
         std::string type, location , description;
         double price, area;
-        bool isHighlighted;
+        bool isHighlighted , inComp;
 
         std::getline(ss, temp, ','); id = std::stoi(temp);
         std::getline(ss, type, ',');
@@ -101,9 +102,10 @@ void FileHandler::Load()
         std::getline(ss, temp, ','); numBedrooms = std::stoi(temp);
         std::getline(ss, temp, ','); area = std::stod(temp);
         std::getline(ss, temp, ','); isHighlighted = std::stoi(temp);
+        std::getline(ss, temp, ','); inComp = std::stoi(temp);
         std::getline(ss, description);
 
-        Global::properties.emplace_back(id, type, location, price, ownerId, availability, numBedrooms, area, isHighlighted , description);
+        Global::properties.emplace_back(id, type, location, price, ownerId, availability, numBedrooms, area, isHighlighted , description , inComp);
         // Adds a new Property object to the properties vector using emplace_back().
     }
 

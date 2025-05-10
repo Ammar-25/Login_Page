@@ -14,10 +14,10 @@ public:
     // Global attributes
     static int currId; // Stores the ID of the currently signed-in user
     static user currUser;
+    static int inComp;
 
     static std::map<int, user> users;
     static std::list<Property> properties;
-
     // Global functions
     static std::string toLowerCase(const std::string& s); // for searching
 	static bool isContain(std::string a, std::string b);

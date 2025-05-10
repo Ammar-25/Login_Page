@@ -2,6 +2,7 @@
 
 int Global::currId = -1;
 user Global::currUser;
+int Global::inComp = 0;
 
 std::map<int , user> Global::users;
 std::list<Property> Global::properties;

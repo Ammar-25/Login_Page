@@ -99,6 +99,48 @@ System::Void LoginPage::UserForm::MoreDetails_Click2(System::Object^ sender, Sys
 
     }
 }
+// comparison buttons
+System::Void LoginPage::UserForm::addToComparison_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    Button^ button = dynamic_cast<Button^>(sender);
+    String^ propertyId = dynamic_cast<String^>(button->Tag);
+
+    int id = Convert::ToInt32(propertyId);
+    if (Global::inComp >= 4) {
+        MessageBox::Show(
+            "You can only compare up to 4 properties at a time.",
+            "Comparison Limit Reached",
+            MessageBoxButtons::OK,
+            MessageBoxIcon::Warning
+        );
+        return;
+    }
+    Global::inComp++;
+    for (auto& p : Global::properties) {
+        if (p.getId() == id) {
+            p.setInComparison(1);
+            Form1_Load(sender , e);
+            this->Comparison_Click(sender, e);
+            break;
+        }
+    }
+}
+
+System::Void LoginPage::UserForm::RemoveFromComparison_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    Button^ button = dynamic_cast<Button^>(sender);
+    String^ propertyId = dynamic_cast<String^>(button->Tag);
+
+    int id = Convert::ToInt32(propertyId);
+
+    Global::inComp--;
+    for (auto& p : Global::properties)
+        if (p.getId() == id) {
+            p.setInComparison(0);
+            Form1_Load(sender, e);
+            break;
+        }
+}
 
 System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::EventArgs^ e)
 {
@@ -131,11 +173,14 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
         
         // Create and add panel to flow layout
         if (p.getAvailability() == 1) {
-            Panel^ panel = this->CreatePropertyBrowsePanel(idStr, type, priceStr, status, p.getArea().ToString(), p.getHighlight());
+            Panel^ panel = this->CreatePropertyBrowsePanel(idStr, type, priceStr, status, p.getArea().ToString(), p.getHighlight() , p.getInComparison());
             std::cout << p.getHighlight() << '\n';
             this->flowLayoutPanel2->Controls->Add(panel);
+            continue;
         }
-        
+        if (p.getInComparison()) {
+
+        }
     }
 }
 // buy
@@ -253,7 +298,7 @@ System::Void LoginPage::UserForm::pictureBox10_Click(System::Object^ sender, Sys
 
 
 
-        Panel^ panel = this->CreatePropertyBrowsePanel(idStr, type, priceStr, status, p.getArea().ToString(), p.getHighlight());
+        Panel^ panel = this->CreatePropertyBrowsePanel(idStr, type, priceStr, status, p.getArea().ToString(), p.getHighlight(), p.getInComparison());
         flowLayoutPanel2->Controls->Add(panel);
     }
 }

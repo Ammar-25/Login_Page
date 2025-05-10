@@ -175,7 +175,8 @@ private: System::Windows::Forms::Label^ label52;
 
 private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel2;
 private: System::Windows::Forms::Label^ label51;
-
+private: System::Void addToComparison_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void RemoveFromComparison_Click(System::Object^ sender, System::EventArgs^ e);
 
 
 
@@ -309,7 +310,7 @@ private: System::Windows::Forms::Label^ label51;
 
 
 
-        Panel^ CreatePropertyBrowsePanel(String^ id, String^ type, String^ price, String^ status, String^ area , bool highlighted) {
+        Panel^ CreatePropertyBrowsePanel(String^ id, String^ type, String^ price, String^ status, String^ area , bool highlighted , bool inComp) {
             Panel^ panel = gcnew Panel();
 
             // 
@@ -346,6 +347,8 @@ private: System::Windows::Forms::Label^ label51;
             button19->Location = System::Drawing::Point(516, 46);
             button19->Size = System::Drawing::Size(146, 30);
             button19->Text = L"COMPARISON";
+            button19->Click += gcnew EventHandler(this, &UserForm::addToComparison_Click);
+            button19->Tag = id;
 
             // DETAILS button
             Button^ button20 = gcnew Button();
@@ -442,6 +445,14 @@ private: System::Windows::Forms::Label^ label51;
             }
 
             // Add controls to panel
+            
+            if (inComp) {
+                button19->Text = L"IN COMPARISON";
+                button19->BackColor = System::Drawing::Color::FromArgb(204, 172, 105);
+                button19->Font = gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold);
+                button19->Click -= gcnew EventHandler(this, &UserForm::addToComparison_Click);
+                button19->Click += gcnew EventHandler(this, &UserForm::RemoveFromComparison_Click);
+            }
             panel->Controls->Add(button18);
             panel->Controls->Add(button19);
             panel->Controls->Add(button20);
@@ -3213,12 +3224,12 @@ private: System::Windows::Forms::Button^ button2;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(988, 713);
             this->Controls->Add(this->Navigationbar_panel);
+            this->Controls->Add(this->Comparison_panel);
+            this->Controls->Add(this->payement_panel);
             this->Controls->Add(this->Browse_panel);
             this->Controls->Add(this->Home_panel);
             this->Controls->Add(this->Profile_panel);
             this->Controls->Add(this->Welcome_panel);
-            this->Controls->Add(this->Comparison_panel);
-            this->Controls->Add(this->payement_panel);
             this->Name = L"UserForm";
             this->Text = L"User Form";
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &UserForm::UserForm_FormClosed);
