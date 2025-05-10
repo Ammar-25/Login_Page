@@ -11,9 +11,6 @@ using namespace System::Windows::Forms;
 int main() {
     // load data
     FileHandler::Load();
-    for (auto p : Global::properties)
-        if (p.getInComparison())++Global::inComp;
-
     
     //**********run Login Form directly *************
 	Application::EnableVisualStyles();
