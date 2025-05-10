@@ -91,7 +91,7 @@ System::Void LoginPage::UserForm::MoreDetails_Click2(System::Object^ sender, Sys
         this->label51->Text = p.getNumBedrooms().ToString();
         this->label28->Text = gcnew String(statusStr.c_str());
         this->label48->Text = p.getArea().ToString();
-        this->label49->Text = p.getPrice().ToString();
+        this->label49->Text = "$" + p.getPrice().ToString("N0");
         this->label50->Text = gcnew String(p.getLocation().c_str());
         this->label29->Text = id.ToString();
         this->label52->Text = gcnew String(p.getType().c_str());
@@ -120,7 +120,7 @@ System::Void LoginPage::UserForm::addToComparison_Click(System::Object^ sender, 
         if (p.getId() == id) {
             p.setInComparison(1);
             Form1_Load(sender , e);
-            this->Comparison_Click(sender, e);
+            //this->Comparison_Click(sender, e);
             break;
         }
     }
@@ -146,6 +146,7 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
 {
     flowLayoutPanel1->Controls->Clear();
     flowLayoutPanel2->Controls->Clear();
+    flowLayoutPanel3->Controls->Clear();
     for (auto p : Global::properties) {
         std::string typeStr = p.getType();
         int id = p.getId();
@@ -164,7 +165,11 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
         System::String^ type = gcnew System::String(typeStr.c_str());
         System::String^ priceStr = "$ " + price.ToString("N0");
         System::String^ status = gcnew System::String(statusStr.c_str());
-        
+        System::String^ loc = gcnew System::String(p.getLocation().c_str());
+        System::String^ des = gcnew System::String(p.getDescription().c_str());
+
+        int area = p.getArea();
+        int nm = p.getNumBedrooms();
         if (Global::currId == p.getOwnerId()) {
             Panel^ panel2 = CreatePropertyPanel(idStr, type, priceStr, status);
             this->flowLayoutPanel1->Controls->Add(panel2);
@@ -176,10 +181,10 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
             Panel^ panel = this->CreatePropertyBrowsePanel(idStr, type, priceStr, status, p.getArea().ToString(), p.getHighlight() , p.getInComparison());
             std::cout << p.getHighlight() << '\n';
             this->flowLayoutPanel2->Controls->Add(panel);
-            continue;
         }
         if (p.getInComparison()) {
-
+            Panel^ panel = this->CreatePropertyComparisonPanel(idStr, type, area, loc, nm , priceStr , des , p.getHighlight());
+            this->flowLayoutPanel3->Controls->Add(panel);
         }
     }
 }
