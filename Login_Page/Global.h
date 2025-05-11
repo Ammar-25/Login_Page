@@ -23,6 +23,6 @@ public:
 	static bool isContain(std::string a, std::string b);
 
 
-   static std::vector<Property>search(std::string location, std::string type , int area , int mnPrice , int mxPrice , int nmOfbedrooms);
+   static std::vector<Property>search(std::string location, std::string type , int area , int mnPrice , int mxPrice , int nmOfbedrooms , std::string ownerName = "");
 
 };

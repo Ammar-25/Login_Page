@@ -96,3 +96,76 @@ System::Void LoginPage::AdminForm::HighlightProperty(System::Object^ sender, Sys
     Form1_Load(sender, e);
 
 }
+// search
+System::Void LoginPage::AdminForm::pictureBox10_Click(System::Object^ sender, System::EventArgs^ e)
+{
+    this->flowLayoutPanel1->Controls->Clear();
+    int nmofBedrooms = System::Convert::ToInt32(this->numBedrooms->Value);
+    std::string name = msclr::interop::marshal_as<std::string>(this->textBox9->Text);
+    bool isMnValid = 1, isMxValid = 1, isAreaValid = 1;
+    int mnPrice, mxPrice, area;
+
+
+    std::string location, type;
+
+
+    if (String::IsNullOrWhiteSpace(textBox5->Text)) {
+        location = "";
+    }
+    else location = msclr::interop::marshal_as<std::string>(this->textBox5->Text);
+
+    if (String::IsNullOrWhiteSpace(comboBox1->Text)) {
+        type = "";
+    }
+    else type = msclr::interop::marshal_as<std::string>(this->TypeCompo->Text);
+
+    if (String::IsNullOrWhiteSpace(textBox6->Text)) {
+        mnPrice = -1;
+    }
+    else isMnValid = Int32::TryParse(this->textBox6->Text, mnPrice);
+
+    if (String::IsNullOrWhiteSpace(textBox7->Text)) {
+        mxPrice = -1;
+    }
+    else isMxValid = Int32::TryParse(this->textBox7->Text, mxPrice);
+
+
+    if (String::IsNullOrWhiteSpace(textBox8->Text)) {
+        area = -1;
+    }
+    else isAreaValid = Int32::TryParse(this->textBox8->Text, area);
+
+    if (!isMnValid || !isMxValid || !isAreaValid) {
+        MessageBox::Show("Please enter valid numbers for Minimum Price, Maximum Price, and Area.");
+        return;
+    }
+
+    std::vector <Property> s;
+    s = Global::search(location, type, area, mnPrice, mxPrice, nmofBedrooms , name);
+    std::cout << s.size() << '\n';
+    for (auto& p : s) {
+        std::string typeStr = p.getType();
+        int id = p.getId();
+        int price = p.getPrice();
+
+        std::string statusStr;
+        switch (p.getAvailability()) {
+        case 0: statusStr = "Pending"; break;
+        case 1: statusStr = "Available"; break;
+        case 2: statusStr = "Sold"; break;
+        case 3: statusStr = "Declined"; break;
+        }
+
+        // Convert std::string and int to System::String^
+        System::String^ idStr = id.ToString();
+        System::String^ type = gcnew System::String(typeStr.c_str());
+        System::String^ priceStr = "$ " + price.ToString("N0");
+        System::String^ status = gcnew System::String(statusStr.c_str());
+        System::String^ ownerName = gcnew System::String(Global::users[p.getOwnerId()].getName().c_str());
+
+
+
+        Panel^ panel = this->CreatePropertyBrowsePanel(idStr , type , ownerName , price , p.getHighlight());
+        this->flowLayoutPanel1->Controls->Add(panel);
+    }
+}

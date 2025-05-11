@@ -23,7 +23,7 @@ bool Global::isContain(std::string a, std::string b)
 }
 
 
-std::vector<Property> Global::search(std::string location, std::string type, int area, int mnPrice, int mxPrice, int nmOfbedrooms)
+std::vector<Property> Global::search(std::string location, std::string type, int area, int mnPrice, int mxPrice, int nmOfbedrooms, std::string ownerName)
 {
     std::vector<Property>result;
     for (auto& p : Global::properties) {
@@ -38,8 +38,9 @@ std::vector<Property> Global::search(std::string location, std::string type, int
         
         bool bedroomsMatch = nmOfbedrooms == 0 || p.getNumBedrooms() == nmOfbedrooms;
 
+        bool ownername = (ownerName == "") || ownerName == Global::users[p.getOwnerId()].getName();
 
-        if (locationMatch && typeMatch && areaMatch && priceMatch && bedroomsMatch) {
+        if (locationMatch && typeMatch && areaMatch && priceMatch && bedroomsMatch && ownername) {
             result.push_back(p);
         }
     }

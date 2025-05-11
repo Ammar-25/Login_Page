@@ -1351,6 +1351,7 @@ private: System::Windows::Forms::Label^ label103;
             this->button2->TabIndex = 16;
             this->button2->Text = L"Save Changes";
             this->button2->UseVisualStyleBackColor = false;
+            this->button2->Click += gcnew System::EventHandler(this, &AdminForm::button2_Click_1);
             // 
             // comboBox1
             // 
@@ -1616,6 +1617,7 @@ private: System::Windows::Forms::Label^ label103;
             this->pictureBox10->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
             this->pictureBox10->TabIndex = 1;
             this->pictureBox10->TabStop = false;
+            this->pictureBox10->Click += gcnew System::EventHandler(this, &AdminForm::pictureBox10_Click);
             // 
             // pictureBox3
             // 
@@ -3299,7 +3301,7 @@ private: System::Void pictureBox3_Click_1(System::Object^ sender, System::EventA
     textBox8->Clear();
     numBedrooms->Text = "";
     textBox9->Clear(); 
-
+    this->Form1_Load(sender, e);
 
 }
 private: System::Void label41_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -3470,6 +3472,82 @@ private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void button100_Click_2(System::Object^ sender, System::EventArgs^ e) {
     this->Details_Panel->Visible = 0;
+}
+       /*std::string name = Global::users[p.getOwnerId()].getName();
+       this->label24->Text = status;
+       this->label79->Text = gcnew System::String(name.c_str());
+       this->label27->Text = id.ToString();
+       this->textBox1->Text = p.getArea().ToString();
+       this->textBox2->Text = gcnew System::String(p.getLocation().c_str());
+       this->comboBox1->Text = gcnew System::String(p.getType().c_str());
+       this->numericUpDown1->Value = p.getNumBedrooms();
+       this->textBox4->Text = p.getPrice().ToString();
+       this->textBox12->Text = gcnew System::String(p.getDescription().c_str());*/
+private: System::Void pictureBox10_Click(System::Object^ sender, System::EventArgs^ e);
+
+
+       //save changes
+private: System::Void button2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+    int id = System::Convert::ToInt32(this->label27->Text);
+    for (auto& p : Global::properties) {
+        if (p.getId() == id) {
+
+            System::Windows::Forms::DialogResult result = System::Windows::Forms::MessageBox::Show(
+                "Do you want to save changes?",
+                "Confirmation",
+                System::Windows::Forms::MessageBoxButtons::OKCancel,
+                System::Windows::Forms::MessageBoxIcon::Question
+            );
+
+            if (result == System::Windows::Forms::DialogResult::OK) {
+
+                std::string type = msclr::interop::marshal_as<std::string>(this->comboBox1->Text);
+                std::string location = msclr::interop::marshal_as<std::string>(this->textBox2->Text);
+                std::string des = msclr::interop::marshal_as<std::string>(this->textBox12->Text);
+
+
+                double Price;
+                try {
+                    Price = Convert::ToDouble(textBox4->Text); // Convert to double
+                }
+                catch (FormatException^ ex) {
+                    MessageBox::Show("Invalid price format.");
+                    return; // Exit early if price format is invalid
+                }
+
+                // Convert Area to double
+                double Area;
+                try {
+                    Area = Convert::ToDouble(textBox1->Text); // Convert to double
+                }
+                catch (FormatException^ ex) {
+                    MessageBox::Show("Invalid area format.");
+                    return; // Exit early if area format is invalid
+                }
+
+                // Convert Bedrooms to integer (if it represents an integer value)
+                int Bedrooms;
+                try {
+                    Bedrooms = Convert::ToInt32(numericUpDown1->Text); // Convert to integer
+                }
+                catch (FormatException^ ex) {
+                    MessageBox::Show("Invalid bedrooms format.");
+                    return; // Exit early if bedrooms format is invalid
+                }
+                Property pr = Property(id, type, location, Price, p.getOwnerId(), p.getAvailability(), Bedrooms, Area, p.getHighlight(), des);
+                Global::currUser.editProperty(id , pr);
+
+                Form1_Load(sender, e);
+                this->Details_Panel->Visible = 0;
+            }
+            else {
+                this->Details_Panel->Visible = 0;
+            }
+            break;
+        
+        
+        }
+    }
 }
 };
 }
