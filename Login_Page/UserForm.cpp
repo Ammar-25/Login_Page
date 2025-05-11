@@ -120,7 +120,6 @@ System::Void LoginPage::UserForm::addToComparison_Click(System::Object^ sender, 
         if (p.getId() == id) {
             p.setInComparison(1);
             Form1_Load(sender , e);
-            //this->Comparison_Click(sender, e);
             break;
         }
     }

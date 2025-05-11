@@ -141,7 +141,7 @@ int user::buyProperty(int proId)
     return 0;
 }
 
-void user::setAvailability(int proId, int Availability)
+void user::setAvailability(int proId , int Availability)
 {
     if (this->isAdmin) {
         for (auto& p : Global::properties) {

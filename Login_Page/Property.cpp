@@ -82,7 +82,7 @@ void Property::setPrice(int newPrice) {
 }
 
 void Property::setAvailability(int newAvailability) {
-    availability = newAvailability;
+    this->availability= newAvailability;
 }
 
 void Property::setNumBedrooms(int newNumBedrooms) {
