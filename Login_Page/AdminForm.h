@@ -23,11 +23,9 @@ namespace LoginPage {
 
 
         //// ammar's panels
-        Panel^ CreatePropertyBrowsePanel(int id, String^ type, String^ ownerName , int price, bool highlighted) {
+        Panel^ CreatePropertyBrowsePanel(String^ id, String^ type, String^ ownerName , int price, bool highlighted) {
 
 
-            System::ComponentModel::ComponentResourceManager^ resources =
-                gcnew System::ComponentModel::ComponentResourceManager(AdminForm::typeid);
 
             Panel^ panel7 = gcnew Panel();
             
@@ -63,7 +61,7 @@ namespace LoginPage {
             label70->Name = L"label70";
             label70->Size = System::Drawing::Size(300, 300);
             label70->TabIndex = 4;
-            label70->Text = id.ToString() + (highlighted ? " (Highlighted)" : " (NOT Highlighted)");
+            label70->Text = id + (highlighted ? " (Highlighted)" : " (NOT Highlighted)");
 
 
             // 
@@ -86,7 +84,8 @@ namespace LoginPage {
             pictureBox14->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
             pictureBox14->TabIndex = 1;
             pictureBox14->TabStop = false;
-
+            pictureBox14->Click += gcnew System::EventHandler(this, &AdminForm::HighlightProperty);
+            pictureBox14->Tag = id;
 
             Label^ label66 = gcnew Label();
 
@@ -122,9 +121,9 @@ namespace LoginPage {
             delete_btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
             delete_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold));
             delete_btn->ForeColor = System::Drawing::Color::WhiteSmoke;
-            delete_btn->Location = System::Drawing::Point(646, 81);
+            delete_btn->Location = System::Drawing::Point(646, 65);
             delete_btn->Name = L"delete_btn";
-            delete_btn->Size = System::Drawing::Size(113, 30);
+            delete_btn->Size = System::Drawing::Size(120, 50);
             delete_btn->TabIndex = 17;
             delete_btn->Text = L"DELETE";
             delete_btn->UseVisualStyleBackColor = false;
@@ -156,23 +155,7 @@ namespace LoginPage {
             label62->TabIndex = 3;
             label62->Text = "$ " + price.ToString("N0");
 
-            Button^ comp_btn = gcnew Button();
-
-            comp_btn->BackColor = System::Drawing::Color::CadetBlue;
-            comp_btn->Cursor = System::Windows::Forms::Cursors::Hand;
-            comp_btn->FlatAppearance->BorderSize = 0;
-            comp_btn->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            comp_btn->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            comp_btn->ForeColor = System::Drawing::Color::WhiteSmoke;
-            comp_btn->Location = System::Drawing::Point(646, 46);
-            comp_btn->Name = L"comp_btn";
-            comp_btn->Size = System::Drawing::Size(111, 30);
-            comp_btn->TabIndex = 16;
-            comp_btn->Text = L"EDIT";
-            comp_btn->UseVisualStyleBackColor = false;
-            comp_btn->Click += gcnew EventHandler(this, &AdminForm::DetailsButton_Click);
-
+            
 
             Label^ label63 = gcnew Label();
 
@@ -201,10 +184,11 @@ namespace LoginPage {
             details_btn->ForeColor = System::Drawing::Color::WhiteSmoke;
             details_btn->Location = System::Drawing::Point(646, 9);
             details_btn->Name = L"details_btn";
-            details_btn->Size = System::Drawing::Size(111, 30);
+            details_btn->Size = System::Drawing::Size(120, 50);
             details_btn->TabIndex = 15;
             details_btn->Text = L"DETAILS";
             details_btn->UseVisualStyleBackColor = false;
+            details_btn->Tag = id;
             details_btn->Click += gcnew EventHandler(this, &AdminForm::DetailsButton_Click);
             // 
             // label64
@@ -245,7 +229,6 @@ namespace LoginPage {
             panel7->Controls->Add(delete_btn);
             panel7->Controls->Add(label69);
             panel7->Controls->Add(label62);
-            panel7->Controls->Add(comp_btn);
             panel7->Controls->Add(label63);
             panel7->Controls->Add(details_btn);
             panel7->Controls->Add(label64);
@@ -253,14 +236,14 @@ namespace LoginPage {
 
             return panel7;
         }
-private: System::Windows::Forms::Panel^ Edit_property;
+
 private: System::Windows::Forms::Panel^ Details_Panel;
 private: System::Windows::Forms::TextBox^ textBox12;
-private: System::Windows::Forms::Label^ label28;
-private: System::Windows::Forms::Label^ label32;
-private: System::Windows::Forms::Label^ label31;
-private: System::Windows::Forms::Label^ label30;
-private: System::Windows::Forms::Label^ label29;
+
+
+
+
+
 private: System::Windows::Forms::Label^ label24;
 private: System::Windows::Forms::Label^ label79;
 private: System::Windows::Forms::Label^ label27;
@@ -275,26 +258,33 @@ private: System::Windows::Forms::Label^ label34;
 private: System::Windows::Forms::Label^ label35;
 private: System::Windows::Forms::Label^ label36;
 private: System::Windows::Forms::Label^ label37;
-private: System::Windows::Forms::Label^ label86;
-private: System::Windows::Forms::Label^ label87;
-private: System::Windows::Forms::Label^ label88;
-private: System::Windows::Forms::Label^ label95;
-private: System::Windows::Forms::Button^ button10;
-private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
-private: System::Windows::Forms::ComboBox^ comboBox1;
-private: System::Windows::Forms::TextBox^ txtDescription;
-private: System::Windows::Forms::TextBox^ txtArea;
-private: System::Windows::Forms::TextBox^ txtPrice;
-private: System::Windows::Forms::TextBox^ txtLocation;
-private: System::Windows::Forms::Label^ label_New_Property;
-private: System::Windows::Forms::Button^ button11;
-private: System::Windows::Forms::Label^ label80;
-private: System::Windows::Forms::Label^ label81;
-private: System::Windows::Forms::Label^ label82;
-private: System::Windows::Forms::Label^ label83;
-private: System::Windows::Forms::Label^ label84;
-private: System::Windows::Forms::Label^ label85;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 private: System::Windows::Forms::FlowLayoutPanel^ flowLayoutPanel1;
+private: System::Windows::Forms::TextBox^ textBox4;
+
+private: System::Windows::Forms::TextBox^ textBox2;
+private: System::Windows::Forms::TextBox^ textBox1;
+private: System::Windows::Forms::NumericUpDown^ numericUpDown1;
+private: System::Windows::Forms::Button^ button2;
+private: System::Windows::Forms::ComboBox^ comboBox1;
 
 
 
@@ -539,7 +529,6 @@ private: System::Windows::Forms::PictureBox^ pictureBox30;
 private: System::Windows::Forms::Button^ button3;
 private: System::Windows::Forms::Button^ save_edit;
 private: System::Void DetailsButton_Click(System::Object^ sender, System::EventArgs^ e);
-private: System::Void EditsButton_Click(System::Object^ sender, System::EventArgs^ e);
 
 
 
@@ -812,12 +801,13 @@ private: System::Windows::Forms::Label^ label103;
             this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
             this->Browse_panel = (gcnew System::Windows::Forms::Panel());
             this->Details_Panel = (gcnew System::Windows::Forms::Panel());
+            this->button2 = (gcnew System::Windows::Forms::Button());
+            this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
+            this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
+            this->textBox4 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox2 = (gcnew System::Windows::Forms::TextBox());
+            this->textBox1 = (gcnew System::Windows::Forms::TextBox());
             this->textBox12 = (gcnew System::Windows::Forms::TextBox());
-            this->label28 = (gcnew System::Windows::Forms::Label());
-            this->label32 = (gcnew System::Windows::Forms::Label());
-            this->label31 = (gcnew System::Windows::Forms::Label());
-            this->label30 = (gcnew System::Windows::Forms::Label());
-            this->label29 = (gcnew System::Windows::Forms::Label());
             this->label24 = (gcnew System::Windows::Forms::Label());
             this->label79 = (gcnew System::Windows::Forms::Label());
             this->label27 = (gcnew System::Windows::Forms::Label());
@@ -832,26 +822,6 @@ private: System::Windows::Forms::Label^ label103;
             this->label35 = (gcnew System::Windows::Forms::Label());
             this->label36 = (gcnew System::Windows::Forms::Label());
             this->label37 = (gcnew System::Windows::Forms::Label());
-            this->Edit_property = (gcnew System::Windows::Forms::Panel());
-            this->label86 = (gcnew System::Windows::Forms::Label());
-            this->label87 = (gcnew System::Windows::Forms::Label());
-            this->label88 = (gcnew System::Windows::Forms::Label());
-            this->label95 = (gcnew System::Windows::Forms::Label());
-            this->button10 = (gcnew System::Windows::Forms::Button());
-            this->numericUpDown1 = (gcnew System::Windows::Forms::NumericUpDown());
-            this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-            this->txtDescription = (gcnew System::Windows::Forms::TextBox());
-            this->txtArea = (gcnew System::Windows::Forms::TextBox());
-            this->txtPrice = (gcnew System::Windows::Forms::TextBox());
-            this->txtLocation = (gcnew System::Windows::Forms::TextBox());
-            this->label_New_Property = (gcnew System::Windows::Forms::Label());
-            this->button11 = (gcnew System::Windows::Forms::Button());
-            this->label80 = (gcnew System::Windows::Forms::Label());
-            this->label81 = (gcnew System::Windows::Forms::Label());
-            this->label82 = (gcnew System::Windows::Forms::Label());
-            this->label83 = (gcnew System::Windows::Forms::Label());
-            this->label84 = (gcnew System::Windows::Forms::Label());
-            this->label85 = (gcnew System::Windows::Forms::Label());
             this->flowLayoutPanel1 = (gcnew System::Windows::Forms::FlowLayoutPanel());
             this->panel1 = (gcnew System::Windows::Forms::Panel());
             this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
@@ -977,7 +947,6 @@ private: System::Windows::Forms::Label^ label103;
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
             this->Browse_panel->SuspendLayout();
             this->Details_Panel->SuspendLayout();
-            this->Edit_property->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->BeginInit();
             this->panel1->SuspendLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
@@ -1341,13 +1310,13 @@ private: System::Windows::Forms::Label^ label103;
             this->Details_Panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->Details_Panel->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+            this->Details_Panel->Controls->Add(this->button2);
+            this->Details_Panel->Controls->Add(this->comboBox1);
+            this->Details_Panel->Controls->Add(this->numericUpDown1);
+            this->Details_Panel->Controls->Add(this->textBox4);
+            this->Details_Panel->Controls->Add(this->textBox2);
+            this->Details_Panel->Controls->Add(this->textBox1);
             this->Details_Panel->Controls->Add(this->textBox12);
-            this->Details_Panel->Controls->Add(this->Edit_property);
-            this->Details_Panel->Controls->Add(this->label28);
-            this->Details_Panel->Controls->Add(this->label32);
-            this->Details_Panel->Controls->Add(this->label31);
-            this->Details_Panel->Controls->Add(this->label30);
-            this->Details_Panel->Controls->Add(this->label29);
             this->Details_Panel->Controls->Add(this->label24);
             this->Details_Panel->Controls->Add(this->label79);
             this->Details_Panel->Controls->Add(this->label27);
@@ -1368,74 +1337,69 @@ private: System::Windows::Forms::Label^ label103;
             this->Details_Panel->TabIndex = 21;
             this->Details_Panel->Visible = false;
             // 
+            // button2
+            // 
+            this->button2->BackColor = System::Drawing::Color::CadetBlue;
+            this->button2->FlatAppearance->BorderSize = 0;
+            this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+            this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+                static_cast<System::Byte>(0)));
+            this->button2->ForeColor = System::Drawing::Color::WhiteSmoke;
+            this->button2->Location = System::Drawing::Point(444, 412);
+            this->button2->Name = L"button2";
+            this->button2->Size = System::Drawing::Size(162, 44);
+            this->button2->TabIndex = 16;
+            this->button2->Text = L"Save Changes";
+            this->button2->UseVisualStyleBackColor = false;
+            // 
+            // comboBox1
+            // 
+            this->comboBox1->FormattingEnabled = true;
+            this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
+                L"Apartment", L"Condominium", L"Townhouse", L"Duplex",
+                    L"Villa"
+            });
+            this->comboBox1->Location = System::Drawing::Point(415, 105);
+            this->comboBox1->Name = L"comboBox1";
+            this->comboBox1->Size = System::Drawing::Size(121, 24);
+            this->comboBox1->TabIndex = 15;
+            // 
+            // numericUpDown1
+            // 
+            this->numericUpDown1->Location = System::Drawing::Point(414, 182);
+            this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
+            this->numericUpDown1->Name = L"numericUpDown1";
+            this->numericUpDown1->Size = System::Drawing::Size(122, 22);
+            this->numericUpDown1->TabIndex = 14;
+            // 
+            // textBox4
+            // 
+            this->textBox4->Location = System::Drawing::Point(414, 247);
+            this->textBox4->Name = L"textBox4";
+            this->textBox4->Size = System::Drawing::Size(100, 22);
+            this->textBox4->TabIndex = 13;
+            // 
+            // textBox2
+            // 
+            this->textBox2->Location = System::Drawing::Point(93, 250);
+            this->textBox2->Name = L"textBox2";
+            this->textBox2->Size = System::Drawing::Size(100, 22);
+            this->textBox2->TabIndex = 11;
+            // 
+            // textBox1
+            // 
+            this->textBox1->Location = System::Drawing::Point(93, 179);
+            this->textBox1->Name = L"textBox1";
+            this->textBox1->Size = System::Drawing::Size(100, 22);
+            this->textBox1->TabIndex = 10;
+            // 
             // textBox12
             // 
             this->textBox12->Location = System::Drawing::Point(190, 300);
             this->textBox12->Multiline = true;
             this->textBox12->Name = L"textBox12";
-            this->textBox12->ReadOnly = true;
             this->textBox12->Size = System::Drawing::Size(459, 97);
             this->textBox12->TabIndex = 9;
-            // 
-            // label28
-            // 
-            this->label28->AutoSize = true;
-            this->label28->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label28->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label28->Location = System::Drawing::Point(401, 102);
-            this->label28->Name = L"label28";
-            this->label28->Size = System::Drawing::Size(85, 17);
-            this->label28->TabIndex = 8;
-            this->label28->Text = L"Place_holder";
-            // 
-            // label32
-            // 
-            this->label32->AutoSize = true;
-            this->label32->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label32->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label32->Location = System::Drawing::Point(401, 246);
-            this->label32->Name = L"label32";
-            this->label32->Size = System::Drawing::Size(85, 17);
-            this->label32->TabIndex = 8;
-            this->label32->Text = L"Place_holder";
-            // 
-            // label31
-            // 
-            this->label31->AutoSize = true;
-            this->label31->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label31->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label31->Location = System::Drawing::Point(80, 246);
-            this->label31->Name = L"label31";
-            this->label31->Size = System::Drawing::Size(85, 17);
-            this->label31->TabIndex = 8;
-            this->label31->Text = L"Place_holder";
-            // 
-            // label30
-            // 
-            this->label30->AutoSize = true;
-            this->label30->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label30->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label30->Location = System::Drawing::Point(401, 177);
-            this->label30->Name = L"label30";
-            this->label30->Size = System::Drawing::Size(85, 17);
-            this->label30->TabIndex = 8;
-            this->label30->Text = L"Place_holder";
-            // 
-            // label29
-            // 
-            this->label29->AutoSize = true;
-            this->label29->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label29->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label29->Location = System::Drawing::Point(80, 177);
-            this->label29->Name = L"label29";
-            this->label29->Size = System::Drawing::Size(85, 17);
-            this->label29->TabIndex = 8;
-            this->label29->Text = L"Place_holder";
             // 
             // label24
             // 
@@ -1493,7 +1457,7 @@ private: System::Windows::Forms::Label^ label103;
             this->button100->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->button100->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button100->Location = System::Drawing::Point(313, 420);
+            this->button100->Location = System::Drawing::Point(230, 412);
             this->button100->Name = L"button100";
             this->button100->Size = System::Drawing::Size(162, 44);
             this->button100->TabIndex = 7;
@@ -1608,247 +1572,6 @@ private: System::Windows::Forms::Label^ label103;
             this->label37->Size = System::Drawing::Size(55, 20);
             this->label37->TabIndex = 1;
             this->label37->Text = L"Type:";
-            // 
-            // Edit_property
-            // 
-            this->Edit_property->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
-                static_cast<System::Int32>(static_cast<System::Byte>(122)));
-            this->Edit_property->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
-            this->Edit_property->Controls->Add(this->label86);
-            this->Edit_property->Controls->Add(this->label87);
-            this->Edit_property->Controls->Add(this->label88);
-            this->Edit_property->Controls->Add(this->label95);
-            this->Edit_property->Controls->Add(this->button10);
-            this->Edit_property->Controls->Add(this->numericUpDown1);
-            this->Edit_property->Controls->Add(this->comboBox1);
-            this->Edit_property->Controls->Add(this->txtDescription);
-            this->Edit_property->Controls->Add(this->txtArea);
-            this->Edit_property->Controls->Add(this->txtPrice);
-            this->Edit_property->Controls->Add(this->txtLocation);
-            this->Edit_property->Controls->Add(this->label_New_Property);
-            this->Edit_property->Controls->Add(this->button11);
-            this->Edit_property->Controls->Add(this->label80);
-            this->Edit_property->Controls->Add(this->label81);
-            this->Edit_property->Controls->Add(this->label82);
-            this->Edit_property->Controls->Add(this->label83);
-            this->Edit_property->Controls->Add(this->label84);
-            this->Edit_property->Controls->Add(this->label85);
-            this->Edit_property->Location = System::Drawing::Point(306, 139);
-            this->Edit_property->Name = L"Edit_property";
-            this->Edit_property->Size = System::Drawing::Size(756, 482);
-            this->Edit_property->TabIndex = 21;
-            this->Edit_property->Visible = false;
-            // 
-            // label86
-            // 
-            this->label86->AutoSize = true;
-            this->label86->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label86->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label86->Location = System::Drawing::Point(617, 32);
-            this->label86->Name = L"label86";
-            this->label86->Size = System::Drawing::Size(85, 17);
-            this->label86->TabIndex = 16;
-            this->label86->Text = L"Place_holder";
-            // 
-            // label87
-            // 
-            this->label87->AutoSize = true;
-            this->label87->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label87->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label87->Location = System::Drawing::Point(48, 18);
-            this->label87->Name = L"label87";
-            this->label87->Size = System::Drawing::Size(85, 17);
-            this->label87->TabIndex = 17;
-            this->label87->Text = L"Place_holder";
-            // 
-            // label88
-            // 
-            this->label88->AutoSize = true;
-            this->label88->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label88->ForeColor = System::Drawing::Color::White;
-            this->label88->Location = System::Drawing::Point(584, 9);
-            this->label88->Name = L"label88";
-            this->label88->Size = System::Drawing::Size(123, 20);
-            this->label88->TabIndex = 14;
-            this->label88->Text = L"Owner Name:";
-            // 
-            // label95
-            // 
-            this->label95->AutoSize = true;
-            this->label95->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label95->ForeColor = System::Drawing::Color::White;
-            this->label95->Location = System::Drawing::Point(18, 15);
-            this->label95->Name = L"label95";
-            this->label95->Size = System::Drawing::Size(30, 20);
-            this->label95->TabIndex = 15;
-            this->label95->Text = L"Id:";
-            // 
-            // button10
-            // 
-            this->button10->BackColor = System::Drawing::Color::CadetBlue;
-            this->button10->FlatAppearance->BorderSize = 0;
-            this->button10->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->button10->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button10->Location = System::Drawing::Point(189, 420);
-            this->button10->Name = L"button10";
-            this->button10->Size = System::Drawing::Size(162, 44);
-            this->button10->TabIndex = 13;
-            this->button10->Text = L"CANCEL";
-            this->button10->UseVisualStyleBackColor = false;
-            // 
-            // numericUpDown1
-            // 
-            this->numericUpDown1->Location = System::Drawing::Point(400, 174);
-            this->numericUpDown1->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
-            this->numericUpDown1->Name = L"numericUpDown1";
-            this->numericUpDown1->Size = System::Drawing::Size(139, 22);
-            this->numericUpDown1->TabIndex = 12;
-            // 
-            // comboBox1
-            // 
-            this->comboBox1->FormattingEnabled = true;
-            this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
-                L"Apartment", L"Condominium", L"Townhouse", L"Duplex",
-                    L"Villa"
-            });
-            this->comboBox1->Location = System::Drawing::Point(81, 101);
-            this->comboBox1->Name = L"comboBox1";
-            this->comboBox1->Size = System::Drawing::Size(138, 24);
-            this->comboBox1->TabIndex = 11;
-            // 
-            // txtDescription
-            // 
-            this->txtDescription->Location = System::Drawing::Point(189, 300);
-            this->txtDescription->Multiline = true;
-            this->txtDescription->Name = L"txtDescription";
-            this->txtDescription->Size = System::Drawing::Size(406, 95);
-            this->txtDescription->TabIndex = 10;
-            // 
-            // txtArea
-            // 
-            this->txtArea->Location = System::Drawing::Point(81, 174);
-            this->txtArea->Name = L"txtArea";
-            this->txtArea->Size = System::Drawing::Size(138, 22);
-            this->txtArea->TabIndex = 9;
-            // 
-            // txtPrice
-            // 
-            this->txtPrice->Location = System::Drawing::Point(400, 101);
-            this->txtPrice->Name = L"txtPrice";
-            this->txtPrice->Size = System::Drawing::Size(139, 22);
-            this->txtPrice->TabIndex = 9;
-            // 
-            // txtLocation
-            // 
-            this->txtLocation->Location = System::Drawing::Point(81, 241);
-            this->txtLocation->Name = L"txtLocation";
-            this->txtLocation->Size = System::Drawing::Size(514, 22);
-            this->txtLocation->TabIndex = 8;
-            // 
-            // label_New_Property
-            // 
-            this->label_New_Property->AutoSize = true;
-            this->label_New_Property->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label_New_Property->ForeColor = System::Drawing::Color::White;
-            this->label_New_Property->Location = System::Drawing::Point(208, 15);
-            this->label_New_Property->Name = L"label_New_Property";
-            this->label_New_Property->Size = System::Drawing::Size(295, 38);
-            this->label_New_Property->TabIndex = 1;
-            this->label_New_Property->Text = L"EDIT PROPERTY";
-            // 
-            // button11
-            // 
-            this->button11->BackColor = System::Drawing::Color::CadetBlue;
-            this->button11->FlatAppearance->BorderSize = 0;
-            this->button11->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-            this->button11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->button11->ForeColor = System::Drawing::Color::WhiteSmoke;
-            this->button11->Location = System::Drawing::Point(433, 420);
-            this->button11->Name = L"button11";
-            this->button11->Size = System::Drawing::Size(162, 44);
-            this->button11->TabIndex = 7;
-            this->button11->Text = L"ADD";
-            this->button11->UseVisualStyleBackColor = false;
-            // 
-            // label80
-            // 
-            this->label80->AutoSize = true;
-            this->label80->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label80->ForeColor = System::Drawing::Color::White;
-            this->label80->Location = System::Drawing::Point(62, 300);
-            this->label80->Name = L"label80";
-            this->label80->Size = System::Drawing::Size(112, 20);
-            this->label80->TabIndex = 1;
-            this->label80->Text = L"Description:";
-            // 
-            // label81
-            // 
-            this->label81->AutoSize = true;
-            this->label81->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label81->ForeColor = System::Drawing::Color::White;
-            this->label81->Location = System::Drawing::Point(65, 214);
-            this->label81->Name = L"label81";
-            this->label81->Size = System::Drawing::Size(87, 20);
-            this->label81->TabIndex = 1;
-            this->label81->Text = L"Location:";
-            // 
-            // label82
-            // 
-            this->label82->AutoSize = true;
-            this->label82->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label82->ForeColor = System::Drawing::Color::White;
-            this->label82->Location = System::Drawing::Point(65, 75);
-            this->label82->Name = L"label82";
-            this->label82->Size = System::Drawing::Size(55, 20);
-            this->label82->TabIndex = 1;
-            this->label82->Text = L"Type:";
-            // 
-            // label83
-            // 
-            this->label83->AutoSize = true;
-            this->label83->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label83->ForeColor = System::Drawing::Color::White;
-            this->label83->Location = System::Drawing::Point(385, 145);
-            this->label83->Name = L"label83";
-            this->label83->Size = System::Drawing::Size(190, 20);
-            this->label83->TabIndex = 1;
-            this->label83->Text = L"Number of bedrooms:";
-            // 
-            // label84
-            // 
-            this->label84->AutoSize = true;
-            this->label84->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label84->ForeColor = System::Drawing::Color::White;
-            this->label84->Location = System::Drawing::Point(66, 145);
-            this->label84->Name = L"label84";
-            this->label84->Size = System::Drawing::Size(54, 20);
-            this->label84->TabIndex = 1;
-            this->label84->Text = L"Area:";
-            // 
-            // label85
-            // 
-            this->label85->AutoSize = true;
-            this->label85->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label85->ForeColor = System::Drawing::Color::White;
-            this->label85->Location = System::Drawing::Point(385, 75);
-            this->label85->Name = L"label85";
-            this->label85->Size = System::Drawing::Size(59, 20);
-            this->label85->TabIndex = 1;
-            this->label85->Text = L"Price:";
             // 
             // flowLayoutPanel1
             // 
@@ -3356,8 +3079,6 @@ private: System::Windows::Forms::Label^ label103;
             this->Browse_panel->ResumeLayout(false);
             this->Details_Panel->ResumeLayout(false);
             this->Details_Panel->PerformLayout();
-            this->Edit_property->ResumeLayout(false);
-            this->Edit_property->PerformLayout();
             (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->numericUpDown1))->EndInit();
             this->panel1->ResumeLayout(false);
             this->panel1->PerformLayout();
@@ -3401,7 +3122,6 @@ private: System::Windows::Forms::Label^ label103;
         change_password_panel->Visible = false; 
         EditFieldPanel->Visible = false; 
         Details_Panel->Visible = false;
-        Edit_property->Visible = false;
         user_details->Visible = false;
         Dashboard->BackColor = System::Drawing::Color::FromArgb(159, 201, 191);
     }
@@ -3689,17 +3409,13 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
         EditFieldPanel->Visible = false;
     }
 
-private: System::Void delete_btn_Click(System::Object^ sender, System::EventArgs^ e) {
-}
+private: System::Void delete_btn_Click(System::Object^ sender, System::EventArgs^ e);
+private: System::Void HighlightProperty(System::Object^ sender, System::EventArgs^ e);
 
 private: System::Void label79_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void button100_Click(System::Object^ sender, System::EventArgs^ e) {
     Details_Panel->Visible = false; 
-}
-private: System::Void button10_Click(System::Object^ sender, System::EventArgs^ e) {
-    ResetControlsInPanel(Edit_property); 
-    Edit_property->Visible = false; 
 }
 private: System::Void button12_Click(System::Object^ sender, System::EventArgs^ e) {
     user_details->Visible = false;
@@ -3754,7 +3470,6 @@ private: System::Void button13_Click(System::Object^ sender, System::EventArgs^ 
 }
 private: System::Void button100_Click_2(System::Object^ sender, System::EventArgs^ e) {
     this->Details_Panel->Visible = 0;
-
 }
 };
 }

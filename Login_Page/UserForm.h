@@ -1067,6 +1067,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             this->label33 = (gcnew System::Windows::Forms::Label());
             this->label34 = (gcnew System::Windows::Forms::Label());
             this->panel2 = (gcnew System::Windows::Forms::Panel());
+            this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
             this->panel3 = (gcnew System::Windows::Forms::Panel());
             this->label51 = (gcnew System::Windows::Forms::Label());
             this->label52 = (gcnew System::Windows::Forms::Label());
@@ -1086,7 +1087,6 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             this->label45 = (gcnew System::Windows::Forms::Label());
             this->label46 = (gcnew System::Windows::Forms::Label());
             this->label47 = (gcnew System::Windows::Forms::Label());
-            this->flowLayoutPanel2 = (gcnew System::Windows::Forms::FlowLayoutPanel());
             this->button18 = (gcnew System::Windows::Forms::Button());
             this->label9 = (gcnew System::Windows::Forms::Label());
             this->button19 = (gcnew System::Windows::Forms::Button());
@@ -2265,6 +2265,14 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             this->panel2->Size = System::Drawing::Size(200, 100);
             this->panel2->TabIndex = 21;
             // 
+            // flowLayoutPanel2
+            // 
+            this->flowLayoutPanel2->AutoScroll = true;
+            this->flowLayoutPanel2->Location = System::Drawing::Point(245, 27);
+            this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
+            this->flowLayoutPanel2->Size = System::Drawing::Size(709, 571);
+            this->flowLayoutPanel2->TabIndex = 27;
+            // 
             // panel3
             // 
             this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
@@ -2504,14 +2512,6 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             this->label47->Size = System::Drawing::Size(55, 20);
             this->label47->TabIndex = 1;
             this->label47->Text = L"Type:";
-            // 
-            // flowLayoutPanel2
-            // 
-            this->flowLayoutPanel2->AutoScroll = true;
-            this->flowLayoutPanel2->Location = System::Drawing::Point(245, 27);
-            this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-            this->flowLayoutPanel2->Size = System::Drawing::Size(709, 571);
-            this->flowLayoutPanel2->TabIndex = 27;
             // 
             // button18
             // 
@@ -2977,14 +2977,14 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(988, 713);
-            this->Controls->Add(this->panel3);
             this->Controls->Add(this->Navigationbar_panel);
-            this->Controls->Add(this->payement_panel);
-            this->Controls->Add(this->Browse_panel);
             this->Controls->Add(this->Home_panel);
             this->Controls->Add(this->Profile_panel);
             this->Controls->Add(this->Welcome_panel);
             this->Controls->Add(this->Comparison_panel);
+            this->Controls->Add(this->Browse_panel);
+            this->Controls->Add(this->panel3);
+            this->Controls->Add(this->payement_panel);
             this->Name = L"UserForm";
             this->Text = L"User Form";
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &UserForm::UserForm_FormClosed);
