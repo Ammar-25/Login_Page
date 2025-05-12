@@ -24,5 +24,5 @@ public:
 
 
    static std::vector<Property>search(std::string location, std::string type , int area , int mnPrice , int mxPrice , int nmOfbedrooms , std::string ownerName = "");
-
+   static std::vector<user>search_users(std::string name, std::string email);
 };
