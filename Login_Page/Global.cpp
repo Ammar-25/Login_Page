@@ -37,12 +37,37 @@ std::vector<Property> Global::search(std::string location, std::string type, int
             (mxPrice == -1 || p.getPrice() <= mxPrice);
         
         bool bedroomsMatch = nmOfbedrooms == 0 || p.getNumBedrooms() == nmOfbedrooms;
-
-        bool ownername = (ownerName == "") || ownerName == Global::users[p.getOwnerId()].getName();
+        
+        bool ownername = (ownerName == "") || (isContain(Global::users[p.getOwnerId()].getName() , ownerName));
 
         if (locationMatch && typeMatch && areaMatch && priceMatch && bedroomsMatch && ownername) {
             result.push_back(p);
         }
     }
     return result;
+}
+
+std::vector<user> Global::search_users(std::string name, std::string email)
+{
+    std::vector<user>result;
+    if (name == "" and email == "") {
+        for (auto u : Global::users) {
+            result.push_back(u.second);
+        }
+        return result;
+    }
+    else if (name == "") {
+        for (auto u : Global::users) {
+            if (isContain(u.second.getEmail(), email))
+                result.push_back(u.second);
+        }
+        return result;
+    }
+    else {
+        for (auto u : Global::users) {
+            if (isContain(u.second.getName(), name))
+                result.push_back(u.second);
+        }
+        return result;
+    }
 }

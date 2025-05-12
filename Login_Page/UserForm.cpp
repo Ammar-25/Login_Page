@@ -46,23 +46,23 @@ System::Void LoginPage::UserForm::MoreDetails_Click(System::Object^ sender, Syst
                 break;
             }
         }
-        std::string statusStr;
+        String^ statusStr;
         switch (p.getAvailability()) {
         case 0: statusStr = "Pending"; break;
         case 1: statusStr = "Available"; break;
         case 2: statusStr = "Bought"; break;
         case 3: statusStr = "Declined"; break;
         }
-        this->panel3->BringToFront();
-        this->textBox18->Text = gcnew String(p.getDescription().c_str());
-        this->label51->Text = p.getNumBedrooms().ToString();
-        this->label28->Text = gcnew String(statusStr.c_str());
-        this->label48->Text = p.getArea().ToString();
-        this->label49->Text = "$" + p.getPrice().ToString("N0");
-        this->label50->Text = gcnew String(p.getLocation().c_str());
-        this->label29->Text = id.ToString();
-        this->label52->Text = gcnew String(p.getType().c_str());
-        this->panel3->Visible = 1;
+        this->panel4->BringToFront();
+        this->deslbl->Text = gcnew String(p.getDescription().c_str());
+        this->numberOFbedroomslbl->Text = p.getNumBedrooms().ToString();
+        this->statuslbl->Text = statusStr;
+        this->arealbl->Text = p.getArea().ToString();
+        this->arealbl->Text = "$" + p.getPrice().ToString("N0");
+        this->locationlbl->Text = gcnew String(p.getLocation().c_str());
+        this->idlbl->Text = id.ToString();
+        this->typelbl->Text = gcnew String(p.getType().c_str());
+        this->panel4->Visible = 1;
     }
 }
 
