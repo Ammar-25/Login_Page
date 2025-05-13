@@ -26,11 +26,6 @@ int user::getBalance() {
     return this->balance;
 }
 
-std::string user::getphoneNumber()
-{ 
-    return phoneNumber; 
-}
-
 bool user::getAdmin() {
     return this->isAdmin;
 }
@@ -127,8 +122,11 @@ int user::buyProperty(int proId)
                         Global::inComp--;
                     }
                     int i = p.getOwnerId();
+                    //balance
                     Global::users[i].addBalance(p.getPrice());
                     Global::users[Global::currId].addBalance(-p.getPrice());
+                    ///
+                    p.setOldId(i);
                     p.setOwnerId(Global::currId);
                     p.setAvailability(2);
                     return 0;

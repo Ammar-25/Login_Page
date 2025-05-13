@@ -24,7 +24,6 @@ public:
     bool getAdmin();
     bool getFrozen();
     int getBalance();
-    std::string getphoneNumber();
     std::string getName();
     std::string getEmail();
     std::string getPassword();

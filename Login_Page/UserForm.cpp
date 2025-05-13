@@ -158,6 +158,11 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
         case 2: statusStr = "Bought"; break;
         case 3: statusStr = "Declined"; break;
         }
+        if (p.getAvailability() == 2) {
+            if (p.getOldId() == Global::currId) {
+                statusStr = "Sold";
+            }
+        }
 
         // Convert std::string and int to System::String^
         System::String^ idStr = id.ToString();
@@ -169,7 +174,7 @@ System::Void LoginPage::UserForm::Form1_Load(System::Object^ sender, System::Eve
 
         int area = p.getArea();
         int nm = p.getNumBedrooms();
-        if (Global::currId == p.getOwnerId()) {
+        if (Global::currId == p.getOwnerId() || p.getOldId() == Global::currId) {
             Panel^ panel2 = CreatePropertyPanel(idStr, type, priceStr, status);
             this->flowLayoutPanel1->Controls->Add(panel2);
             continue;
