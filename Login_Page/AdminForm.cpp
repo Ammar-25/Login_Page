@@ -20,15 +20,20 @@ System::Void LoginPage::AdminForm::Users_Load(System::Object^ sender, System::Ev
         String^ name = gcnew System::String(u.second.getName().c_str());
         int balance = u.second.getBalance();
 
-        Panel^ panel = this->CreateUserPaned(id, email, name, balance, u.second.getFrozen());
+        Panel^ panel = this->CreateUserPanel(id, email, name, balance, u.second.getFrozen());
         flowLayoutPanel3->Controls->Add(panel);
     }
 }
 System::Void LoginPage::AdminForm::Form1_Load(System::Object^ sender, System::EventArgs^ e)  
-{  
-   flowLayoutPanel1->Controls->Clear();
+{
+    int pending = 0, prop = 0, sold = 0;
    flowLayoutPanel2->Controls->Clear();
-   for (auto& p : Global::properties) {  
+   flowLayoutPanel1->Controls->Clear();
+   for (auto& p : Global::properties) {
+       if (p.getAvailability() == 0)++pending;
+       else if (p.getAvailability() == 1)prop++;
+       else if (p.getAvailability() == 2)sold++;
+
        if (p.getAvailability() > 1)continue;
        int id = p.getId();  
        System::String^ type = gcnew System::String(p.getType().c_str());
@@ -47,11 +52,12 @@ System::Void LoginPage::AdminForm::Form1_Load(System::Object^ sender, System::Ev
            continue;
        }
        Panel^ panel = this->CreatePropertyBrowsePanel(id.ToString(), type, ownerName, price, p.getHighlight());
-       this->flowLayoutPanel1->Controls->Add(panel);
-
-       
+       this->flowLayoutPanel1->Controls->Add(panel);       
    } 
    Users_Load(sender, e);
+   this->requestNum->Text = pending.ToString();
+   this->propertiesnum->Text = prop.ToString();
+   this->soldnum->Text = sold.ToString();
 }
 
 System::Void LoginPage::AdminForm::DetailsButton_Click(System::Object^ sender, System::EventArgs^ e)
@@ -158,6 +164,33 @@ System::Void LoginPage::AdminForm::User_moreDetails_Click(System::Object^ sender
     Button^ button = dynamic_cast<Button^>(sender);
     String^ propertyId = dynamic_cast<String^>(button->Tag);
     int id = Convert::ToInt32(propertyId);
+    user u;
+    
+    for (auto us : Global::users) {
+        if (us.first == id) {
+            u = us.second;
+            break;
+        }
+    }
+    int bought = 0, inMarket = 0;
+
+    for (auto p : Global::properties) {
+        if (p.getOwnerId() == id) {
+            if (p.getAvailability() == 0 || p.getAvailability() == 1)
+                inMarket++;
+            else if (p.getAvailability() == 2)
+                bought++;
+        }
+    }
+
+
+    this->iidlbl->Text = id.ToString();
+    this->Namelbl->Text = gcnew System::String(u.getName().c_str());
+    this->emaillbl->Text = gcnew System::String(u.getEmail().c_str());
+    this->phonelbl->Text = gcnew System::String(u.getPhoneNumber().c_str());
+    this->Balancelbl->Text = "$ " + u.getBalance().ToString("N0");
+    this->boughtlbl->Text = bought.ToString();
+    this->Properties_in_Marketlbl->Text = inMarket.ToString();
 
     this->user_details->Visible = 1;
 }
@@ -266,6 +299,7 @@ System::Void LoginPage::AdminForm::pictureBox10_Click(System::Object^ sender, Sy
     s = Global::search(location, type, area, mnPrice, mxPrice, nmofBedrooms , name);
     std::cout << s.size() << '\n';
     for (auto& p : s) {
+        if (p.getAvailability() != 1)continue;
         std::string typeStr = p.getType();
         int id = p.getId();
         int price = p.getPrice();
@@ -284,7 +318,6 @@ System::Void LoginPage::AdminForm::pictureBox10_Click(System::Object^ sender, Sy
         System::String^ priceStr = "$ " + price.ToString("N0");
         System::String^ status = gcnew System::String(statusStr.c_str());
         System::String^ ownerName = gcnew System::String(Global::users[p.getOwnerId()].getName().c_str());
-
 
 
         Panel^ panel = this->CreatePropertyBrowsePanel(idStr , type , ownerName , price , p.getHighlight());
@@ -326,7 +359,7 @@ System::Void LoginPage::AdminForm::pictureBox2_Click_1(System::Object^ sender, S
         String^ name = gcnew System::String(u.getName().c_str());
         int balance = u.getBalance();
 
-        Panel^ panel = this->CreateUserPaned(id, email, name, balance, u.getFrozen());
+        Panel^ panel = this->CreateUserPanel(id, email, name, balance, u.getFrozen());
         flowLayoutPanel3->Controls->Add(panel);
     }
 }

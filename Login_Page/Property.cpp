@@ -6,7 +6,7 @@ Property::Property()
 
 }
 
-Property::Property(int id, std::string type, std::string location, int price, int ownerId, int availability, int numBedrooms, double area, bool isHighLighted , std::string description , bool inComparison)
+Property::Property(int id, std::string type, std::string location, int price, int ownerId, int availability, int numBedrooms, double area, bool isHighLighted , std::string description , bool inComparison , int oldId)
 {
     this->id = id;
     this->type = type;
@@ -19,6 +19,7 @@ Property::Property(int id, std::string type, std::string location, int price, in
     this->isHighLighted = isHighLighted;
     this->description = description;
     this->inComparison = inComparison;
+    this->oldOwnerId = oldId;
 }
 
 // Getters
@@ -68,6 +69,11 @@ bool Property::getInComparison()
     return this->inComparison;
 }
 
+int Property::getOldId()
+{
+    return this->oldOwnerId;
+}
+
 // Setters
 void Property::setType(std::string& newType) {
     type = newType;
@@ -110,6 +116,11 @@ void Property::setOwnerId(int id)
 void Property::setInComparison(bool inComp)
 {
     this->inComparison = inComp;
+}
+
+void Property::setOldId(int id)
+{
+    this->oldOwnerId = id;
 }
 
 std::string Property::to_string() {

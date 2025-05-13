@@ -23,7 +23,7 @@ namespace LoginPage {
 
 
         //// ammar's panels
-        Panel^ CreateUserPaned(String^ id, String^ email, String^ name, int balance , bool isFrozen) {
+        Panel^ CreateUserPanel(String^ id, String^ email, String^ name, int balance , bool isFrozen) {
             Panel^ panel5 = gcnew Panel();
 
             // 
@@ -59,6 +59,7 @@ namespace LoginPage {
             button13->TabIndex = 18;
             button13->Text = L"DETAILS";
             button13->UseVisualStyleBackColor = false;
+            button13->Tag = id;
             button13->Click += gcnew System::EventHandler(this, &AdminForm::User_moreDetails_Click);
             // 
             // pictureBox23
@@ -868,14 +869,20 @@ private: System::Void Toggle_freeze_Click(System::Object^ sender, System::EventA
 
 
 private: System::Windows::Forms::Panel^ user_details;
+private: System::Windows::Forms::Label^ iidlbl;
+private: System::Windows::Forms::Label^ boughtlbl;
 
 
-private: System::Windows::Forms::Label^ label96;
-private: System::Windows::Forms::Label^ label97;
-private: System::Windows::Forms::Label^ label98;
-private: System::Windows::Forms::Label^ label99;
-private: System::Windows::Forms::Label^ label100;
-private: System::Windows::Forms::Label^ label101;
+
+
+private: System::Windows::Forms::Label^ Properties_in_Marketlbl;
+
+private: System::Windows::Forms::Label^ phonelbl;
+
+private: System::Windows::Forms::Label^ emaillbl;
+
+private: System::Windows::Forms::Label^ Namelbl;
+
 
 
 private: System::Windows::Forms::Label^ label104;
@@ -889,7 +896,8 @@ private: System::Windows::Forms::Label^ label110;
 private: System::Windows::Forms::Label^ label111;
 private: System::Windows::Forms::Label^ label112;
 private: System::Windows::Forms::Label^ label113;
-private: System::Windows::Forms::Label^ label102;
+private: System::Windows::Forms::Label^ Balancelbl;
+
 private: System::Windows::Forms::Label^ label103;
 
 
@@ -1080,13 +1088,13 @@ private: System::Windows::Forms::Label^ label103;
             this->Moderate_users_panel = (gcnew System::Windows::Forms::Panel());
             this->user_details = (gcnew System::Windows::Forms::Panel());
             this->label104 = (gcnew System::Windows::Forms::Label());
-            this->label96 = (gcnew System::Windows::Forms::Label());
-            this->label97 = (gcnew System::Windows::Forms::Label());
-            this->label102 = (gcnew System::Windows::Forms::Label());
-            this->label98 = (gcnew System::Windows::Forms::Label());
-            this->label99 = (gcnew System::Windows::Forms::Label());
-            this->label100 = (gcnew System::Windows::Forms::Label());
-            this->label101 = (gcnew System::Windows::Forms::Label());
+            this->iidlbl = (gcnew System::Windows::Forms::Label());
+            this->boughtlbl = (gcnew System::Windows::Forms::Label());
+            this->Balancelbl = (gcnew System::Windows::Forms::Label());
+            this->Properties_in_Marketlbl = (gcnew System::Windows::Forms::Label());
+            this->phonelbl = (gcnew System::Windows::Forms::Label());
+            this->emaillbl = (gcnew System::Windows::Forms::Label());
+            this->Namelbl = (gcnew System::Windows::Forms::Label());
             this->button12 = (gcnew System::Windows::Forms::Button());
             this->label105 = (gcnew System::Windows::Forms::Label());
             this->label107 = (gcnew System::Windows::Forms::Label());
@@ -2052,13 +2060,13 @@ private: System::Windows::Forms::Label^ label103;
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->user_details->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
             this->user_details->Controls->Add(this->label104);
-            this->user_details->Controls->Add(this->label96);
-            this->user_details->Controls->Add(this->label97);
-            this->user_details->Controls->Add(this->label102);
-            this->user_details->Controls->Add(this->label98);
-            this->user_details->Controls->Add(this->label99);
-            this->user_details->Controls->Add(this->label100);
-            this->user_details->Controls->Add(this->label101);
+            this->user_details->Controls->Add(this->iidlbl);
+            this->user_details->Controls->Add(this->boughtlbl);
+            this->user_details->Controls->Add(this->Balancelbl);
+            this->user_details->Controls->Add(this->Properties_in_Marketlbl);
+            this->user_details->Controls->Add(this->phonelbl);
+            this->user_details->Controls->Add(this->emaillbl);
+            this->user_details->Controls->Add(this->Namelbl);
             this->user_details->Controls->Add(this->button12);
             this->user_details->Controls->Add(this->label105);
             this->user_details->Controls->Add(this->label107);
@@ -2085,90 +2093,83 @@ private: System::Windows::Forms::Label^ label103;
             this->label104->TabIndex = 1;
             this->label104->Text = L"User Details";
             // 
-            // label96
+            // iidlbl
             // 
-            this->label96->AutoSize = true;
-            this->label96->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label96->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label96->Location = System::Drawing::Point(401, 102);
-            this->label96->Name = L"label96";
-            this->label96->Size = System::Drawing::Size(85, 17);
-            this->label96->TabIndex = 8;
-            this->label96->Text = L"Place_holder";
+            this->iidlbl->AutoSize = true;
+            this->iidlbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
+            this->iidlbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
+            this->iidlbl->Location = System::Drawing::Point(401, 102);
+            this->iidlbl->Name = L"iidlbl";
+            this->iidlbl->Size = System::Drawing::Size(110, 23);
+            this->iidlbl->TabIndex = 8;
+            this->iidlbl->Text = L"Place_holder";
             // 
-            // label97
+            // boughtlbl
             // 
-            this->label97->AutoSize = true;
-            this->label97->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label97->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label97->Location = System::Drawing::Point(401, 246);
-            this->label97->Name = L"label97";
-            this->label97->Size = System::Drawing::Size(85, 17);
-            this->label97->TabIndex = 8;
-            this->label97->Text = L"Place_holder";
-            this->label97->Click += gcnew System::EventHandler(this, &AdminForm::label97_Click);
+            this->boughtlbl->AutoSize = true;
+            this->boughtlbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
+            this->boughtlbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
+            this->boughtlbl->Location = System::Drawing::Point(401, 246);
+            this->boughtlbl->Name = L"boughtlbl";
+            this->boughtlbl->Size = System::Drawing::Size(110, 23);
+            this->boughtlbl->TabIndex = 8;
+            this->boughtlbl->Text = L"Place_holder";
+            this->boughtlbl->Click += gcnew System::EventHandler(this, &AdminForm::label97_Click);
             // 
-            // label102
+            // Balancelbl
             // 
-            this->label102->AutoSize = true;
-            this->label102->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label102->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label102->Location = System::Drawing::Point(81, 327);
-            this->label102->Name = L"label102";
-            this->label102->Size = System::Drawing::Size(85, 17);
-            this->label102->TabIndex = 8;
-            this->label102->Text = L"Place_holder";
+            this->Balancelbl->AutoSize = true;
+            this->Balancelbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
+            this->Balancelbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
+            this->Balancelbl->Location = System::Drawing::Point(81, 327);
+            this->Balancelbl->Name = L"Balancelbl";
+            this->Balancelbl->Size = System::Drawing::Size(110, 23);
+            this->Balancelbl->TabIndex = 8;
+            this->Balancelbl->Text = L"Place_holder";
             // 
-            // label98
+            // Properties_in_Marketlbl
             // 
-            this->label98->AutoSize = true;
-            this->label98->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label98->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label98->Location = System::Drawing::Point(80, 246);
-            this->label98->Name = L"label98";
-            this->label98->Size = System::Drawing::Size(85, 17);
-            this->label98->TabIndex = 8;
-            this->label98->Text = L"Place_holder";
+            this->Properties_in_Marketlbl->AutoSize = true;
+            this->Properties_in_Marketlbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
+            this->Properties_in_Marketlbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
+            this->Properties_in_Marketlbl->Location = System::Drawing::Point(80, 246);
+            this->Properties_in_Marketlbl->Name = L"Properties_in_Marketlbl";
+            this->Properties_in_Marketlbl->Size = System::Drawing::Size(110, 23);
+            this->Properties_in_Marketlbl->TabIndex = 8;
+            this->Properties_in_Marketlbl->Text = L"Place_holder";
             // 
-            // label99
+            // phonelbl
             // 
-            this->label99->AutoSize = true;
-            this->label99->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label99->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label99->Location = System::Drawing::Point(401, 177);
-            this->label99->Name = L"label99";
-            this->label99->Size = System::Drawing::Size(85, 17);
-            this->label99->TabIndex = 8;
-            this->label99->Text = L"Place_holder";
+            this->phonelbl->AutoSize = true;
+            this->phonelbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
+            this->phonelbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
+            this->phonelbl->Location = System::Drawing::Point(401, 177);
+            this->phonelbl->Name = L"phonelbl";
+            this->phonelbl->Size = System::Drawing::Size(110, 23);
+            this->phonelbl->TabIndex = 8;
+            this->phonelbl->Text = L"Place_holder";
             // 
-            // label100
+            // emaillbl
             // 
-            this->label100->AutoSize = true;
-            this->label100->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label100->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label100->Location = System::Drawing::Point(80, 177);
-            this->label100->Name = L"label100";
-            this->label100->Size = System::Drawing::Size(85, 17);
-            this->label100->TabIndex = 8;
-            this->label100->Text = L"Place_holder";
+            this->emaillbl->AutoSize = true;
+            this->emaillbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
+            this->emaillbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
+            this->emaillbl->Location = System::Drawing::Point(80, 177);
+            this->emaillbl->Name = L"emaillbl";
+            this->emaillbl->Size = System::Drawing::Size(110, 23);
+            this->emaillbl->TabIndex = 8;
+            this->emaillbl->Text = L"Place_holder";
             // 
-            // label101
+            // Namelbl
             // 
-            this->label101->AutoSize = true;
-            this->label101->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
-            this->label101->ForeColor = System::Drawing::Color::PaleGoldenrod;
-            this->label101->Location = System::Drawing::Point(80, 102);
-            this->label101->Name = L"label101";
-            this->label101->Size = System::Drawing::Size(85, 17);
-            this->label101->TabIndex = 8;
-            this->label101->Text = L"Place_holder";
+            this->Namelbl->AutoSize = true;
+            this->Namelbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
+            this->Namelbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
+            this->Namelbl->Location = System::Drawing::Point(80, 102);
+            this->Namelbl->Name = L"Namelbl";
+            this->Namelbl->Size = System::Drawing::Size(110, 23);
+            this->Namelbl->TabIndex = 8;
+            this->Namelbl->Text = L"Place_holder";
             // 
             // button12
             // 
@@ -2189,84 +2190,77 @@ private: System::Windows::Forms::Label^ label103;
             // label105
             // 
             this->label105->AutoSize = true;
-            this->label105->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label105->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold));
             this->label105->ForeColor = System::Drawing::Color::White;
             this->label105->Location = System::Drawing::Point(62, 300);
             this->label105->Name = L"label105";
-            this->label105->Size = System::Drawing::Size(83, 20);
+            this->label105->Size = System::Drawing::Size(97, 25);
             this->label105->TabIndex = 1;
             this->label105->Text = L"Balance:";
             // 
             // label107
             // 
             this->label107->AutoSize = true;
-            this->label107->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label107->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold));
             this->label107->ForeColor = System::Drawing::Color::White;
             this->label107->Location = System::Drawing::Point(65, 214);
             this->label107->Name = L"label107";
-            this->label107->Size = System::Drawing::Size(186, 20);
+            this->label107->Size = System::Drawing::Size(212, 25);
             this->label107->TabIndex = 1;
             this->label107->Text = L"Properties in Market:";
             // 
             // label109
             // 
             this->label109->AutoSize = true;
-            this->label109->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label109->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold));
             this->label109->ForeColor = System::Drawing::Color::White;
             this->label109->Location = System::Drawing::Point(385, 145);
             this->label109->Name = L"label109";
-            this->label109->Size = System::Drawing::Size(67, 20);
+            this->label109->Size = System::Drawing::Size(81, 25);
             this->label109->TabIndex = 1;
             this->label109->Text = L"Phone:";
             // 
             // label110
             // 
             this->label110->AutoSize = true;
-            this->label110->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label110->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold));
             this->label110->ForeColor = System::Drawing::Color::White;
             this->label110->Location = System::Drawing::Point(66, 145);
             this->label110->Name = L"label110";
-            this->label110->Size = System::Drawing::Size(62, 20);
+            this->label110->Size = System::Drawing::Size(72, 25);
             this->label110->TabIndex = 1;
             this->label110->Text = L"Email:";
             // 
             // label111
             // 
             this->label111->AutoSize = true;
-            this->label111->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label111->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold));
             this->label111->ForeColor = System::Drawing::Color::White;
             this->label111->Location = System::Drawing::Point(385, 214);
             this->label111->Name = L"label111";
-            this->label111->Size = System::Drawing::Size(161, 20);
+            this->label111->Size = System::Drawing::Size(184, 25);
             this->label111->TabIndex = 1;
             this->label111->Text = L"Bought Properties";
             // 
             // label112
             // 
             this->label112->AutoSize = true;
-            this->label112->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label112->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold));
             this->label112->ForeColor = System::Drawing::Color::White;
             this->label112->Location = System::Drawing::Point(62, 75);
             this->label112->Name = L"label112";
-            this->label112->Size = System::Drawing::Size(63, 20);
+            this->label112->Size = System::Drawing::Size(75, 25);
             this->label112->TabIndex = 1;
             this->label112->Text = L"Name:";
             // 
             // label113
             // 
             this->label113->AutoSize = true;
-            this->label113->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-                static_cast<System::Byte>(0)));
+            this->label113->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold));
             this->label113->ForeColor = System::Drawing::Color::White;
             this->label113->Location = System::Drawing::Point(385, 75);
             this->label113->Name = L"label113";
-            this->label113->Size = System::Drawing::Size(30, 20);
+            this->label113->Size = System::Drawing::Size(37, 25);
             this->label113->TabIndex = 1;
             this->label113->Text = L"Id:";
             // 
@@ -2631,7 +2625,7 @@ private: System::Windows::Forms::Label^ label103;
             this->flowLayoutPanel2->AutoScroll = true;
             this->flowLayoutPanel2->Location = System::Drawing::Point(120, 81);
             this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
-            this->flowLayoutPanel2->Size = System::Drawing::Size(1130, 631);
+            this->flowLayoutPanel2->Size = System::Drawing::Size(1099, 631);
             this->flowLayoutPanel2->TabIndex = 3;
             // 
             // Add_admin_panel
@@ -3130,12 +3124,12 @@ private: System::Windows::Forms::Label^ label103;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(1392, 823);
             this->Controls->Add(this->Navigationbar_panel);
-            this->Controls->Add(this->Moderate_users_panel);
-            this->Controls->Add(this->Add_admin_panel);
             this->Controls->Add(this->Dashboard_panel);
             this->Controls->Add(this->Browse_panel);
             this->Controls->Add(this->Requests_panel);
             this->Controls->Add(this->Profile_panel);
+            this->Controls->Add(this->Moderate_users_panel);
+            this->Controls->Add(this->Add_admin_panel);
             this->Name = L"AdminForm";
             this->Text = L"AdminForm";
             this->Load += gcnew System::EventHandler(this, &AdminForm::AdminForm_Load);
@@ -3615,5 +3609,6 @@ private: System::Void button5_Click(System::Object^ sender, System::EventArgs^ e
     this->panel2->Visible = 0;
 }
 private: System::Void pictureBox2_Click_1(System::Object^ sender, System::EventArgs^ e);
+
 };
 }
