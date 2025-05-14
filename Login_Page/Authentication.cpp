@@ -31,6 +31,7 @@ int Authentication::SignUp(std::string name, std::string email, std::string pass
         }
     }
     if (!ok) return 2;
+   
     Global::users[id+1] = user(id + 1, 0, 0, name, email, pass, phone, 0);
     Global::currUser = Global::users[id + 1];
     return 0;

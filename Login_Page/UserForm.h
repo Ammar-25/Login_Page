@@ -33,7 +33,7 @@ namespace LoginPage {
             std::stringstream ss;
             ss.imbue(std::locale("en_US.UTF-8"));
             ss << balance;
-
+                    
             String^ currBalance = gcnew System::String(ss.str().c_str());
             Balance->Text = currBalance + " $";
             label82->Text = currBalance + "$";
@@ -533,7 +533,7 @@ private: System::Windows::Forms::Label^ label99;
             PictureBox^ picture = gcnew PictureBox();
             if (highlighted) {
                 // ammar's star location
-                picture->Image = Image::FromFile("C:\\Users\\ammar\\Desktop\\Login_Page\\star.png");
+                picture->Image = Image::FromFile("E:\\2nd FCIS\\Fourth term\\Data Structure\\Project\\Project Versions\\V4\\Login_Page\\star.png");
                 picture->Location = System::Drawing::Point(5, 86);
                 picture->Size = System::Drawing::Size(38, 31);
                 picture->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -727,7 +727,7 @@ private: System::Windows::Forms::Label^ label99;
             PictureBox^ picture = gcnew PictureBox();
             if (highlighted) {
                 // ammar's star location
-                picture->Image = Image::FromFile("C:\\Users\\ammar\\Desktop\\Login_Page\\star.png");
+                picture->Image = Image::FromFile("E:\\2nd FCIS\\Fourth term\\Data Structure\\Project\\Project Versions\\V4\\Login_Page\\star.png");
                 picture->Location = System::Drawing::Point(6, 353);
                 picture->Size = System::Drawing::Size(38, 31);
                 picture->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1218,6 +1218,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Home
             // 
+            this->Home->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Home->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Home->FlatAppearance->BorderSize = 0;
@@ -1235,6 +1236,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Browse
             // 
+            this->Browse->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Browse->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Browse->FlatAppearance->BorderSize = 0;
@@ -1252,6 +1254,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Comparison
             // 
+            this->Comparison->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Comparison->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Comparison->FlatAppearance->BorderSize = 0;
@@ -1269,6 +1272,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label2
             // 
+            this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label2->AutoSize = true;
             this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 49.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1282,6 +1286,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox1
             // 
+            this->pictureBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
             this->pictureBox1->Location = System::Drawing::Point(772, 23);
@@ -1294,6 +1299,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Profile
             // 
+            this->Profile->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Profile->AutoSize = true;
             this->Profile->Cursor = System::Windows::Forms::Cursors::Hand;
             this->Profile->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -1308,6 +1314,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label3
             // 
+            this->label3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label3->AutoSize = true;
             this->label3->Cursor = System::Windows::Forms::Cursors::Hand;
             this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -1322,6 +1329,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label11
             // 
+            this->label11->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label11->AutoSize = true;
             this->label11->Cursor = System::Windows::Forms::Cursors::Hand;
             this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -1336,6 +1344,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Balance
             // 
+            this->Balance->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Balance->AutoSize = true;
             this->Balance->Cursor = System::Windows::Forms::Cursors::Hand;
             this->Balance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
@@ -1350,6 +1359,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // intro_paragraph
             // 
+            this->intro_paragraph->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->intro_paragraph->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->intro_paragraph->BorderStyle = System::Windows::Forms::BorderStyle::None;
@@ -1365,6 +1375,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Welcome_panel
             // 
+            this->Welcome_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Welcome_panel->Controls->Add(this->start_btn);
             this->Welcome_panel->Controls->Add(this->pictureBox8);
             this->Welcome_panel->Controls->Add(this->pictureBox4);
@@ -1407,6 +1418,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox8
             // 
+            this->pictureBox8->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox8->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.Image")));
             this->pictureBox8->Location = System::Drawing::Point(241, 439);
             this->pictureBox8->Name = L"pictureBox8";
@@ -1417,6 +1429,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox4
             // 
+            this->pictureBox4->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox4->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.Image")));
             this->pictureBox4->Location = System::Drawing::Point(908, 144);
             this->pictureBox4->Name = L"pictureBox4";
@@ -1427,6 +1440,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox5
             // 
+            this->pictureBox5->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox5->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox5.Image")));
             this->pictureBox5->Location = System::Drawing::Point(-81, 507);
             this->pictureBox5->Name = L"pictureBox5";
@@ -1437,6 +1451,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox3
             // 
+            this->pictureBox3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
             this->pictureBox3->Location = System::Drawing::Point(-61, 14);
             this->pictureBox3->Name = L"pictureBox3";
@@ -1447,6 +1462,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label1
             // 
+            this->label1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label1->AutoSize = true;
             this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 40.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1459,6 +1475,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox2
             // 
+            this->pictureBox2->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox2->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.Image")));
             this->pictureBox2->Location = System::Drawing::Point(552, 214);
             this->pictureBox2->Name = L"pictureBox2";
@@ -1469,6 +1486,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Profile_panel
             // 
+            this->Profile_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Profile_panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Profile_panel->Controls->Add(this->pictureBox33);
@@ -1496,6 +1514,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox33
             // 
+            this->pictureBox33->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox33->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox33->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox33.Image")));
             this->pictureBox33->Location = System::Drawing::Point(328, 467);
@@ -1508,6 +1527,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox32
             // 
+            this->pictureBox32->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox32->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox32->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox32.Image")));
             this->pictureBox32->Location = System::Drawing::Point(328, 359);
@@ -1520,6 +1540,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox30
             // 
+            this->pictureBox30->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox30->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox30->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox30.Image")));
             this->pictureBox30->Location = System::Drawing::Point(328, 260);
@@ -1532,6 +1553,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox18
             // 
+            this->pictureBox18->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox18->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox18->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox18.Image")));
             this->pictureBox18->Location = System::Drawing::Point(332, 71);
@@ -1544,6 +1566,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox19
             // 
+            this->pictureBox19->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox19->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox19->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox19.Image")));
             this->pictureBox19->Location = System::Drawing::Point(332, 168);
@@ -1556,6 +1579,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // user_balance
             // 
+            this->user_balance->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->user_balance->AutoSize = true;
             this->user_balance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_balance->ForeColor = System::Drawing::Color::White;
@@ -1567,6 +1591,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // user_phone
             // 
+            this->user_phone->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->user_phone->AutoSize = true;
             this->user_phone->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_phone->ForeColor = System::Drawing::Color::White;
@@ -1578,6 +1603,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // user_email
             // 
+            this->user_email->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->user_email->AutoSize = true;
             this->user_email->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_email->ForeColor = System::Drawing::Color::White;
@@ -1589,6 +1615,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // user_name
             // 
+            this->user_name->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->user_name->AutoSize = true;
             this->user_name->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_name->ForeColor = System::Drawing::Color::White;
@@ -1600,6 +1627,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // user_password
             // 
+            this->user_password->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->user_password->AutoSize = true;
             this->user_password->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->user_password->ForeColor = System::Drawing::Color::White;
@@ -1611,6 +1639,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label90
             // 
+            this->label90->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label90->AutoSize = true;
             this->label90->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label90->ForeColor = System::Drawing::Color::White;
@@ -1622,6 +1651,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label79
             // 
+            this->label79->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label79->AutoSize = true;
             this->label79->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label79->ForeColor = System::Drawing::Color::White;
@@ -1633,6 +1663,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label59
             // 
+            this->label59->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label59->AutoSize = true;
             this->label59->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label59->ForeColor = System::Drawing::Color::White;
@@ -1644,6 +1675,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label60
             // 
+            this->label60->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label60->AutoSize = true;
             this->label60->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label60->ForeColor = System::Drawing::Color::White;
@@ -1655,6 +1687,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label61
             // 
+            this->label61->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label61->AutoSize = true;
             this->label61->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1667,6 +1700,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // change_password_panel
             // 
+            this->change_password_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->change_password_panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)),
                 static_cast<System::Int32>(static_cast<System::Byte>(103)), static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->change_password_panel->Controls->Add(this->new_pass);
@@ -1683,13 +1717,15 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // new_pass
             // 
+            this->new_pass->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->new_pass->Location = System::Drawing::Point(234, 163);
             this->new_pass->Name = L"new_pass";
-            this->new_pass->Size = System::Drawing::Size(197, 22);
+            this->new_pass->Size = System::Drawing::Size(197, 24);
             this->new_pass->TabIndex = 17;
             // 
             // label94
             // 
+            this->label94->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label94->AutoSize = true;
             this->label94->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1702,6 +1738,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label92
             // 
+            this->label92->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label92->AutoSize = true;
             this->label92->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1714,6 +1751,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button7
             // 
+            this->button7->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button7->BackColor = System::Drawing::Color::CadetBlue;
             this->button7->Cursor = System::Windows::Forms::Cursors::Hand;
             this->button7->FlatAppearance->BorderSize = 0;
@@ -1730,6 +1768,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // save_pass
             // 
+            this->save_pass->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->save_pass->BackColor = System::Drawing::Color::CadetBlue;
             this->save_pass->Cursor = System::Windows::Forms::Cursors::Hand;
             this->save_pass->FlatAppearance->BorderSize = 0;
@@ -1746,13 +1785,15 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // old_pass
             // 
+            this->old_pass->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->old_pass->Location = System::Drawing::Point(234, 97);
             this->old_pass->Name = L"old_pass";
-            this->old_pass->Size = System::Drawing::Size(197, 22);
+            this->old_pass->Size = System::Drawing::Size(197, 24);
             this->old_pass->TabIndex = 11;
             // 
             // label93
             // 
+            this->label93->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label93->AutoSize = true;
             this->label93->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1765,6 +1806,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // EditFieldPanel
             // 
+            this->EditFieldPanel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->EditFieldPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->EditFieldPanel->Controls->Add(this->label89);
@@ -1779,6 +1821,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label89
             // 
+            this->label89->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label89->AutoSize = true;
             this->label89->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1791,6 +1834,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button8
             // 
+            this->button8->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button8->BackColor = System::Drawing::Color::CadetBlue;
             this->button8->Cursor = System::Windows::Forms::Cursors::Hand;
             this->button8->FlatAppearance->BorderSize = 0;
@@ -1807,6 +1851,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // saveButton
             // 
+            this->saveButton->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->saveButton->BackColor = System::Drawing::Color::CadetBlue;
             this->saveButton->Cursor = System::Windows::Forms::Cursors::Hand;
             this->saveButton->FlatAppearance->BorderSize = 0;
@@ -1823,13 +1868,15 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // editBox
             // 
+            this->editBox->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->editBox->Location = System::Drawing::Point(166, 101);
             this->editBox->Name = L"editBox";
-            this->editBox->Size = System::Drawing::Size(250, 22);
+            this->editBox->Size = System::Drawing::Size(250, 24);
             this->editBox->TabIndex = 11;
             // 
             // editLabel
             // 
+            this->editLabel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->editLabel->AutoSize = true;
             this->editLabel->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1842,6 +1889,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Navigationbar_panel
             // 
+            this->Navigationbar_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Navigationbar_panel->Controls->Add(this->pictureBox1);
             this->Navigationbar_panel->Controls->Add(this->label3);
             this->Navigationbar_panel->Controls->Add(this->Profile);
@@ -1857,6 +1905,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label5
             // 
+            this->label5->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label5->AutoSize = true;
             this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1869,6 +1918,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button3
             // 
+            this->button3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->button3->FlatAppearance->BorderSize = 0;
@@ -1886,6 +1936,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // New_Property
             // 
+            this->New_Property->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->New_Property->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->New_Property->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
@@ -1912,6 +1963,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button6
             // 
+            this->button6->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button6->BackColor = System::Drawing::Color::CadetBlue;
             this->button6->FlatAppearance->BorderSize = 0;
             this->button6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -1928,14 +1980,16 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // numBedrooms
             // 
+            this->numBedrooms->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->numBedrooms->Location = System::Drawing::Point(350, 174);
             this->numBedrooms->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 30, 0, 0, 0 });
             this->numBedrooms->Name = L"numBedrooms";
-            this->numBedrooms->Size = System::Drawing::Size(122, 22);
+            this->numBedrooms->Size = System::Drawing::Size(122, 24);
             this->numBedrooms->TabIndex = 12;
             // 
             // TypeCompo
             // 
+            this->TypeCompo->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->TypeCompo->FormattingEnabled = true;
             this->TypeCompo->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
                 L"Apartment", L"Condominium", L"Townhouse", L"Duplex",
@@ -1949,6 +2003,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // txtDescription
             // 
+            this->txtDescription->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtDescription->Location = System::Drawing::Point(165, 300);
             this->txtDescription->Multiline = true;
             this->txtDescription->Name = L"txtDescription";
@@ -1957,27 +2012,31 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // txtArea
             // 
+            this->txtArea->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtArea->Location = System::Drawing::Point(71, 174);
             this->txtArea->Name = L"txtArea";
-            this->txtArea->Size = System::Drawing::Size(121, 22);
+            this->txtArea->Size = System::Drawing::Size(121, 24);
             this->txtArea->TabIndex = 9;
             // 
             // txtPrice
             // 
+            this->txtPrice->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtPrice->Location = System::Drawing::Point(350, 101);
             this->txtPrice->Name = L"txtPrice";
-            this->txtPrice->Size = System::Drawing::Size(122, 22);
+            this->txtPrice->Size = System::Drawing::Size(122, 24);
             this->txtPrice->TabIndex = 9;
             // 
             // txtLocation
             // 
+            this->txtLocation->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->txtLocation->Location = System::Drawing::Point(71, 241);
             this->txtLocation->Name = L"txtLocation";
-            this->txtLocation->Size = System::Drawing::Size(450, 22);
+            this->txtLocation->Size = System::Drawing::Size(450, 24);
             this->txtLocation->TabIndex = 8;
             // 
             // label_New_Property
             // 
+            this->label_New_Property->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label_New_Property->AutoSize = true;
             this->label_New_Property->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -1990,6 +2049,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button4
             // 
+            this->button4->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button4->BackColor = System::Drawing::Color::CadetBlue;
             this->button4->FlatAppearance->BorderSize = 0;
             this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2006,6 +2066,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label12
             // 
+            this->label12->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label12->AutoSize = true;
             this->label12->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2018,6 +2079,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label15
             // 
+            this->label15->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label15->AutoSize = true;
             this->label15->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2030,6 +2092,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label14
             // 
+            this->label14->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label14->AutoSize = true;
             this->label14->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2042,6 +2105,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label17
             // 
+            this->label17->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label17->AutoSize = true;
             this->label17->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2055,6 +2119,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label16
             // 
+            this->label16->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label16->AutoSize = true;
             this->label16->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2067,6 +2132,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label13
             // 
+            this->label13->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label13->AutoSize = true;
             this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2079,11 +2145,12 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Home_panel
             // 
-            this->Home_panel->Controls->Add(this->panel4);
+            this->Home_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Home_panel->Controls->Add(this->New_Property);
             this->Home_panel->Controls->Add(this->button3);
             this->Home_panel->Controls->Add(this->label5);
             this->Home_panel->Controls->Add(this->flowLayoutPanel1);
+            this->Home_panel->Controls->Add(this->panel4);
             this->Home_panel->Location = System::Drawing::Point(6, 92);
             this->Home_panel->Name = L"Home_panel";
             this->Home_panel->Size = System::Drawing::Size(984, 631);
@@ -2092,6 +2159,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // panel4
             // 
+            this->panel4->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->panel4->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
@@ -2121,6 +2189,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // numberOFbedroomslbl
             // 
+            this->numberOFbedroomslbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->numberOFbedroomslbl->AutoSize = true;
             this->numberOFbedroomslbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->numberOFbedroomslbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2132,6 +2201,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // typelbl
             // 
+            this->typelbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->typelbl->AutoSize = true;
             this->typelbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->typelbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2143,6 +2213,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // locationlbl
             // 
+            this->locationlbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->locationlbl->AutoSize = true;
             this->locationlbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->locationlbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2154,6 +2225,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pricelbl
             // 
+            this->pricelbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pricelbl->AutoSize = true;
             this->pricelbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->pricelbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2165,6 +2237,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // arealbl
             // 
+            this->arealbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->arealbl->AutoSize = true;
             this->arealbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->arealbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2176,6 +2249,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // deslbl
             // 
+            this->deslbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->deslbl->Location = System::Drawing::Point(166, 300);
             this->deslbl->Multiline = true;
             this->deslbl->Name = L"deslbl";
@@ -2185,6 +2259,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // statuslbl
             // 
+            this->statuslbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->statuslbl->AutoSize = true;
             this->statuslbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->statuslbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2196,6 +2271,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // idlbl
             // 
+            this->idlbl->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->idlbl->AutoSize = true;
             this->idlbl->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->idlbl->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2208,6 +2284,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label24
             // 
+            this->label24->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label24->AutoSize = true;
             this->label24->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2220,6 +2297,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button2
             // 
+            this->button2->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button2->BackColor = System::Drawing::Color::CadetBlue;
             this->button2->FlatAppearance->BorderSize = 0;
             this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2236,6 +2314,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label25
             // 
+            this->label25->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label25->AutoSize = true;
             this->label25->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2248,6 +2327,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label26
             // 
+            this->label26->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label26->AutoSize = true;
             this->label26->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2260,6 +2340,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label27
             // 
+            this->label27->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label27->AutoSize = true;
             this->label27->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2272,6 +2353,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label53
             // 
+            this->label53->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label53->AutoSize = true;
             this->label53->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2284,6 +2366,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label54
             // 
+            this->label54->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label54->AutoSize = true;
             this->label54->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2296,6 +2379,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label55
             // 
+            this->label55->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label55->AutoSize = true;
             this->label55->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2308,6 +2392,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label56
             // 
+            this->label56->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label56->AutoSize = true;
             this->label56->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2320,6 +2405,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label57
             // 
+            this->label57->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label57->AutoSize = true;
             this->label57->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2332,6 +2418,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // flowLayoutPanel1
             // 
+            this->flowLayoutPanel1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->flowLayoutPanel1->AutoScroll = true;
             this->flowLayoutPanel1->FlowDirection = System::Windows::Forms::FlowDirection::TopDown;
             this->flowLayoutPanel1->Location = System::Drawing::Point(28, 65);
@@ -2343,6 +2430,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // panel3
             // 
+            this->panel3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->panel3->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
@@ -2372,6 +2460,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label51
             // 
+            this->label51->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label51->AutoSize = true;
             this->label51->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label51->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2383,6 +2472,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label52
             // 
+            this->label52->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label52->AutoSize = true;
             this->label52->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label52->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2394,6 +2484,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label50
             // 
+            this->label50->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label50->AutoSize = true;
             this->label50->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label50->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2405,6 +2496,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label49
             // 
+            this->label49->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label49->AutoSize = true;
             this->label49->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label49->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2416,6 +2508,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label48
             // 
+            this->label48->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label48->AutoSize = true;
             this->label48->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label48->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2427,6 +2520,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // textBox18
             // 
+            this->textBox18->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->textBox18->Location = System::Drawing::Point(166, 300);
             this->textBox18->Multiline = true;
             this->textBox18->Name = L"textBox18";
@@ -2436,6 +2530,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label28
             // 
+            this->label28->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label28->AutoSize = true;
             this->label28->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label28->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2447,6 +2542,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label29
             // 
+            this->label29->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label29->AutoSize = true;
             this->label29->Font = (gcnew System::Drawing::Font(L"Nirmala UI", 10, System::Drawing::FontStyle::Bold));
             this->label29->ForeColor = System::Drawing::Color::PaleGoldenrod;
@@ -2459,6 +2555,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label30
             // 
+            this->label30->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label30->AutoSize = true;
             this->label30->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2471,6 +2568,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button22
             // 
+            this->button22->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button22->BackColor = System::Drawing::Color::CadetBlue;
             this->button22->FlatAppearance->BorderSize = 0;
             this->button22->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2487,6 +2585,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label31
             // 
+            this->label31->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label31->AutoSize = true;
             this->label31->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2499,6 +2598,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label32
             // 
+            this->label32->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label32->AutoSize = true;
             this->label32->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2511,6 +2611,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label42
             // 
+            this->label42->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label42->AutoSize = true;
             this->label42->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2523,6 +2624,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label43
             // 
+            this->label43->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label43->AutoSize = true;
             this->label43->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2535,6 +2637,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label44
             // 
+            this->label44->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label44->AutoSize = true;
             this->label44->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2547,6 +2650,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label45
             // 
+            this->label45->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label45->AutoSize = true;
             this->label45->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2559,6 +2663,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label46
             // 
+            this->label46->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label46->AutoSize = true;
             this->label46->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2571,6 +2676,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label47
             // 
+            this->label47->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label47->AutoSize = true;
             this->label47->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2583,6 +2689,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Browse_panel
             // 
+            this->Browse_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Browse_panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Browse_panel->Controls->Add(this->panel3);
@@ -2596,6 +2703,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // panel1
             // 
+            this->panel1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->panel1->Controls->Add(this->pictureBox10);
@@ -2619,6 +2727,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox10
             // 
+            this->pictureBox10->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox10->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.Image")));
             this->pictureBox10->Location = System::Drawing::Point(133, 435);
@@ -2631,6 +2740,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox6
             // 
+            this->pictureBox6->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox6->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
             this->pictureBox6->Location = System::Drawing::Point(10, 435);
@@ -2643,6 +2753,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // numericUpDown1
             // 
+            this->numericUpDown1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->numericUpDown1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->numericUpDown1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
@@ -2655,6 +2766,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label4
             // 
+            this->label4->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label4->AutoSize = true;
             this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2667,6 +2779,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label6
             // 
+            this->label6->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label6->AutoSize = true;
             this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2679,6 +2792,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label7
             // 
+            this->label7->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label7->AutoSize = true;
             this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2691,6 +2805,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label8
             // 
+            this->label8->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label8->AutoSize = true;
             this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2703,6 +2818,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // textBox7
             // 
+            this->textBox7->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->textBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
@@ -2714,6 +2830,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // textBox1
             // 
+            this->textBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->textBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
@@ -2725,6 +2842,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // textBox8
             // 
+            this->textBox8->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->textBox8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F));
@@ -2736,6 +2854,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // textBox5
             // 
+            this->textBox5->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->textBox5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.999999F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -2748,6 +2867,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // comboBox1
             // 
+            this->comboBox1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->comboBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(60)), static_cast<System::Int32>(static_cast<System::Byte>(144)),
                 static_cast<System::Int32>(static_cast<System::Byte>(152)));
             this->comboBox1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
@@ -2766,6 +2886,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label33
             // 
+            this->label33->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label33->AutoSize = true;
             this->label33->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2778,6 +2899,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label34
             // 
+            this->label34->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label34->AutoSize = true;
             this->label34->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -2790,6 +2912,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // panel2
             // 
+            this->panel2->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->panel2->Location = System::Drawing::Point(0, 0);
             this->panel2->Name = L"panel2";
             this->panel2->Size = System::Drawing::Size(200, 100);
@@ -2797,6 +2920,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // flowLayoutPanel2
             // 
+            this->flowLayoutPanel2->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->flowLayoutPanel2->AutoScroll = true;
             this->flowLayoutPanel2->Location = System::Drawing::Point(245, 27);
             this->flowLayoutPanel2->Name = L"flowLayoutPanel2";
@@ -2805,6 +2929,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button18
             // 
+            this->button18->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button18->Location = System::Drawing::Point(0, 0);
             this->button18->Name = L"button18";
             this->button18->Size = System::Drawing::Size(75, 23);
@@ -2812,6 +2937,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label9
             // 
+            this->label9->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label9->Location = System::Drawing::Point(0, 0);
             this->label9->Name = L"label9";
             this->label9->Size = System::Drawing::Size(100, 23);
@@ -2819,6 +2945,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button19
             // 
+            this->button19->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button19->Location = System::Drawing::Point(0, 0);
             this->button19->Name = L"button19";
             this->button19->Size = System::Drawing::Size(75, 23);
@@ -2826,6 +2953,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label35
             // 
+            this->label35->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label35->Location = System::Drawing::Point(0, 0);
             this->label35->Name = L"label35";
             this->label35->Size = System::Drawing::Size(100, 23);
@@ -2833,6 +2961,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button20
             // 
+            this->button20->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button20->Location = System::Drawing::Point(0, 0);
             this->button20->Name = L"button20";
             this->button20->Size = System::Drawing::Size(75, 23);
@@ -2840,6 +2969,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label36
             // 
+            this->label36->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label36->Location = System::Drawing::Point(0, 0);
             this->label36->Name = L"label36";
             this->label36->Size = System::Drawing::Size(100, 23);
@@ -2847,6 +2977,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label37
             // 
+            this->label37->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label37->Location = System::Drawing::Point(0, 0);
             this->label37->Name = L"label37";
             this->label37->Size = System::Drawing::Size(100, 23);
@@ -2854,6 +2985,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label38
             // 
+            this->label38->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label38->Location = System::Drawing::Point(0, 0);
             this->label38->Name = L"label38";
             this->label38->Size = System::Drawing::Size(100, 23);
@@ -2861,6 +2993,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label39
             // 
+            this->label39->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label39->Location = System::Drawing::Point(0, 0);
             this->label39->Name = L"label39";
             this->label39->Size = System::Drawing::Size(100, 23);
@@ -2868,6 +3001,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label40
             // 
+            this->label40->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label40->Location = System::Drawing::Point(0, 0);
             this->label40->Name = L"label40";
             this->label40->Size = System::Drawing::Size(100, 23);
@@ -2875,6 +3009,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label41
             // 
+            this->label41->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label41->Location = System::Drawing::Point(0, 0);
             this->label41->Name = L"label41";
             this->label41->Size = System::Drawing::Size(100, 23);
@@ -2882,6 +3017,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // Comparison_panel
             // 
+            this->Comparison_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->Comparison_panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(61)),
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->Comparison_panel->Controls->Add(this->flowLayoutPanel3);
@@ -2894,6 +3030,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // flowLayoutPanel3
             // 
+            this->flowLayoutPanel3->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->flowLayoutPanel3->Location = System::Drawing::Point(28, 35);
             this->flowLayoutPanel3->Name = L"flowLayoutPanel3";
             this->flowLayoutPanel3->Size = System::Drawing::Size(910, 480);
@@ -2901,6 +3038,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button11
             // 
+            this->button11->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button11->BackColor = System::Drawing::Color::CadetBlue;
             this->button11->Cursor = System::Windows::Forms::Cursors::Hand;
             this->button11->FlatAppearance->BorderSize = 0;
@@ -2917,6 +3055,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button10
             // 
+            this->button10->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button10->BackColor = System::Drawing::Color::CadetBlue;
             this->button10->Cursor = System::Windows::Forms::Cursors::Hand;
             this->button10->FlatAppearance->BorderSize = 0;
@@ -2933,6 +3072,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label63
             // 
+            this->label63->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label63->Location = System::Drawing::Point(0, 0);
             this->label63->Name = L"label63";
             this->label63->Size = System::Drawing::Size(100, 23);
@@ -2940,6 +3080,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label64
             // 
+            this->label64->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label64->Location = System::Drawing::Point(0, 0);
             this->label64->Name = L"label64";
             this->label64->Size = System::Drawing::Size(100, 23);
@@ -2947,6 +3088,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label65
             // 
+            this->label65->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label65->Location = System::Drawing::Point(0, 0);
             this->label65->Name = L"label65";
             this->label65->Size = System::Drawing::Size(100, 23);
@@ -2954,6 +3096,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label66
             // 
+            this->label66->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label66->Location = System::Drawing::Point(0, 0);
             this->label66->Name = L"label66";
             this->label66->Size = System::Drawing::Size(100, 23);
@@ -2961,6 +3104,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label67
             // 
+            this->label67->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label67->Location = System::Drawing::Point(0, 0);
             this->label67->Name = L"label67";
             this->label67->Size = System::Drawing::Size(100, 23);
@@ -2968,6 +3112,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button12
             // 
+            this->button12->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button12->Location = System::Drawing::Point(0, 0);
             this->button12->Name = L"button12";
             this->button12->Size = System::Drawing::Size(75, 23);
@@ -2975,6 +3120,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button13
             // 
+            this->button13->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button13->Location = System::Drawing::Point(0, 0);
             this->button13->Name = L"button13";
             this->button13->Size = System::Drawing::Size(75, 23);
@@ -2982,13 +3128,15 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // textBox16
             // 
+            this->textBox16->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->textBox16->Location = System::Drawing::Point(0, 0);
             this->textBox16->Name = L"textBox16";
-            this->textBox16->Size = System::Drawing::Size(100, 22);
+            this->textBox16->Size = System::Drawing::Size(100, 24);
             this->textBox16->TabIndex = 0;
             // 
             // label68
             // 
+            this->label68->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label68->Location = System::Drawing::Point(0, 0);
             this->label68->Name = L"label68";
             this->label68->Size = System::Drawing::Size(100, 23);
@@ -2996,6 +3144,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label69
             // 
+            this->label69->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label69->Location = System::Drawing::Point(0, 0);
             this->label69->Name = L"label69";
             this->label69->Size = System::Drawing::Size(100, 23);
@@ -3003,6 +3152,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label80
             // 
+            this->label80->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label80->Location = System::Drawing::Point(0, 0);
             this->label80->Name = L"label80";
             this->label80->Size = System::Drawing::Size(100, 23);
@@ -3010,6 +3160,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label91
             // 
+            this->label91->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label91->Location = System::Drawing::Point(0, 0);
             this->label91->Name = L"label91";
             this->label91->Size = System::Drawing::Size(100, 23);
@@ -3017,6 +3168,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label95
             // 
+            this->label95->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label95->Location = System::Drawing::Point(0, 0);
             this->label95->Name = L"label95";
             this->label95->Size = System::Drawing::Size(100, 23);
@@ -3024,6 +3176,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label96
             // 
+            this->label96->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label96->Location = System::Drawing::Point(0, 0);
             this->label96->Name = L"label96";
             this->label96->Size = System::Drawing::Size(100, 23);
@@ -3031,6 +3184,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label97
             // 
+            this->label97->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label97->Location = System::Drawing::Point(0, 0);
             this->label97->Name = L"label97";
             this->label97->Size = System::Drawing::Size(100, 23);
@@ -3038,6 +3192,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label98
             // 
+            this->label98->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label98->Location = System::Drawing::Point(0, 0);
             this->label98->Name = L"label98";
             this->label98->Size = System::Drawing::Size(100, 23);
@@ -3045,6 +3200,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label99
             // 
+            this->label99->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label99->Location = System::Drawing::Point(0, 0);
             this->label99->Name = L"label99";
             this->label99->Size = System::Drawing::Size(100, 23);
@@ -3052,6 +3208,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // payement_panel
             // 
+            this->payement_panel->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->payement_panel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(44)), static_cast<System::Int32>(static_cast<System::Byte>(103)),
                 static_cast<System::Int32>(static_cast<System::Byte>(122)));
             this->payement_panel->Controls->Add(this->proceed_transaction);
@@ -3079,6 +3236,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // proceed_transaction
             // 
+            this->proceed_transaction->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->proceed_transaction->BackColor = System::Drawing::Color::CadetBlue;
             this->proceed_transaction->Cursor = System::Windows::Forms::Cursors::Hand;
             this->proceed_transaction->FlatAppearance->BorderSize = 0;
@@ -3095,6 +3253,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // button1
             // 
+            this->button1->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->button1->BackColor = System::Drawing::Color::CadetBlue;
             this->button1->Cursor = System::Windows::Forms::Cursors::Hand;
             this->button1->FlatAppearance->BorderSize = 0;
@@ -3111,6 +3270,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox31
             // 
+            this->pictureBox31->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox31->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox31.Image")));
             this->pictureBox31->Location = System::Drawing::Point(82, 131);
             this->pictureBox31->Name = L"pictureBox31";
@@ -3121,6 +3281,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // pictureBox20
             // 
+            this->pictureBox20->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->pictureBox20->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox20.Image")));
             this->pictureBox20->Location = System::Drawing::Point(25, 131);
             this->pictureBox20->Name = L"pictureBox20";
@@ -3131,6 +3292,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label87
             // 
+            this->label87->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label87->AutoSize = true;
             this->label87->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3143,6 +3305,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label84
             // 
+            this->label84->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label84->AutoSize = true;
             this->label84->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3155,6 +3318,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label86
             // 
+            this->label86->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label86->AutoSize = true;
             this->label86->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3167,6 +3331,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label85
             // 
+            this->label85->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label85->AutoSize = true;
             this->label85->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3179,6 +3344,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label83
             // 
+            this->label83->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label83->AutoSize = true;
             this->label83->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3191,6 +3357,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label88
             // 
+            this->label88->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label88->AutoSize = true;
             this->label88->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3203,6 +3370,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label81
             // 
+            this->label81->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label81->AutoSize = true;
             this->label81->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3215,6 +3383,7 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // label82
             // 
+            this->label82->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->label82->AutoSize = true;
             this->label82->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
@@ -3227,38 +3396,43 @@ private: System::Windows::Forms::Button^ proceed_transaction;
             // 
             // ammount_to_add
             // 
+            this->ammount_to_add->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->ammount_to_add->Location = System::Drawing::Point(136, 419);
             this->ammount_to_add->Name = L"ammount_to_add";
-            this->ammount_to_add->Size = System::Drawing::Size(126, 22);
+            this->ammount_to_add->Size = System::Drawing::Size(126, 24);
             this->ammount_to_add->TabIndex = 9;
             // 
             // card_holder
             // 
+            this->card_holder->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->card_holder->Location = System::Drawing::Point(45, 201);
             this->card_holder->Name = L"card_holder";
-            this->card_holder->Size = System::Drawing::Size(264, 22);
+            this->card_holder->Size = System::Drawing::Size(264, 24);
             this->card_holder->TabIndex = 9;
             this->card_holder->TextChanged += gcnew System::EventHandler(this, &UserForm::textBox3_TextChanged);
             // 
             // expiryBox
             // 
+            this->expiryBox->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->expiryBox->Location = System::Drawing::Point(45, 343);
             this->expiryBox->Name = L"expiryBox";
-            this->expiryBox->Size = System::Drawing::Size(74, 22);
+            this->expiryBox->Size = System::Drawing::Size(74, 24);
             this->expiryBox->TabIndex = 9;
             // 
             // cvv
             // 
+            this->cvv->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->cvv->Location = System::Drawing::Point(249, 343);
             this->cvv->Name = L"cvv";
-            this->cvv->Size = System::Drawing::Size(74, 22);
+            this->cvv->Size = System::Drawing::Size(74, 24);
             this->cvv->TabIndex = 9;
             // 
             // card_number
             // 
+            this->card_number->Anchor = System::Windows::Forms::AnchorStyles::None;
             this->card_number->Location = System::Drawing::Point(45, 270);
             this->card_number->Name = L"card_number";
-            this->card_number->Size = System::Drawing::Size(264, 22);
+            this->card_number->Size = System::Drawing::Size(264, 24);
             this->card_number->TabIndex = 9;
             this->card_number->TextChanged += gcnew System::EventHandler(this, &UserForm::textBox2_TextChanged);
             // 
@@ -3268,12 +3442,12 @@ private: System::Windows::Forms::Button^ proceed_transaction;
                 static_cast<System::Int32>(static_cast<System::Byte>(65)));
             this->ClientSize = System::Drawing::Size(988, 713);
             this->Controls->Add(this->Navigationbar_panel);
-            this->Controls->Add(this->Comparison_panel);
-            this->Controls->Add(this->Browse_panel);
-            this->Controls->Add(this->payement_panel);
             this->Controls->Add(this->Home_panel);
             this->Controls->Add(this->Profile_panel);
             this->Controls->Add(this->Welcome_panel);
+            this->Controls->Add(this->Comparison_panel);
+            this->Controls->Add(this->Browse_panel);
+            this->Controls->Add(this->payement_panel);
             this->Name = L"UserForm";
             this->Text = L"User Form";
             this->FormClosed += gcnew System::Windows::Forms::FormClosedEventHandler(this, &UserForm::UserForm_FormClosed);
