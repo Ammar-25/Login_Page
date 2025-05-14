@@ -1291,7 +1291,7 @@ private: System::Windows::Forms::Label^ label103;
             this->Balance->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Balance->ForeColor = System::Drawing::Color::PaleGreen;
-            this->Balance->Location = System::Drawing::Point(14, 38);
+            this->Balance->Location = System::Drawing::Point(35, 38);
             this->Balance->Name = L"Balance";
             this->Balance->Size = System::Drawing::Size(64, 20);
             this->Balance->TabIndex = 3;
@@ -1305,7 +1305,7 @@ private: System::Windows::Forms::Label^ label103;
             this->label45->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label45->ForeColor = System::Drawing::Color::White;
-            this->label45->Location = System::Drawing::Point(5, 17);
+            this->label45->Location = System::Drawing::Point(26, 17);
             this->label45->Name = L"label45";
             this->label45->Size = System::Drawing::Size(160, 20);
             this->label45->TabIndex = 4;
@@ -1315,7 +1315,7 @@ private: System::Windows::Forms::Label^ label103;
             // 
             this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
             this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-            this->pictureBox1->Location = System::Drawing::Point(1025, 20);
+            this->pictureBox1->Location = System::Drawing::Point(1044, 20);
             this->pictureBox1->Name = L"pictureBox1";
             this->pictureBox1->Size = System::Drawing::Size(42, 36);
             this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
@@ -1330,7 +1330,7 @@ private: System::Windows::Forms::Label^ label103;
             this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->label3->ForeColor = System::Drawing::Color::White;
-            this->label3->Location = System::Drawing::Point(1074, 42);
+            this->label3->Location = System::Drawing::Point(1093, 42);
             this->label3->Name = L"label3";
             this->label3->Size = System::Drawing::Size(48, 16);
             this->label3->TabIndex = 1;
@@ -1344,7 +1344,7 @@ private: System::Windows::Forms::Label^ label103;
             this->Profile->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Profile->ForeColor = System::Drawing::Color::White;
-            this->Profile->Location = System::Drawing::Point(1073, 20);
+            this->Profile->Location = System::Drawing::Point(1092, 20);
             this->Profile->Name = L"Profile";
             this->Profile->Size = System::Drawing::Size(101, 20);
             this->Profile->TabIndex = 1;
@@ -1360,7 +1360,7 @@ private: System::Windows::Forms::Label^ label103;
             this->Browse->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Browse->ForeColor = System::Drawing::Color::White;
-            this->Browse->Location = System::Drawing::Point(359, 11);
+            this->Browse->Location = System::Drawing::Point(378, 11);
             this->Browse->Name = L"Browse";
             this->Browse->Size = System::Drawing::Size(116, 50);
             this->Browse->TabIndex = 0;
@@ -1377,7 +1377,7 @@ private: System::Windows::Forms::Label^ label103;
             this->Dashboard->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Dashboard->ForeColor = System::Drawing::Color::White;
-            this->Dashboard->Location = System::Drawing::Point(198, 11);
+            this->Dashboard->Location = System::Drawing::Point(224, 11);
             this->Dashboard->Name = L"Dashboard";
             this->Dashboard->Size = System::Drawing::Size(116, 50);
             this->Dashboard->TabIndex = 0;
@@ -1394,7 +1394,7 @@ private: System::Windows::Forms::Label^ label103;
             this->Add_Admin->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Add_Admin->ForeColor = System::Drawing::Color::White;
-            this->Add_Admin->Location = System::Drawing::Point(860, 11);
+            this->Add_Admin->Location = System::Drawing::Point(879, 11);
             this->Add_Admin->Name = L"Add_Admin";
             this->Add_Admin->Size = System::Drawing::Size(122, 50);
             this->Add_Admin->TabIndex = 0;
@@ -1411,7 +1411,7 @@ private: System::Windows::Forms::Label^ label103;
             this->Moderate_Users->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Moderate_Users->ForeColor = System::Drawing::Color::White;
-            this->Moderate_Users->Location = System::Drawing::Point(666, 11);
+            this->Moderate_Users->Location = System::Drawing::Point(685, 11);
             this->Moderate_Users->Name = L"Moderate_Users";
             this->Moderate_Users->Size = System::Drawing::Size(159, 50);
             this->Moderate_Users->TabIndex = 0;
@@ -1428,7 +1428,7 @@ private: System::Windows::Forms::Label^ label103;
             this->Requests->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
                 static_cast<System::Byte>(0)));
             this->Requests->ForeColor = System::Drawing::Color::White;
-            this->Requests->Location = System::Drawing::Point(512, 11);
+            this->Requests->Location = System::Drawing::Point(531, 11);
             this->Requests->Name = L"Requests";
             this->Requests->Size = System::Drawing::Size(122, 50);
             this->Requests->TabIndex = 0;
