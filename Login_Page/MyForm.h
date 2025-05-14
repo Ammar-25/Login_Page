@@ -257,7 +257,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 15, System::Drawing::FontStyle::Bold));
             this->label5->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
-            this->label5->Location = System::Drawing::Point(148, 374);
+            this->label5->Location = System::Drawing::Point(131, 374);
             this->label5->Name = L"label5";
             this->label5->Size = System::Drawing::Size(283, 29);
             this->label5->TabIndex = 6;
@@ -275,7 +275,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->Signup_label->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
             this->Signup_label->LinkColor = System::Drawing::Color::Black;
-            this->Signup_label->Location = System::Drawing::Point(307, 410);
+            this->Signup_label->Location = System::Drawing::Point(310, 410);
             this->Signup_label->Name = L"Signup_label";
             this->Signup_label->Size = System::Drawing::Size(55, 16);
             this->Signup_label->TabIndex = 7;
@@ -419,9 +419,9 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
             this->label1->Location = System::Drawing::Point(67, 83);
             this->label1->Name = L"label1";
-            this->label1->Size = System::Drawing::Size(117, 36);
+            this->label1->Size = System::Drawing::Size(116, 36);
             this->label1->TabIndex = 3;
-            this->label1->Text = L"SIgn In";
+            this->label1->Text = L"Sign In";
             // 
             // pictureBox7
             // 
@@ -471,7 +471,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->label17->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(91)), static_cast<System::Int32>(static_cast<System::Byte>(91)),
                 static_cast<System::Int32>(static_cast<System::Byte>(91)));
             this->label17->ImageAlign = System::Drawing::ContentAlignment::TopCenter;
-            this->label17->Location = System::Drawing::Point(169, 410);
+            this->label17->Location = System::Drawing::Point(172, 410);
             this->label17->Name = L"label17";
             this->label17->Size = System::Drawing::Size(139, 16);
             this->label17->TabIndex = 16;
@@ -721,7 +721,6 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
             this->BackColor = System::Drawing::SystemColors::ButtonHighlight;
             this->ClientSize = System::Drawing::Size(1069, 690);
-            this->Controls->Add(this->Main_BG);
             this->Controls->Add(this->singin_panel);
             this->Controls->Add(this->label12);
             this->Controls->Add(this->singin_label);
@@ -738,6 +737,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
             this->Controls->Add(this->label7);
             this->Controls->Add(this->label6);
             this->Controls->Add(this->pictureBox9);
+            this->Controls->Add(this->Main_BG);
             this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None;
             this->Name = L"MyForm";
             this->Text = L"Real Estate";
@@ -800,7 +800,7 @@ private: System::Windows::Forms::LinkLabel^ singin_label;
 	}
 private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
    
-    
+    Main_BG->BringToFront();
     // Mortada
     txtEmail->Text = "Email";
     txtEmail->ForeColor = System::Drawing::Color::FromArgb(25, 59, 71);
@@ -1022,6 +1022,8 @@ private: System::Void singin_label_LinkClicked(System::Object^ sender, System::W
                 signup_Pass2->Clear();
                 signup_Email->Clear();
                 txtPhone->Clear();
+                signup_timer->Interval = 10;  // Timer interval set to 10 ms for smoothness
+                signup_timer->Start();
                 break;
             }
             case 1:

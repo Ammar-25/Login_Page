@@ -1,2 +1,1 @@
-1,Condominium,sdaasdfasdf,3344,4,2,6,22222,0,0,8,asdfsdfasdf
-2,Townhouse,asdfadsf,3333333,4,1,3,333,0,0,-1,sadfasdfasdf
+1,Villa,333,333,8,2,3,333,0,0,7,3333

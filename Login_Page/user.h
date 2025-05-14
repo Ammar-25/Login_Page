@@ -14,9 +14,10 @@ private:
     std::string password;
     std::string phoneNumber;
     bool frozen; // 1 -> frozen , 0 -> unfrozen
+    static int company_balance; 
 public:
     user();
-    user(int id, bool isAdmin, int balance, std::string name, std::string email, std::string password, std::string phonenumber, bool frozen);
+    user(int id, bool isAdmin, int balance, std::string name, std::string email, std::string password, std::string phonenumber, bool frozen );
     
     
     // getters 
@@ -24,6 +25,7 @@ public:
     bool getAdmin();
     bool getFrozen();
     int getBalance();
+    static int getcompany_balance();
     std::string getName();
     std::string getEmail();
     std::string getPassword();
@@ -35,7 +37,8 @@ public:
     void setName(std::string name);
     void setPhoneNumber(int phone);
     void setEmail(std::string email);
-    void setPassword(std::string password); 
+    void setPassword(std::string password);
+    static void setcompany_balance(int balance);
     // Property functions
     void addProperty(std::string type, std::string location, int price, int bedrooms, double area , std::string description = "");
     bool removeProperty(int propertyID);

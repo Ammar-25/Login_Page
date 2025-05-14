@@ -2,6 +2,7 @@
 #include "Property.h"
 #include "Global.h"
 #include "Authentication.h"
+int user::company_balance = 0;
 
 user::user()
 {
@@ -18,12 +19,18 @@ user::user(int id, bool isAdmin, int balance, std::string name, std::string emai
     this->isAdmin = isAdmin;
     this->frozen = frozen;
     this->balance = balance;
+     
 }
 bool user::getFrozen() {
     return this->frozen;
 }
 int user::getBalance() {
     return this->balance;
+}
+
+int user::getcompany_balance()
+{
+    return user::company_balance;
 }
 
 bool user::getAdmin() {
@@ -75,7 +82,10 @@ void user::addProperty(std::string type, std::string location, int price, int be
     for (auto p : Global::properties) {
         id = std::max(id, p.getId());
     }
-    if (!this->frozen) {
+    if (this->isAdmin) {
+        Global::properties.push_back(Property(id + 1, type, location, price, Global::currId, 1, bedrooms, area, 0, description));
+    }
+    else if (!this->frozen) {
 
         Global::properties.push_back(Property(id + 1 , type , location , price , Global::currId, 0 , bedrooms , area , 0 , description));
     }
@@ -122,9 +132,17 @@ int user::buyProperty(int proId)
                         Global::inComp--;
                     }
                     int i = p.getOwnerId();
-                    //balance
-                    Global::users[i].addBalance(p.getPrice());
-                    Global::users[Global::currId].addBalance(-p.getPrice());
+                    //balance if owner is admin
+                    if (Global::users[i].isAdmin) {
+                        Global::users[i].setcompany_balance(p.getPrice());
+                        Global::users[Global::currId].addBalance(-p.getPrice());
+                    }
+                    
+                    //balance if owner is normal user
+                    else {
+                        Global::users[i].addBalance(p.getPrice());
+                        Global::users[Global::currId].addBalance(-p.getPrice());
+                    }
                     ///
                     p.setOldId(i);
                     p.setOwnerId(Global::currId);
@@ -198,6 +216,11 @@ void user::setEmail(std::string email) {
 void user::setPassword(std::string password)
 {
     this->password = password;
+}
+void user::setcompany_balance(int balance)
+{
+
+    user::company_balance += balance;
 }
 void user::setPhoneNumber(int phoneNumber) {
     this->phoneNumber = phoneNumber;
